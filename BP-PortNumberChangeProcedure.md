@@ -7,15 +7,14 @@
 2. $NODE_HOME/startBlockProducingNode.shのPORT=6000を変更するポート番号へと書き換える。
 3. $NODE_HOME/scripts/envのCNODE_PORT=6000を変更するポート番号へと書き換える。
 
-### 前提条件
-山かっこ<>は不要
-(例：以下、ポート番号は、49513とする場合)
+## 前提条件
+以下はポート番号を`49513`とする場合
+山かっこ<>は不要です。
 
 ## BPにて実施
 ```
 sed -i $NODE_HOME/startBlockProducingNode.sh \
     -e '1,73s!PORT=6000!PORT=49513!'
-
 sed -i $NODE_HOME/scripts/env \
     -e '1,73s!CNODE_PORT=6000!CNODE_PORT=49513!'
 ```
@@ -50,9 +49,18 @@ tmux a -t validate
 tmux a -t blockcheck
 ```
 
+### 補足
+- サービス再起動コマンド
+```
+sudo systemctl reload-or-restart cnode-cncli-sync.service
+```
+- ブロックチェック再起動コマンド
+```
+sudo systemctl reload-or-restart cnode-blockcheck.service
+```
+
 - デタッチ方法
 Ctrl + b → d
-
 
 ## リレーにて実施
 - 疎通確認：port [tcp/*] succeeded! であること。
@@ -68,14 +76,13 @@ sed -i $NODE_HOME/relay-topology_pull.sh \
     -e '1,10s!BLOCKPRODUCING_PORT=6000!BLOCKPRODUCING_PORT=49513!'
 ```
 
-- relay-topology_pull.shを編集したあと、
+- 編集後に以下を実行
 ```
 cd $NODE_HOME
 ./relay-topology_pull.sh
 ```
 
-
-を実行してトポロジーファイルを再作成してから再起動コマンド
+トポロジーファイルを再作成してからノード再起動
 ```
 sudo systemctl reload-or-restart cardano-node
 ```
