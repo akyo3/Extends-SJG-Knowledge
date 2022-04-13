@@ -59,4 +59,6 @@ cardano-cli query protocol-parameters \
     --mainnet \
     --out-file params.json
 ```
-````nano params.json````
+```
+nano params.json
+```
