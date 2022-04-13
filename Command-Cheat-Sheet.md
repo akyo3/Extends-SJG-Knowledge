@@ -28,8 +28,6 @@ ps aux | grep cardano-node
 ```
 
 ## ネットワーク確認
-### 補足
--
 ```
 networkctl status -a
 ```
@@ -61,4 +59,4 @@ cardano-cli query protocol-parameters \
     --mainnet \
     --out-file params.json
 ```
-`nano params.json`
+````nano params.json````
