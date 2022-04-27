@@ -1,6 +1,7 @@
 # MacOSでのVirtualBoxのセットアップ
 
 #### 環境
+
 - MacBook Pro (13-inch, 2019, Two Thunderbolt 3 ports)
 - Monterey 12.2.1
 
