@@ -1,3 +1,1 @@
-Extends-SJG-Knowledge
-For SPO JAPAN GUILD
-
+Extends SJG Knowledge For SPO JAPAN GUILD.
