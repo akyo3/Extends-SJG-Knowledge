@@ -1,8 +1,8 @@
 # MacOSでのVirtualBoxのセットアップ
 
 #### 環境
-* MacBook Pro (13-inch, 2019, Two Thunderbolt 3 ports)
-* Monterey 12.2.1
+- MacBook Pro (13-inch, 2019, Two Thunderbolt 3 ports)
+- Monterey 12.2.1
 
 #### ダウンロード/インストール
 - Ubuntu Desktop 20.04.4 LTS
