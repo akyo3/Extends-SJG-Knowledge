@@ -211,6 +211,7 @@ sudo systemctl --no-pager status grafana-server.service prometheus.service prome
 ```
 
 - ノードを再起動し設定ファイルを有効化します。
+
 `Grafanaを搭載しているサーバ/BP`
 ```
 sudo systemctl reload-or-restart cardano-node
