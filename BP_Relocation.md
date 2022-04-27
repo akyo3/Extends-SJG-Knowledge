@@ -164,6 +164,8 @@ sudo systemctl reload-or-restart cardano-node
 
 2-13. ブロックログの設定
 
+[ステークプールブロックログ導入手順](http://49.12.225.142:8000/setup/10-blocklog-setup/)
+
 ---
 
 2-14. 手順１５の「BPノード」の設定を行う。 (忘れたので調べる)
