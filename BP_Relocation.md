@@ -215,3 +215,5 @@ sudo systemctl --no-pager status grafana-server.service prometheus.service prome
 ```
 sudo systemctl reload-or-restart cardano-node
 ```
+
+まだ書き途中です。
