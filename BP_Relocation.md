@@ -89,8 +89,9 @@ sudo hostnamectl set-hostname [新しいホスト名]
 2-3. 念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておく。
 `Relayのrelay-topology_pull.sh`
 - IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加。
+`（例）`
 ```
-（例）|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X
+|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X
 ```
 
 ---
@@ -184,3 +185,33 @@ sudo systemctl reload-or-restart cardano-node
 ---
 
 2-17. Prometheus,Grafanaの設定…prometheus.ymlおよびGrafana内のメトリックの旧BPのIPを新BPのIPに書き換える。
+
+- BPの`prometheus node exporter`をインストールします。
+```
+sudo apt install -y prometheus-node-exporter
+```
+
+- サービスを有効にして、自動的に開始されるように設定します。
+```
+sudo systemctl enable prometheus-node-exporter.service
+```
+
+- Grafanaを搭載しているサーバで`prometheus.yml` 内のBPIPを変更してください。
+
+- 以下、サービス再起動。
+```
+sudo systemctl restart grafana-server.service
+sudo systemctl restart prometheus.service
+sudo systemctl restart prometheus-node-exporter.service
+```
+
+- サービスが正しく実行されていることを確認します。
+```
+sudo systemctl --no-pager status grafana-server.service prometheus.service prometheus-node-exporter.service
+```
+
+- ノードを再起動し設定ファイルを有効化します。
+`Grafanaを搭載しているサーバ/BP`
+```
+sudo systemctl reload-or-restart cardano-node
+```
