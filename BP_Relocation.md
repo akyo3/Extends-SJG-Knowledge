@@ -114,7 +114,12 @@ sudo hostnamectl
 1-1. 以下のリンク先を参照し実施します。
 
 - [Ubuntu初期設定](https://docs.spojapanguild.net/setup/1-ubuntu-setup/#0-3)
-
+- さくらのパケットフィルタや、AWSのUFW設定など、サーバー独自の機能にも注意する。
+- 旧BPのログインアカウント名（例えばubuntu）と新BPのログインアカウント名は変更しない方が良いです。もし変更する場合は、下記移行手順2-5にてstartBlockProducingNode.sh内の変数DIRECTORYのパス名を手動で変更してください。
+```console
+DIRECTORY=/home/<new account_name>/cnode
+```
+ 
 ## 2- Cabal/GHCインストール 〜 gLiveViewのインストール
 
 2-1. 以下のリンク先を参照し「gLiveViewのインストール」まで実施します。
