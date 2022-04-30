@@ -140,7 +140,12 @@ journalctl --unit=cardano-node --follow
 ```console:relay-topology_pull.sh
 |relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X
 ```
-
+- relay-topology_pull.shを実行し、リレーノードを再起動します。（2-4に進む前に、ノードが起動するまでしばらく待ちます）
+```cd $NODE_HOME
+ ./relay-topology_pull.sh
+ sudo systemctl reload-or-restart cardano-node
+```
+ 
 2-4. gLiveViewで新BPとリレーの双方向の疎通(I/O)ができているかを確認します。
 ```console
 cd $NODE_HOME/scripts
