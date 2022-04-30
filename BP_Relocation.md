@@ -164,7 +164,6 @@ cd $NODE_HOME/scripts
 | poolMetaData.json | pool.cert作成時に必要 |
 | poolMetaDataHash.txt | pool.cert作成時に必要 |
 | startBlockProducingNode.sh | ノード起動スクリプト |
-| stakepoolid.txt | 登録VRFの確認時に必要 |
 - その他のファイルを移動するならしておいてください。
  - ブロック生成履歴を保存しておきたい場合は、ブロックログを全行開いてスクリーンショットするなりしてコピーしておくとよいでしょう。
 
@@ -178,14 +177,18 @@ cardano-cli query protocol-parameters \
     --out-file params.json
 ```
 
-2-7. VRFキーのパーミッションを変更します。
+2-7.ステークプールIDを出力します。
+
+- [プール登録確認](http://49.12.225.142:8000/setup/7-register-stakepool/?h=stakepoolid_hex.txt#4)
+
+2-8. VRFキーのパーミッションを変更します。
 ```console
 chmod 400 vrf.skey
 chmod 400 vrf.vkey
 chmod +x startBlockProducingNode.sh
 ```
 
-2-8. ノードを再起動します。
+2-9. ノードを再起動します。
 ```console
 sudo systemctl reload-or-restart cardano-node
 ```
@@ -194,23 +197,23 @@ sudo systemctl reload-or-restart cardano-node
 journalctl --unit=cardano-node --follow
 ```
 
-2-9. gLiveView.shを起動して「Txが増加しているか」、「上段表示がRelayではなくCoreに変わっているか」を確認します。
+2-10. gLiveView.shを起動して「Txが増加しているか」、「上段表示がRelayではなくCoreに変わっているか」を確認します。
 ```console
 cd $NODE_HOME/scripts
 ./gLiveView.sh
 ```
 
-2-10. ブロックが生成できる状態にあるかどうか、SPO JAPAN GUILD TOOLでチェックします。
+2-11. ブロックが生成できる状態にあるかどうか、SPO JAPAN GUILD TOOLでチェックします。
 
 - [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
 
-2-11. ブロックログの設定をします。
+2-12. ブロックログの設定をします。
 
 - [ステークプールブロックログ導入手順](http://49.12.225.142:8000/setup/10-blocklog-setup/)
 
-2-12. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得します。インスタンスは不要なので削除します。
+2-13. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得します。インスタンスは不要なので削除します。
 
-2-13. リレーにて`relay-topology_pull.sh`に設定している旧BPの情報を削除した後、トポロジーファイルの更新をし、ノード再起動します。
+2-14. リレーにて`relay-topology_pull.sh`に設定している旧BPの情報を削除した後、トポロジーファイルの更新をし、ノード再起動します。
 
 `リレー`
 ```console
@@ -230,7 +233,7 @@ cd $NODE_HOME/scripts
 ./gLiveView.sh
 ```
 
-2-14. Prometheus,Grafanaの設定…prometheus.ymlおよびGrafana内のメトリックの旧BPのIPを新BPのIPに書き換えます。
+2-15. Prometheus,Grafanaの設定…prometheus.ymlおよびGrafana内のメトリックの旧BPのIPを新BPのIPに書き換えます。
 
 - 新BPにて`prometheus node exporter`をインストールします。
 
