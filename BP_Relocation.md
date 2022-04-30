@@ -177,8 +177,7 @@ cd $NODE_HOME/scripts
 | poolMetaDataHash.txt | pool.cert作成時に必要 |
 | startBlockProducingNode.sh | ノード起動スクリプト |
 - その他のファイルを移動するならしておいてください。
-- ブロック生成履歴を保存しておきたい場合は、ブロックログを全行開いてスクリーンショットするなりしてコピーしておくとよいでしょう。
-- 一応、ブロックログの手順の途中で過去のブロック生成履歴を取得できます。
+- 過去のブロック生成履歴については、後々ブロックログの手順の途中で取得できます。
 -  [ブロック生成履歴を取得](https://docs.spojapanguild.net/setup/10-blocklog-setup/#10-6)
 
 2-6. 新BPでparams.jsonを再作成します。
