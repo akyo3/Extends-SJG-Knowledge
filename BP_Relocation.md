@@ -138,7 +138,7 @@ sudo systemctl reload-or-restart cardano-node
 journalctl --unit=cardano-node --follow
 ```
 
-2-3. 念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。
+2-3. 念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。（2-14で旧BPの情報を削除します）
 
 - IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加します。以下、例です。
 
