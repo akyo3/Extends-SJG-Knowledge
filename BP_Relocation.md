@@ -72,7 +72,7 @@ sudo hostnamectl set-hostname [新しいホスト名]
 
 1-1. 以下のリンク先を参照し実施します。
 
-[Ubuntu初期設定](https://docs.spojapanguild.net/setup/1-ubuntu-setup/#0-3)
+- [Ubuntu初期設定](https://docs.spojapanguild.net/setup/1-ubuntu-setup/#0-3)
 
 ---
 
@@ -80,7 +80,7 @@ sudo hostnamectl set-hostname [新しいホスト名]
 
 2-1. 以下のリンク先を参照し「gLiveViewのインストール」まで実施します。
 
-[Cabal/GHCインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-1-cabalghc)
+- [Cabal/GHCインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-1-cabalghc)
 
 ---
 
@@ -111,7 +111,7 @@ glive
 ---
 
 2-5. 新BPのキー設定を行う。
-- ここで**旧BPとリレーとの接続が切れます。**
+ここで**旧BPとリレーとの接続が切れます。**
 
 ---
 
@@ -174,32 +174,28 @@ glive
 
 2-12. ブロックが生成できる状態にあるかどうか、SPO JAPAN GUILD TOOLでチェックする。
 
-[SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
+- [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
 
 ---
 
 2-13. ブロックログの設定をする。
 
-[ステークプールブロックログ導入手順](http://49.12.225.142:8000/setup/10-blocklog-setup/)
+- [ステークプールブロックログ導入手順](http://49.12.225.142:8000/setup/10-blocklog-setup/)
 
 ---
 
-2-14. 手順１５の「BPノード」の設定を行う。 (忘れたので調べる)
+2-14. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得後、インスタンスを削除。
 
 ---
 
-2-15. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得後、インスタンスを削除。
-
----
-
-2-16. Relayにて`relay-topology_pull.sh`に設定している旧BPの情報を削除した後、実行、ノード再起動。
+2-15. Relayにて`relay-topology_pull.sh`に設定している旧BPの情報を削除した後、実行、ノード再起動。
 ```
 sudo systemctl reload-or-restart cardano-node
 ```
 
 ---
 
-2-17. Prometheus,Grafanaの設定…prometheus.ymlおよびGrafana内のメトリックの旧BPのIPを新BPのIPに書き換える。
+2-16. Prometheus,Grafanaの設定…prometheus.ymlおよびGrafana内のメトリックの旧BPのIPを新BPのIPに書き換える。
 
 - BPの`prometheus node exporter`をインストールします。
 ```
@@ -227,7 +223,7 @@ sudo systemctl --no-pager status grafana-server.service prometheus.service prome
 
 - ノードを再起動し設定ファイルを有効化します。
 
-`Grafanaを搭載しているサーバ/BP`
+ - Grafanaを搭載しているサーバ/BP
 ```
 sudo systemctl reload-or-restart cardano-node
 ```
