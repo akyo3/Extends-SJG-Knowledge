@@ -142,6 +142,14 @@ journalctl --unit=cardano-node --follow
 
 - IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加します。以下、例です。
 
+<details>
+<summary>DNSではなくIPで入力したほうがお勧めする理由</summary>
+以下の２つのメリットから、精神的にゆとりがあるため。
+①DNSのAレコード変更のタイムラグを無くすことができる
+②ブロック生成に失敗した場合でも「新BPノードを停止し旧BPノードの再稼働」をするだけで元の状態に戻せる
+DNSのAレコードの変更は数分～数日かかります。2-14で書いてありますが、変更が反映されたら、IPをDNSに置き換えてください。
+</details>
+ 
 `リレー`
 ```console:relay-topology_pull.sh
 |relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X
@@ -245,9 +253,11 @@ gLiveView確認
 cd $NODE_HOME/scripts
 ./gLiveView.sh
 ```
-
+- DNSベースで接続している人は、DNSのAレコードの変更が反映されたらIPをDNSに書き換えます。
+ 
 2-15. Prometheus,Grafanaの設定…prometheus.ymlおよびGrafana内のメトリックの旧BPのIPを新BPのIPに書き換えます。
-
+- DNSベースで接続している人は、DNSの変更が反映されたら自動的に切り替わります。
+ 
 - 新BPにて`prometheus node exporter`をインストールします。
 
 ` 新BP`
