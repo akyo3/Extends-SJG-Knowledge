@@ -256,8 +256,6 @@ cd $NODE_HOME/scripts
 - DNSベースで接続している人は、DNSのAレコードの変更が反映されたらIPをDNSに書き換えます。
  
 2-15. Prometheus,Grafanaの設定…prometheus.ymlおよびGrafana内のメトリックの旧BPのIPを新BPのIPに書き換えます。
-- DNSベースで接続している人は、DNSの変更が反映されたら自動的に切り替わります。
- 
 - 新BPにて`prometheus node exporter`をインストールします。
 
 ` 新BP`
@@ -270,8 +268,8 @@ sudo apt install -y prometheus-node-exporter
 sudo systemctl enable prometheus-node-exporter.service
 ```
 
-- Grafanaを搭載しているサーバで`prometheus.yml` 内のBPIPを変更します。
-
+- Grafanaを搭載しているサーバで`prometheus.yml` 内のBPIPを変更します。ただし、DNSベースで接続している人は、DNSの変更が反映されたら自動的に切り替わるのでこの作業は不要です。
+ 
 - 変更後、サービス再起動します。
 
 `Grafanaを搭載しているサーバ`
@@ -309,4 +307,14 @@ sed -i $NODE_HOME/${NODE_CONFIG}-config.json \
 
 ---
 
-[AICHI/TOKAI Stake Pool](https://adapools.org/pool/970e9a7ae4677b152c27a0eba3db996b372de094d24fc2974768f3da) さんがまとめてくれました！ありがとうございます！
+執筆：[AICHI/TOKAI Stake Pool](https://adapools.org/pool/970e9a7ae4677b152c27a0eba3db996b372de094d24fc2974768f3da) 
+編集：[WYAM Stake Pool](https://adapools.org/pool/940d6893606290dc6b7705a8aa56a857793a8ae0a3906d4e2afd2119)
+
+また、作成に当たっては以下の方々のご助言もいただきました！
+- BTBFさん
+- sakakibaraさん
+- でーちゃん
+- Daikonさん
+- conconさん
+- こちらの手順で不備がありましたら今後のコミュニティのためにAichiまたはWYAMにDMなどで教えていただけると幸いです。（不備が無かったら、「無かったです！」と一方いただけると、自分の投稿に自信が持てますので、無くても教えていただけると幸いです）
+
