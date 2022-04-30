@@ -306,7 +306,7 @@ sed -i $NODE_HOME/${NODE_CONFIG}-config.json \
 ```
 
 ---
-# 執筆・編集
+### 執筆・編集
 
 執筆：[AICHI/TOKAI Stake Pool](https://adapools.org/pool/970e9a7ae4677b152c27a0eba3db996b372de094d24fc2974768f3da) 
 編集：[WYAM Stake Pool](https://adapools.org/pool/940d6893606290dc6b7705a8aa56a857793a8ae0a3906d4e2afd2119)
