@@ -110,7 +110,7 @@ sudo hostnamectl
 1-1. [Ubuntu初期設定](https://docs.spojapanguild.net/setup/1-ubuntu-setup/#0-3)を実施します。
 
 - さくらのパケットフィルタや、AWSのUFW設定などのサーバー独自の機能に気をつけてください。
-- 旧BPのユーザー名（例：ubuntu）と新BPのユーザー名は変更しないでください。  もし変更する場合は、下記移行手順2-5にて`startBlockProducingNode.sh`内の変数DIRECTORYのパス名を手動で変更してください。
+- 旧BPのユーザー名（例：ubuntu）と新BPのユーザー名は変更しないでください。  もし変更する場合は、下記2-5にて旧BPから新BPにコピーするファイル`startBlockProducingNode.sh`内の変数DIRECTORYのパス名を手動で変更してください。
 
 ```console:startBlockProducingNode.sh
 DIRECTORY=/home/<new_user_name>/cnode
@@ -270,35 +270,40 @@ cd $NODE_HOME/scripts
 
 2-15. Prometheus、Grafanaの設定
 
-`prometheus.yml`およびGrafana内のメトリックを旧BPのIPから新BPのIPに書き換えます。
 - 新BPにて`prometheus node exporter`をインストールします。
 
-` 新BP`
+`新BP`
 ```console
 sudo apt install -y prometheus-node-exporter
 ```
 
-- サービスを有効にして、自動的に開始されるように設定します。
+サービスを有効にして、自動的に開始されるように設定します。
 ```console
 sudo systemctl enable prometheus-node-exporter.service
 ```
 
-- Grafanaを搭載しているサーバで`prometheus.yml`内のBPIPを変更し、サービス再起動します。
+- Grafanaを搭載しているサーバにて`prometheus.yml`内のBPIPを旧BPのIPから新BPのIP変更し、サービス再起動します。
 > DNSベースで接続している人は、DNSの変更が反映されたら自動的に切り替わるのでこの作業は不要です。
 
 `Grafanaを搭載しているサーバ`
+```console:prometheus.yml
+sudo nano /etc/prometheus/prometheus.yml
+```
+> 定義ファイルを書き換え、保存して閉じます。
+
+サービス再起動
 ```console
 sudo systemctl restart grafana-server.service
 sudo systemctl restart prometheus.service
 sudo systemctl restart prometheus-node-exporter.service
 ```
 
-- サービスが正しく実行されていることを確認します。
+サービスが正しく実行されていることを確認します。
 ```console
 sudo systemctl --no-pager status grafana-server.service prometheus.service prometheus-node-exporter.service
 ```
 
-- ノードを再起動し設定ファイルを有効化します。
+ノードを再起動し設定ファイルを有効化します。
 
 `Grafanaを搭載しているサーバ/BP`
 
@@ -310,6 +315,10 @@ sudo systemctl reload-or-restart cardano-node
 ```console
 journalctl --unit=cardano-node --follow
 ```
+
+`Grafana`
+
+Grafanaダッシュボードのメトリクスを旧BPのIPから新BPのIPに書き換えてください。
 
 ---
 - 補足:
