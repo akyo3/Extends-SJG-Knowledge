@@ -38,7 +38,7 @@
 
 </details>
 
-### 前提注意事項
+## 前提注意事項
 本まとめは現VPS会社→新VPS会社へと**BPのみ**を移行するまとめです。  実際に行う際には、**自己責任**でお願いします。
 > 旧BPは「2-5. ~旧BPのノードを停止する。」まで、稼働させたままにしておいてください。
 
@@ -105,7 +105,7 @@ sudo hostnamectl
 
 ---
 
-## 1- Ubuntu初期設定
+### 1- Ubuntu初期設定
 
 1-1. [Ubuntu初期設定](https://docs.spojapanguild.net/setup/1-ubuntu-setup/#0-3)を実施します。
 
@@ -116,7 +116,7 @@ sudo hostnamectl
 DIRECTORY=/home/<new_user_name>/cnode
 ```
 
-## 2- Cabal/GHCインストール 〜 gLiveViewのインストール
+### 2- Cabal/GHCインストール 〜 gLiveViewのインストール
 
 2-1. [Cabal/GHCインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-1-cabalghc) 〜
 [gLiveViewのインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-7-gliveview)まで実施します。
@@ -177,9 +177,7 @@ cd $NODE_HOME/scripts
 2-5. 新BPのキー設定を行う為、旧BPのノードを停止します。また、旧BPのノードが絶対に起動しないようにVPS管理コンソールからサーバーを停止しておきます。
 - ここで**旧BPとリレーとの接続が切れます。**
 
-以下のファイルを旧BPから新BPにコピーします。
-
-> 旧BPのcnodeディレクトリから新BPのcnodeディレクトリにコピーします
+以下のファイルを旧BPのcnodeディレクトリから新BPのcnodeディレクトリにコピーします。
 
 | ファイル名 | 用途 |
 :----|:----
@@ -321,14 +319,18 @@ journalctl --unit=cardano-node --follow
 Grafanaダッシュボードのメトリクスを旧BPのIPから新BPのIPに書き換えてください。
 
 ---
-- 補足:
-Txの増加が確認できたらTracemempoolを無効にします。
+### 補足
+- Txの増加が確認できたらTracemempoolを無効にします。
 
 `新BP`
 ```console
 sed -i $NODE_HOME/${NODE_CONFIG}-config.json \
     -e "s/TraceMempool\": true/TraceMempool\": false/g"
 ```
+
+- ブロック生成ステータス通知セットアップ
+
+旧BPで[ブロック生成ステータス通知](https://docs.spojapanguild.net/setup/11-blocknotify-setup/#_1)を設定されていた方は設定しておくとよいでしょう。
 
 ---
 ### 執筆・編集
