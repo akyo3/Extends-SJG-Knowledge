@@ -39,7 +39,12 @@
 </details>
 
 ## 前提注意事項
-本まとめは現VPS会社→新VPS会社へと**BPのみ**を移行するまとめです。  実際に行う際には、**自己責任**でお願いします。
+本まとめは現VPS会社→新VPS会社へと**BPのみ**を移行するまとめです。
+
+実際に行う際には、**自己責任**でお願いします。
+
+ブロック生成予定まで余裕がある時に実施してください。
+
 > 旧BPは「2-5. ~旧BPのノードを停止する。」まで、稼働させたままにしておいてください。
 
 ---
@@ -255,7 +260,7 @@ cardano-cli query protocol-parameters \
 2-10. エアギャップマシンにて`stakepoolid_bech32.txt`と`stakepoolid_hex.txt`を生成し、新BPのcnodeディレクトリにコピーします。
 
 `エアギャップマシン`
-```
+```console
 chmod u+rwx $HOME/cold-keys
 cardano-cli stake-pool id --cold-verification-key-file $HOME/cold-keys/node.vkey --output-format bech32 > stakepoolid_bech32.txt
 cardano-cli stake-pool id --cold-verification-key-file $HOME/cold-keys/node.vkey --output-format hex > stakepoolid_hex.txt
