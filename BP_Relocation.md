@@ -175,7 +175,7 @@ cd $NODE_HOME
 ./relay-topology_pull.sh
 ```
 ノード再起動
-```
+```console
 sudo systemctl reload-or-restart cardano-node
 ```
 
@@ -192,7 +192,7 @@ cd $NODE_HOME/scripts
 `旧BP`
 
 ノードを停止します。
-```
+```console
 sudo systemctl stop cardano-node
 ```
 > 旧BPのノードが絶対に起動しないようにVPS管理コンソールからサーバーを停止しておいてください。
