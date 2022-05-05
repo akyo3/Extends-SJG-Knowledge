@@ -134,9 +134,26 @@ sudo systemctl reload-or-restart cardano-node
 journalctl --unit=cardano-node --follow
 ```
 
-2-3. 念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。（2-14で旧BPの情報を削除します）
+2-3. リレーの`relay-topology_pull.sh`の内容を旧BPのIPとPORTから新BPのIPとPORTへと変更します。また念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。（2-14で旧BPの情報を削除します）
 
-- IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加します。以下、例です。
+- 以下は、旧BPのパブリックIPとノードポートを新BPのパブリックIPとノードポートに書き換えてからコマンドを実行します。
+
+なお、ご自身で`relay-topology_pull.sh`ファイルのメモがある場合はそちらを編集して実行してください。
+> IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加します。
+
+`リレー`
+> 以下のコマンドは例なのでトポロジー共有している方は、ファイルのメモがある方かと思いますのでそちらを編集して実行してください。
+```console:relay-topology_pull.sh
+cat > $NODE_HOME/relay-topology_pull.sh << EOF
+#!/bin/bash
+BLOCKPRODUCING_IP=xxx.xxx.xxx
+BLOCKPRODUCING_PORT=6000
+PEERS=18
+curl -4 -s -o $NODE_HOME/${NODE_CONFIG}-topology.json "https://api.clio.one/htopology/v1/fetch/?max=\${PEERS}&customPeers=\${BLOCKPRODUCING_IP}:\${BLOCKPRODUCING_PORT}:1|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X"
+EOF
+```
+
+> 保存して閉じます。
 
 <details>
 <summary>DNSではなくIPで入力したほうがお勧めする理由</summary>
@@ -152,10 +169,6 @@ DNSのAレコードの変更は数分～数日かかります。  2-14で書い�
 </div>
 </details>
 
-`リレー`
-```console:relay-topology_pull.sh
-|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X
-```
 - relay-topology_pull.shを実行し、リレーノードを再起動します。（2-4に進む前に、ノードが起動するまでしばらく待ちます）
 ```console
 cd $NODE_HOME
@@ -175,6 +188,15 @@ cd $NODE_HOME/scripts
 ```
 
 2-5. 新BPのキー設定を行う為、旧BPのノードを停止します。また、旧BPのノードが絶対に起動しないようにVPS管理コンソールからサーバーを停止しておきます。
+
+`新BP`
+
+ノードを停止します。
+```
+sudo systemctl stop cardano-node
+```
+> 旧BPのノードが絶対に起動しないようにVPS管理コンソールからサーバーを停止しておいてください。
+
 - ここで**旧BPとリレーとの接続が切れます。**
 
 以下のファイルを旧BPのcnodeディレクトリから新BPのcnodeディレクトリにコピーします。
