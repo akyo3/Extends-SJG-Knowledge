@@ -254,15 +254,21 @@ cardano-cli query protocol-parameters \
 
 2-10. エアギャップマシンにて`stakepoolid_bech32.txt`と`stakepoolid_hex.txt`を生成し、新BPのcnodeディレクトリにコピーします。
 
-- [プール登録確認](https://docs.spojapanguild.net/setup/7-register-stakepool/#4)
+`エアギャップマシン`
+```
+chmod u+rwx $HOME/cold-keys
+cardano-cli stake-pool id --cold-verification-key-file $HOME/cold-keys/node.vkey --output-format bech32 > stakepoolid_bech32.txt
+cardano-cli stake-pool id --cold-verification-key-file $HOME/cold-keys/node.vkey --output-format hex > stakepoolid_hex.txt
+chmod a-rwx $HOME/cold-keys
+```
 
-2-11. ブロックが生成できる状態にあるかどうか、`SPO JAPAN GUILD TOOL`でチェックします。
-
-- [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
-
-2-12. ブロックログの設定をします。
+2-11. ブロックログの設定をします。
 
 - [ステークプールブロックログ導入手順](https://docs.spojapanguild.net/setup/10-blocklog-setup/)
+
+2-12. ブロックが生成できる状態にあるかどうか、`SPO JAPAN GUILD TOOL`でチェックします。
+
+- [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
 
 2-13. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得し、インスタンスは不要なので削除します。
 
@@ -352,7 +358,7 @@ sed -i $NODE_HOME/${NODE_CONFIG}-config.json \
 
 - ブロック生成ステータス通知セットアップ
 
-旧BPで[ブロック生成ステータス通知](https://docs.spojapanguild.net/setup/11-blocknotify-setup/#_1)を設定されていた方は設定しておくとよいでしょう。
+旧BPで[ブロック生成ステータス通知](https://docs.spojapanguild.net/setup/11-blocknotify-setup/#_1)を設定されていた方は設定し直しておくとよいでしょう。
 
 ---
 ### 執筆・編集
