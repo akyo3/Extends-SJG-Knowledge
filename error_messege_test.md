@@ -1,9 +1,23 @@
 # よくあるエラー
 
+## 0- 凡例
+<details>
+<summary>●●コマンドの戻り値として、「△△」と表示される</summary>
+【対処法】↓consoleと入れると青色になる？
+
+```console
+sudo systemctl reload-or-restart cardano-node
+```
+</details>
+
 ## 1- Ubuntu初期設定
 <details>
 <summary>エラー１</summary>
 【対処法】
+
+```console
+sudo systemctl reload-or-restart cardano-node
+```
 </details>
 <details>
 <summary>エラー２</summary>
