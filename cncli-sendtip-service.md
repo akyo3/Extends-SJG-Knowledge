@@ -36,7 +36,6 @@ Description=CNCLI Sendtip
 After=multi-user.target
 
 [Service]
-User=$USER
 Type=simple
 Restart=always
 RestartSec=5
