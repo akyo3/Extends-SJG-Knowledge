@@ -1,7 +1,7 @@
 # PoolToolと連携(現在のブロックの高さ)
 
 詳しくは以下参照。  
-> CNCLI Toolタブ
+> CNCLI Toolタブ  
 [Integrating with PoolTool](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/part-iii-operation/configuring-slot-leader-calculation?q=POOLNAME)
 
 ## 1.pooltool.json作成
