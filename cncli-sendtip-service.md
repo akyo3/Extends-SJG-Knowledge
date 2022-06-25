@@ -2,7 +2,7 @@
 
 詳しくは以下参照。  
 > CNCLI Toolタブ  
-[Integrating with PoolTool](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/part-iii-operation/configuring-slot-leader-calculation?q=POOLNAME)
+[Integrating with PoolTool](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/part-iii-operation/configuring-slot-leader-calculation)
 
 ## 1.pooltool.json作成
 ```console
