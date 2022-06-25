@@ -25,7 +25,7 @@ EOF
 nano $NODE_HOME/scripts/pooltool.json
 ```
 
-## 2.cncli-sendtip.serviceのサービスファイル作成
+## 3.cncli-sendtip.serviceのサービスファイル作成
 ```console
 cat > $NODE_HOME/service/cncli-sendtip.service << EOF
 # file: /etc/systemd/system/cncli-sendtip.service
@@ -52,7 +52,7 @@ WantedBy=multi-user.target
 EOF
 ```
 
-## 3.サービスファイルをコピーして、有効化と起動をします。
+## 4.サービスファイルをコピーして、有効化と起動をします。
 ```
 sudo cp $NODE_HOME/service/cncli-sendtip.service /etc/systemd/system/cncli-sendtip.service
 ```
