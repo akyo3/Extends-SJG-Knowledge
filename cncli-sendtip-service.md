@@ -1,10 +1,16 @@
-# PoolToolと連携(現在のブロックの高さ)
+# PoolToolと連携
 
 詳しくは以下参照。  
 > CNCLI Toolタブ  
-[Integrating with PoolTool](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/part-iii-operation/configuring-slot-leader-calculation)
+[Integrating with PoolTool](https://www.coincashew.com/coins/overview-ada/guide-how-to-build-a-haskell-stakepool-node/part-iii-operation/configuring-slot-leader-calculation) (PoolToolとの統合)  
+> PoolToolは、ステーク・プールの以下のデータを送信するためのサンプル・スクリプトを提供します。  
+> - 現在のブロックの高さ
+
+[Sugar](https://twitter.com/sugar417K)さんの次のサイトがとても参考になりました。ありがとうございます！
+[cardano-kb](https://sugar-stake-pool.gitbook.io/cardano-kb/tools/pooltool)
 
 ## 1.pooltool.json作成
+> portは、BPNodePortです。
 ```console
 cat > $NODE_HOME/scripts/pooltool.json << EOF
 {
@@ -14,14 +20,15 @@ cat > $NODE_HOME/scripts/pooltool.json << EOF
             "name": "<UPDATE TO MY POOL TICKER>",
             "pool_id": "$(cat ${NODE_HOME}/stakepoolid_hex.txt)",
             "host" : "127.0.0.1",
-            "port": <BPNodePort>
+            "port": 6000
         }
     ]
 }
 EOF
 ```
 
-## 2.API_KeyとTickerName、Portを編集します。
+## 2.API_KeyとTickerNameを編集します。
+> Port番号を変更している場合は変更してください
 ```
 nano $NODE_HOME/scripts/pooltool.json
 ```
@@ -61,8 +68,16 @@ sudo chmod 644 /etc/systemd/system/cncli-sendtip.service
 ```
 ```
 sudo systemctl daemon-reload
+```
+```
 sudo systemctl enable cncli-sendtip.service
 ```
 ```
 sudo systemctl start cncli-sendtip.service
 ```
+
+## 5.確認
+
+[pooltool.io](https://pooltool.io/) にて同期済みブロック高が緑色で表示されていたら成功です。
+
+![同期済みブロック高](https://user-images.githubusercontent.com/80967103/175799326-885b1a52-98ff-4885-a165-2f7e16031cd5.png)
