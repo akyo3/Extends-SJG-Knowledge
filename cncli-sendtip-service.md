@@ -33,7 +33,7 @@ EOF
 nano $NODE_HOME/scripts/pooltool.json
 ```
 
-## 3.cncli-sendtip.serviceのサービスファイル作成
+## 3.サービスファイル作成
 ```console
 cat > $NODE_HOME/service/cncli-sendtip.service << EOF
 # file: /etc/systemd/system/cncli-sendtip.service
