@@ -33,7 +33,6 @@ EOF
 ```
 
 ## 2.API_KeyとTickerNameを編集します。
-> Port番号を変更している場合は変更してください
 ```
 nano $NODE_HOME/scripts/pooltool.json
 ```
