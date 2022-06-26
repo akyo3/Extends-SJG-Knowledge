@@ -14,7 +14,7 @@ cat > $NODE_HOME/scripts/pooltool.json << EOF
             "name": "<UPDATE TO MY POOL TICKER>",
             "pool_id": "$(cat ${NODE_HOME}/stakepoolid_hex.txt)",
             "host" : "127.0.0.1",
-            "port": "<BPNodePort>"
+            "port": <BPNodePort>
         }
     ]
 }
