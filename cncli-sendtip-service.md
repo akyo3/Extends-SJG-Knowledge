@@ -10,7 +10,12 @@
 [cardano-kb](https://sugar-stake-pool.gitbook.io/cardano-kb/tools/pooltool)
 
 ## 1.pooltool.json作成
-> portは、BPNodePortです。
+```console
+PORT=`grep "PORT=" $NODE_HOME/startBlockProducingNode.sh`
+b_PORT=${PORT#"PORT="}
+echo "BPポートは${b_PORT}です"
+```
+
 ```console
 cat > $NODE_HOME/scripts/pooltool.json << EOF
 {
@@ -20,7 +25,7 @@ cat > $NODE_HOME/scripts/pooltool.json << EOF
             "name": "<UPDATE TO MY POOL TICKER>",
             "pool_id": "$(cat ${NODE_HOME}/stakepoolid_hex.txt)",
             "host" : "127.0.0.1",
-            "port": 6000
+            "port": $(echo ${b_PORT})
         }
     ]
 }
