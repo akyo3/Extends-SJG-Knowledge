@@ -13,7 +13,6 @@
 ```console
 PORT=`grep "PORT=" $NODE_HOME/startBlockProducingNode.sh`
 b_PORT=${PORT#"PORT="}
-echo "BPポートは${b_PORT}です"
 ```
 
 ```console
@@ -22,7 +21,7 @@ cat > $NODE_HOME/scripts/pooltool.json << EOF
     "api_key": "<UPDATE WITH YOUR API KEY FROM POOLTOOL PROFILE PAGE>",
     "pools": [
         {
-            "name": "<UPDATE TO MY POOL TICKER>",
+            "name": "$(echo `jq -r '.ticker' $NODE_HOME/poolMetaData.json`)",
             "pool_id": "$(cat ${NODE_HOME}/stakepoolid_hex.txt)",
             "host" : "127.0.0.1",
             "port": $(echo ${b_PORT})
@@ -32,10 +31,11 @@ cat > $NODE_HOME/scripts/pooltool.json << EOF
 EOF
 ```
 
-## 2.API_KeyとTickerNameを編集します。
+## 2.API_Keyを編集します。
 ```
 nano $NODE_HOME/scripts/pooltool.json
 ```
+> "" ←ダブルクォーテーション内にAPI_Keyを入力します
 
 ## 3.サービスファイル作成
 ```console
