@@ -116,7 +116,8 @@ sudo hostnamectl
 
 - さくらのパケットフィルタや、AWSのUFW設定などのサーバー独自の機能に気をつけてください。
 - 旧BPのユーザー名（例：ubuntu）と新BPのユーザー名は変更しないでください。  もし変更する場合は、下記2-5にて旧BPから新BPにコピーするファイル`startBlockProducingNode.sh`内の変数DIRECTORYのパス名を手動で変更してください。
-
+- リレーとの接続のための、新BPのファイヤーウォール設定は、旧BPのものと同じで良い。
+    
 ```console:startBlockProducingNode.sh
 DIRECTORY=/home/<new_user_name>/cnode
 ```
