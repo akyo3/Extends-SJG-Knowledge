@@ -191,10 +191,10 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "cardano_node_metrics_epoch_int{instance=\"localhost:12798\"}",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
-          "range": true,
+          "range": false,
           "refId": "A"
         },
         {
@@ -203,11 +203,13 @@
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_slotInEpoch_int{instance=\"localhost:12798\"}/1440/60",
           "hide": false,
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -268,9 +270,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_slotInEpoch_int",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -343,10 +349,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "(cardano_node_metrics_remainingKESPeriods_int * 1.5)",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -407,10 +416,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_slotNum_int{instance=\"localhost:12798\"} / 129600",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -579,11 +591,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_txsProcessedNum_int",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "B"
         }
       ],
@@ -644,9 +658,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_blockNum_int",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -707,11 +725,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_connectedPeers_int",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -774,11 +795,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfOne",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -841,11 +865,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfThree",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -908,11 +935,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfFive ",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -971,11 +1001,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_slotsMissedNum_int",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -992,6 +1025,34 @@
           "color": {
             "mode": "palette-classic"
           },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -1001,7 +1062,8 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "ms"
         },
         "overrides": []
       },
@@ -1013,21 +1075,15 @@
       },
       "id": 116,
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
         },
-        "text": {
-          "valueSize": 26
-        },
-        "textMode": "auto"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
       "pluginVersion": "9.0.2",
       "targets": [
@@ -1036,16 +1092,19 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "node_timex_maxerror_seconds * 1000",
           "format": "time_series",
           "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": true,
           "refId": "A"
         }
       ],
       "title": "Node timex max error seconds",
-      "type": "stat"
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -1100,10 +1159,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "rts_gc_wall_ms / 1000",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1170,9 +1232,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "1 - node_filesystem_avail_bytes / node_filesystem_size_bytes{mountpoint=\"/\"}",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1265,9 +1331,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "avg without(cpu) (irate(node_cpu_seconds_total{job=\"prometheus\", mode=\"user\"}[1m]))",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1331,12 +1401,15 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "node_memory_SwapTotal_bytes - node_memory_SwapFree_bytes",
           "format": "time_series",
           "hide": false,
           "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -1397,11 +1470,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_blockfetchclient_lateblocks",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1462,11 +1538,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_forks_int",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1527,11 +1606,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_blockfetchclient_blockdelay_s",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1595,11 +1677,14 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "rate(cardano_node_metrics_served_block_latest_count_int[1h])/rate(cardano_node_metrics_blockNum_int[1h])",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1689,10 +1774,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "cardano_node_metrics_density_real * 100",
           "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1786,10 +1874,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "rts_gc_current_bytes_used/(1024*1024)",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1883,10 +1974,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
+          "range": true,
           "refId": "A"
         }
       ],
@@ -1937,7 +2031,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -1991,9 +2086,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "irate(node_network_receive_bytes_total[1m])*8",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}} {{device}} receive",
+          "range": true,
           "refId": "A"
         },
         {
@@ -2001,9 +2100,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "irate(node_network_transmit_bytes_total[1m])*8",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}} {{device}} transmit",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -2053,7 +2156,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2107,9 +2211,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "irate(node_disk_read_bytes_total[1m])",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}} {{device}} read",
+          "range": true,
           "refId": "A"
         },
         {
@@ -2117,9 +2225,13 @@
             "type": "prometheus",
             "uid": "ZKZ6iIk7k"
           },
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "irate(node_disk_written_bytes_total[1m])",
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}} {{device}} write",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -2127,7 +2239,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "",
+  "refresh": "5s",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
@@ -2155,6 +2267,6 @@
   "timezone": "Asia/Tokyo",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 51,
+  "version": 58,
   "weekStart": ""
 }
