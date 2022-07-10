@@ -271,12 +271,12 @@
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
-          "exemplar": false,
+          "exemplar": true,
           "expr": "cardano_node_metrics_slotInEpoch_int",
-          "instant": true,
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
-          "range": false,
+          "range": true,
           "refId": "A"
         }
       ],
@@ -957,7 +957,35 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
           },
           "mappings": [],
           "thresholds": {
@@ -980,19 +1008,15 @@
       },
       "id": 115,
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
         },
-        "text": {},
-        "textMode": "auto"
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
       },
       "pluginVersion": "9.0.2",
       "targets": [
@@ -1005,15 +1029,15 @@
           "exemplar": false,
           "expr": "cardano_node_metrics_slotsMissedNum_int",
           "format": "time_series",
-          "instant": true,
+          "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
-          "range": false,
+          "range": true,
           "refId": "A"
         }
       ],
       "title": "Slots missed num",
-      "type": "stat"
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -2031,8 +2055,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2156,8 +2179,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -2267,6 +2289,6 @@
   "timezone": "Asia/Tokyo",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 58,
+  "version": 60,
   "weekStart": ""
 }
