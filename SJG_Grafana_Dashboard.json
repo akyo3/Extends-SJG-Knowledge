@@ -30,7 +30,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "gridPos": {
@@ -48,7 +48,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
@@ -62,7 +62,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -113,7 +113,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
@@ -128,7 +128,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -185,7 +185,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -199,7 +199,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -218,7 +218,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -267,7 +267,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -285,7 +285,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -346,7 +346,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -364,7 +364,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "",
@@ -413,7 +413,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -431,7 +431,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -487,7 +487,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
@@ -500,7 +500,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
@@ -513,7 +513,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
@@ -526,7 +526,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
@@ -544,7 +544,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -588,7 +588,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -606,7 +606,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -655,7 +655,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -673,7 +673,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -722,7 +722,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -741,7 +741,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
@@ -792,7 +792,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -811,7 +811,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
@@ -862,7 +862,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -881,7 +881,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
@@ -932,7 +932,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -951,7 +951,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -1022,7 +1022,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1041,7 +1041,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -1113,7 +1113,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1132,7 +1132,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -1180,7 +1180,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1198,7 +1198,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -1253,7 +1253,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1271,7 +1271,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "",
@@ -1352,12 +1352,12 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "avg without(cpu) (irate(node_cpu_seconds_total{job=\"prometheus\", mode=\"user\"}[1m]))",
+          "expr": "avg without(cpu) (irate(node_cpu_seconds_total{job=\"Prometheus\", mode=\"user\"}[1m]))",
           "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
@@ -1370,7 +1370,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "",
@@ -1422,7 +1422,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1442,7 +1442,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "■5秒以上後に到着したブロックの追跡\nミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
@@ -1491,7 +1491,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1510,7 +1510,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "■チェーン上のフォーク数をカウント\nノードがスタートしてからのフォーク数。ブロック伝播遅延の影響で2秒前後のスロット間のスケジュールで発生",
@@ -1559,7 +1559,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1578,7 +1578,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロック受信までの時間\nブロックがミントされるべきだったときから、ローカルのリレーがブロックを受信するまでの遅延を推定した時間\nこの指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）。",
@@ -1627,7 +1627,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1646,7 +1646,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "■リレーノードの有用性判定\n人気のないノードには0に近い値が与えられます。そして、非常に有用なノードには1以上の値が与えられます。\n値が0の場合、誰もあなたのリレーからブロックを取得していないことを意味します。\n1の値は、新しいブロックが作成されるたびに、誰かがそれを取得していることを意味します。\n2以上の値は、ミントされたブロックごとに、2つのノードがあなたからそのブロックをフェッチしていることを意味します。",
@@ -1698,7 +1698,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1717,7 +1717,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -1795,7 +1795,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1813,7 +1813,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "",
@@ -1895,7 +1895,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -1913,7 +1913,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "",
@@ -1995,7 +1995,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -2013,7 +2013,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "description": "",
@@ -2106,7 +2106,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -2120,7 +2120,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -2138,7 +2138,7 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
+        "type": "Prometheus",
         "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
@@ -2230,7 +2230,7 @@
       "targets": [
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
@@ -2244,7 +2244,7 @@
         },
         {
           "datasource": {
-            "type": "prometheus",
+            "type": "Prometheus",
             "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
