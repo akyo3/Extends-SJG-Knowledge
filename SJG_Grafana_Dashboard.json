@@ -24,15 +24,12 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 13,
+  "id": 35,
   "links": [],
   "liveNow": false,
   "panels": [
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "gridPos": {
         "h": 6,
         "w": 3,
@@ -61,10 +58,7 @@
       "type": "text"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -127,10 +121,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -217,10 +208,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -284,10 +272,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -363,10 +348,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -430,10 +412,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -543,10 +522,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "mappings": [],
@@ -605,10 +581,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -672,10 +645,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -740,10 +710,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
@@ -810,10 +777,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
@@ -880,10 +844,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
@@ -950,10 +911,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1040,10 +998,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1131,10 +1086,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1197,10 +1149,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1270,10 +1219,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1369,10 +1315,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1441,10 +1384,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "■5秒以上後に到着したブロックの追跡\nミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
       "fieldConfig": {
         "defaults": {
@@ -1509,10 +1449,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "■チェーン上のフォーク数をカウント\nノードがスタートしてからのフォーク数。ブロック伝播遅延の影響で2秒前後のスロット間のスケジュールで発生",
       "fieldConfig": {
         "defaults": {
@@ -1577,10 +1514,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "■ブロック受信までの時間\nブロックがミントされるべきだったときから、ローカルのリレーがブロックを受信するまでの遅延を推定した時間\nこの指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）。",
       "fieldConfig": {
         "defaults": {
@@ -1645,10 +1579,7 @@
       "type": "stat"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "■リレーノードの有用性判定\n人気のないノードには0に近い値が与えられます。そして、非常に有用なノードには1以上の値が与えられます。\n値が0の場合、誰もあなたのリレーからブロックを取得していないことを意味します。\n1の値は、新しいブロックが作成されるたびに、誰かがそれを取得していることを意味します。\n2以上の値は、ミントされたブロックごとに、2つのノードがあなたからそのブロックをフェッチしていることを意味します。",
       "fieldConfig": {
         "defaults": {
@@ -1716,10 +1647,7 @@
       "type": "bargauge"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1812,10 +1740,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1912,10 +1837,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2012,10 +1934,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2055,7 +1974,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2137,10 +2057,7 @@
       "type": "timeseries"
     },
     {
-      "datasource": {
-        "type": "Prometheus",
-        "uid": "ZKZ6iIk7k"
-      },
+      "datasource": {},
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -2179,7 +2096,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -2286,9 +2204,9 @@
       "1d"
     ]
   },
-  "timezone": "Asia/Tokyo",
+  "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 60,
+  "version": 2,
   "weekStart": ""
 }
