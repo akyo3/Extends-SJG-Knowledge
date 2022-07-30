@@ -3,11 +3,11 @@
 #### 環境
 
 - MacBook Pro (13-inch, 2019, Two Thunderbolt 3 ports)
-- Monterey 12.2.1
+- Monterey 12.5
 
 #### ダウンロード/インストール
 - Ubuntu Desktop 20.04.4 LTS
-- VirtualBox 6.1.14
+- VirtualBox-6.1.36
 
 ---
 
@@ -15,13 +15,13 @@
 
 1-1. 以下のリンク先からISOイメージファイルをダウンロードします。
 
-  - [Ubuntuを入手する](https://jp.ubuntu.com/download)
+  - [Ubuntuを入手する](https://releases.ubuntu.com/20.04.4/?_ga=2.145106481.424434523.1659109603-1752942665.1659109603)
 ※ ダウンロード完了まで少しかかるのでしばらくお待ちください
 
 | ファイル名 | ubuntu-20.04.4-desktop-amd64.iso |
 :---|:---
 
-![UbuntuInstall-1](https://user-images.githubusercontent.com/80967103/158050737-e653351a-063b-4a39-b7c4-3047b6f2d5c7.png)
+![UbuntuInstall-1](https://user-images.githubusercontent.com/80967103/181872638-1f240138-2fc6-4158-9963-1d84d95e3c54.png)
 
 ---
 
@@ -32,10 +32,10 @@
   - [VirtualBoxを入手する](https://www.virtualbox.org/wiki/Downloads)
 
 
-| ファイル名 | VirtualBox-6.1.32-149290-OSX.dmg |
+| ファイル名 | VirtualBox-6.1.36-152435-OSX.dmg |
 :---|:---
 
-![VirtualBoxInstall-1](https://user-images.githubusercontent.com/80967103/158052058-ab11df3f-3372-46e0-b438-f2bc63ed974a.png)
+![VirtualBoxInstall-1](https://user-images.githubusercontent.com/80967103/181872823-0ac6192a-2bdb-42cf-830c-8c407b31f609.png)
 
 ---
 
@@ -167,10 +167,8 @@
 - 例）「AirGap」フォルダを作成後、配下に「share」フォルダを作成。
 
 `Mac Terminal`
-```
-mkdir AirGap
-cd AirGap
-mkdir share
+```console
+mkdir -p $HOME/AirGap/share
 ```
 
 ---
@@ -281,63 +279,102 @@ mkdir share
 ---
 
 ## 6- Guest Additionsのインストール
-
-6-1. ホストメイン画面上部の「Devices」タブから「Insert Guest Additions CD image...」→「OK」をクリックします。
+6-1. ターミナルを開いて以下を実行します。
+> Guest Additionsがインストールされていない状態なのでホストからゲストにコピーアンドペーストできません。タイプミスに留意してください。
+```console
+sudo apt install gcc make perl -y
+```
 
 ---
 
-6-2. 以下のメッセージが表示されたら「実行」をクリックした後、パスワードを入力します。
+6-2. ホストメイン画面上部の「Devices」タブから「Insert Guest Additions CD image...」→「OK」をクリックします。
+
+---
+
+6-3. 以下のメッセージが表示されたら「実行」をクリックした後、パスワードを入力します。
 
 ![BootVirtualMachine-15](https://user-images.githubusercontent.com/80967103/159217595-93ffe2a5-ed89-4924-a3da-ece4791fbe25.png)
 
 ---
 
-6-3. 処理完了のメッセージが表示されたらEnterキーを押下します。
+6-4. 処理完了のメッセージが表示されたらEnterキーを押下します。
 
 ![BootVirtualMachine-16](https://user-images.githubusercontent.com/80967103/159153823-eb6c79b5-a6d8-46e8-9ae9-a392ed33de8e.png)
 
 ---
-- うまくインストールできていない場合は、以下のコマンドを入力し、処理完了のメッセージが表示されたらEnterキーを押下します。
 
+6-5. ユーザーを`vboxsf`グループに追加して再起動します。
+```console
+sudo adduser $USER vboxsf
+sudo reboot
 ```
-sudo apt install gcc make perl -y
-```
-
-![BootVirtualMachine-17](https://user-images.githubusercontent.com/80967103/159153843-49688be7-1537-407b-b3af-c11751b2bf91.png)
 
 ---
 
-6-4. 仮想マシンを再起動し、「View」→「Auto-resize　Guest　Display」にチェックが入っている事を確認します。
+6-6. 「View」→「Auto-resize　Guest　Display」にチェックが入っている事を確認します。
 
 ---
 
-6-5. Guest Additionsが機能していれば「取り出す」をクリックします。
+6-7. Guest Additionsが機能していれば取り出します。
+> 右クリック→「取り出す」をクリック
 
 ![BootVirtualMachine-18](https://user-images.githubusercontent.com/80967103/159217747-5601d4d0-2c97-4464-b270-a5ae61ef29ee.png)
 
 ---
 
-## 補足
-
-### 共有フォルダが機能しているか確認する。
-
-共有フォルダがきちんと機能しているかを確認しておきます。添付画像の場合、機能していないので以下のコマンドを実行します。
-
-- 補足：マウントには成功しているが、共有フォルダにアクセスできていない場合、ゲスト側（VirtualBox内）のコマンドツールを開き、以下のコマンドを実行しましょう。この時、求められるパスワードは、VirtualBox内でのパスワードです。
+6-8. テストファイル作成  
+ターミナルを開いて以下を実行します。
+> 共有フォルダにテストファイルを作成してホスト側で確認できたら成功です。
 
 ```
+touch /media/sf_share/test
+```
+
+---
+
+## 補足
+
+### GUI操作でGuest Additionsがインストールできなかった場合
+Virtualbox guest addition packagesをインストールします。
+> ターミナルを開いて以下のコマンドを実行してください。  
+> Guest Additionsがインストールされていない状態なのでホストからゲストにコピーアンドペーストできません。タイプミスに留意してください。  
+> 成功していれば再起動後、コピーアンドペーストできます。
+```console
+sudo add-apt-repository multiverse
+sudo apt install virtualbox-guest-dkms virtualbox-guest-x11 -y
+```
+
+ユーザーを`vboxsf`グループに追加して再起動します。
+```console
 sudo adduser $USER vboxsf
 sudo reboot
 ```
 
-![BootVirtualMachine-19](https://user-images.githubusercontent.com/80967103/159154694-dbae2192-9fd3-45bc-9fc3-19159f9d68f1.png)
+共有フォルダが追加されているか確認
+```console
+df
+```
+> `share`          488245288 203122832 285122456  42% `/media/sf_share`
+
+共有フォルダのグループを確認
+```console
+ls -l /media
+```
+> drwxrwx--- 1 root `vboxsf` 96  x月 xx xx:xx sf_share
+
+テストファイル作成  
+> 共有フォルダにテストファイルを作成してホスト側で確認できたら成功です。
+
+```
+touch /media/sf_share/test
+```
 
 ---
 
 ### Swapファイルの設定時のエラーについて
 
 - 「テキストファイルがビジー状態です」と表示されたら以下を実行します。
-```
+```console
 sudo swapoff /swapfile
 rm /swapfile
 ```
@@ -350,4 +387,4 @@ rm /swapfile
 
 - 本番運用で使用される場合は必ず「ネットワークアダプターを有効化」のチェックを外してください。
 
-![BootVirtualMachine-20](https://user-images.githubusercontent.com/80967103/159157103-500edf69-5ed1-48c9-aa67-bea37647c395.png)
+![BootVirtualMachine-21](https://user-images.githubusercontent.com/80967103/159157103-500edf69-5ed1-48c9-aa67-bea37647c395.png)
