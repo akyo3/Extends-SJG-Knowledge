@@ -311,18 +311,14 @@ sudo reboot
 
 ---
 
-6-6. 「View」→「Auto-resize　Guest　Display」にチェックが入っている事を確認します。
-
----
-
-6-7. Guest Additionsが機能していれば取り出します。
-> 右クリック→「取り出す」をクリック
+6-6. 「View」→「Auto-resize　Guest　Display」にチェックが入っている事を確認します。  
+> 確認後、右クリック→「取り出す」をクリックします。
 
 ![BootVirtualMachine-18](https://user-images.githubusercontent.com/80967103/159217747-5601d4d0-2c97-4464-b270-a5ae61ef29ee.png)
 
 ---
 
-6-8. テストファイル作成  
+6-7. テストファイル作成  
 ターミナルを開いて以下を実行します。
 > 共有フォルダにテストファイルを作成してホスト側で確認できたら成功です。
 
