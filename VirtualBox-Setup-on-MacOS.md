@@ -322,7 +322,7 @@ sudo reboot
 ターミナルを開いて以下を実行します。
 > 共有フォルダにテストファイルを作成してホスト側で確認できたら成功です。
 
-```
+```console
 touch /media/sf_share/test
 ```
 
@@ -361,7 +361,7 @@ ls -l /media
 テストファイル作成  
 > 共有フォルダにテストファイルを作成してホスト側で確認できたら成功です。
 
-```
+```console
 touch /media/sf_share/test
 ```
 
