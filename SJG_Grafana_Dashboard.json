@@ -9,7 +9,7 @@
       "pluginName": "Prometheus"
     }
   ],
-  "__elements": [],
+  "__elements": {},
   "__requires": [
     {
       "type": "panel",
@@ -21,7 +21,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "9.0.2"
+      "version": "9.0.6"
     },
     {
       "type": "datasource",
@@ -93,7 +93,7 @@
         "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"250px\" src=\"https://user-images.githubusercontent.com/80967103/177022216-2ef7792b-686e-4110-b001-b6282e4bfa20.png\"></a><br>\n<img width=\"20px\" src=\"https://www.lvlup-stakepool.com/images/adapool.png\"> \n<a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center>\n<center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -158,7 +158,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -180,6 +180,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
+      "description": "現在のエポックとそのエポックが始まってからの経過日数",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -225,12 +226,10 @@
           "fields": "",
           "values": false
         },
-        "text": {
-          "valueSize": 40
-        },
-        "textMode": "value"
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -242,7 +241,7 @@
           "expr": "cardano_node_metrics_epoch_int{instance=\"localhost:12798\"}",
           "instant": true,
           "interval": "",
-          "legendFormat": "{{alias}}",
+          "legendFormat": "Current Epoch",
           "range": false,
           "refId": "A"
         },
@@ -257,7 +256,7 @@
           "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "{{alias}}",
+          "legendFormat": "No. of Days Elapsed",
           "range": false,
           "refId": "B"
         }
@@ -270,6 +269,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
+      "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -280,39 +280,37 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
+                "color": "green",
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "percentunit"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 6,
+        "h": 3,
+        "w": 3,
         "x": 9,
         "y": 0
       },
-      "id": 104,
+      "id": 117,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
         "justifyMode": "auto",
-        "orientation": "horizontal",
+        "orientation": "vertical",
         "reduceOptions": {
           "calcs": [
-            "last"
+            "lastNotNull"
           ],
           "fields": "",
           "values": false
         },
-        "text": {
-          "valueSize": 25
-        },
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -320,16 +318,84 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "exemplar": true,
-          "expr": "cardano_node_metrics_slotInEpoch_int",
-          "instant": false,
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfOne",
+          "format": "time_series",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
-      "title": "Slot",
+      "title": "1sec block fetch client block delay",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 12,
+        "y": 0
+      },
+      "id": 118,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfThree",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "3sec block fetch client block delay",
       "type": "stat"
     },
     {
@@ -391,7 +457,7 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -408,7 +474,7 @@
           "refId": "A"
         }
       ],
-      "title": "KES残り日数",
+      "title": "KES remaining days",
       "type": "bargauge"
     },
     {
@@ -416,13 +482,8 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 4,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -442,15 +503,15 @@
         "x": 21,
         "y": 0
       },
-      "id": 113,
+      "id": 105,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
+        "graphMode": "area",
         "justifyMode": "auto",
-        "orientation": "auto",
+        "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "last"
           ],
           "fields": "",
           "values": false
@@ -458,7 +519,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -467,7 +528,74 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cardano_node_metrics_slotNum_int{instance=\"localhost:12798\"} / 129600",
+          "expr": "cardano_node_metrics_txsProcessedNum_int",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Txs processed",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 9,
+        "y": 3
+      },
+      "id": 119,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfFive ",
+          "format": "time_series",
           "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
@@ -475,7 +603,78 @@
           "refId": "A"
         }
       ],
-      "title": "Change kes timing(startKesPeriod)",
+      "title": "5sec block fetch client block delay",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■リレーノードの有用性判定\n人気のないノードには0に近い値が与えられます。そして、非常に有用なノードには1以上の値が与えられます。\n値が0の場合、誰もあなたのリレーからブロックを取得していないことを意味します。\n1の値は、新しいブロックが作成されるたびに、誰かがそれを取得していることを意味します。\n2以上の値は、ミントされたブロックごとに、2つのノードがあなたからそのブロックをフェッチしていることを意味します。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-blue",
+                "value": null
+              },
+              {
+                "color": "light-green",
+                "value": 2
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 12,
+        "y": 3
+      },
+      "id": 123,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "rate(cardano_node_metrics_served_block_latest_count_int[1h])/rate(cardano_node_metrics_blockNum_int[1h])",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Block latest count",
       "type": "stat"
     },
     {
@@ -512,7 +711,7 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 6,
+        "w": 4,
         "x": 15,
         "y": 3
       },
@@ -532,19 +731,20 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "cardano_node_metrics_currentKESPeriod_int",
           "format": "time_series",
           "instant": true,
           "interval": "",
-          "legendFormat": "現在のKES",
+          "legendFormat": "Current KES",
           "refId": "A"
         },
         {
@@ -552,12 +752,13 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "cardano_node_metrics_operationalCertificateExpiryKESPeriod_int",
           "format": "time_series",
           "instant": true,
           "interval": "",
-          "legendFormat": "KES満了",
+          "legendFormat": "KES expiry",
           "refId": "B"
         },
         {
@@ -565,12 +766,13 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "cardano_node_metrics_currentKESPeriod_int - cardano_node_metrics_operationalCertificateStartKESPeriod_int + cardano_node_metrics_remainingKESPeriods_int",
           "format": "time_series",
           "instant": true,
           "interval": "",
-          "legendFormat": "KES整合性",
+          "legendFormat": "KES consistency",
           "refId": "E"
         },
         {
@@ -578,13 +780,14 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
+          "editorMode": "code",
           "exemplar": true,
           "expr": "cardano_node_metrics_remainingKESPeriods_int",
           "format": "time_series",
           "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "KES残",
+          "legendFormat": "KES Remaining",
           "refId": "C"
         }
       ],
@@ -596,8 +799,13 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
+      "description": "(startKesPeriod)",
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 4,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -613,16 +821,83 @@
       },
       "gridPos": {
         "h": 3,
+        "w": 2,
+        "x": 19,
+        "y": 3
+      },
+      "id": 113,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_slotNum_int{instance=\"localhost:12798\"} / 129600",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Change kes timing",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■チェーン上のフォーク数をカウント\nノードがスタートしてからのフォーク数。ブロック伝播遅延の影響で2秒前後のスロット間のスケジュールで発生",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
         "w": 3,
         "x": 21,
         "y": 3
       },
-      "id": 105,
+      "id": 122,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
-        "orientation": "horizontal",
+        "orientation": "vertical",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -633,7 +908,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -642,141 +917,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cardano_node_metrics_txsProcessedNum_int",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "B"
-        }
-      ],
-      "title": "Txs processed",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 0,
-        "y": 6
-      },
-      "id": 90,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 25
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockNum_int",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Block",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 3,
-        "y": 6
-      },
-      "id": 106,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 25
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_connectedPeers_int",
+          "expr": "cardano_node_metrics_forks_int",
           "format": "time_series",
           "instant": true,
           "interval": "",
@@ -785,399 +926,8 @@
           "refId": "A"
         }
       ],
-      "title": "Peers",
+      "title": "Forks",
       "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 1,
-        "x": 6,
-        "y": 6
-      },
-      "id": 117,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 18
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfOne",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "1 Second block fetch client block delay",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 1,
-        "x": 7,
-        "y": 6
-      },
-      "id": 118,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 18
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfThree",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "3 Second block fetch client block delay",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■ブロックの伝搬について\n1秒、3秒、5秒以内にブロックをダウンロードできたおおよその推定値\n95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。\n95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。\n※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "percentunit"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 1,
-        "x": 8,
-        "y": 6
-      },
-      "id": 119,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {
-          "valueSize": 18
-        },
-        "textMode": "value"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfFive ",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "5 Second block fetch client block delay",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 9,
-        "y": 6
-      },
-      "id": 115,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_slotsMissedNum_int",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Slots missed num",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 5,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "ms"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 15,
-        "y": 6
-      },
-      "id": 116,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "node_timex_maxerror_seconds * 1000",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Node timex max error seconds",
-      "type": "timeseries"
     },
     {
       "datasource": {
@@ -1204,16 +954,16 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 21,
+        "h": 5,
+        "w": 24,
+        "x": 0,
         "y": 6
       },
       "id": 101,
       "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "center",
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
@@ -1222,10 +972,9 @@
           "fields": "",
           "values": false
         },
-        "text": {},
-        "textMode": "value"
+        "showUnfilled": true
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1243,7 +992,7 @@
         }
       ],
       "title": "Uptime",
-      "type": "stat"
+      "type": "bargauge"
     },
     {
       "datasource": {
@@ -1253,52 +1002,44 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
+                "color": "blue",
                 "value": null
-              },
-              {
-                "color": "light-yellow",
-                "value": 0.4
-              },
-              {
-                "color": "light-red",
-                "value": 0.5
               }
             ]
-          },
-          "unit": "percentunit"
+          }
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 11,
         "w": 3,
         "x": 0,
-        "y": 12
+        "y": 11
       },
-      "id": 103,
+      "id": 104,
       "options": {
-        "displayMode": "basic",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
-        "orientation": "auto",
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "last"
           ],
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1307,7 +1048,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "1 - node_filesystem_avail_bytes / node_filesystem_size_bytes{mountpoint=\"/\"}",
+          "expr": "cardano_node_metrics_slotInEpoch_int",
           "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
@@ -1315,8 +1056,8 @@
           "refId": "A"
         }
       ],
-      "title": "Disk usage rate",
-      "type": "bargauge"
+      "title": "Slot",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -1376,10 +1117,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 10,
+        "h": 11,
         "w": 18,
         "x": 3,
-        "y": 12
+        "y": 11
       },
       "id": 46,
       "options": {
@@ -1422,52 +1163,47 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
+                "color": "blue",
                 "value": null
-              },
-              {
-                "color": "light-red",
-                "value": 1
               }
             ]
-          },
-          "unit": "bytes"
+          }
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
+        "h": 11,
         "w": 3,
         "x": 21,
-        "y": 12
+        "y": 11
       },
-      "id": 96,
+      "id": 124,
       "options": {
-        "displayMode": "basic",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
-        "orientation": "auto",
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "last"
           ],
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1476,25 +1212,22 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "node_memory_SwapTotal_bytes - node_memory_SwapFree_bytes",
-          "format": "time_series",
-          "hide": false,
+          "expr": "cardano_node_metrics_blockNum_int",
           "instant": false,
           "interval": "",
           "legendFormat": "{{alias}}",
           "range": true,
-          "refId": "B"
+          "refId": "A"
         }
       ],
-      "title": "Swap memory usage",
-      "type": "bargauge"
+      "title": "Block",
+      "type": "stat"
     },
     {
       "datasource": {
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "■5秒以上後に到着したブロックの追跡\nミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1509,338 +1242,33 @@
                 "value": null
               }
             ]
-          },
-          "unit": "none"
+          }
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 5,
-        "w": 1,
-        "x": 0,
-        "y": 17
-      },
-      "id": 121,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "value"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_lateblocks",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Block fetch client late blocks",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■チェーン上のフォーク数をカウント\nノードがスタートしてからのフォーク数。ブロック伝播遅延の影響で2秒前後のスロット間のスケジュールで発生",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 1,
-        "x": 1,
-        "y": 17
-      },
-      "id": 122,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "value"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_forks_int",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Forks",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■ブロック受信までの時間\nブロックがミントされるべきだったときから、ローカルのリレーがブロックを受信するまでの遅延を推定した時間\nこの指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）。",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 1,
-        "x": 2,
-        "y": 17
-      },
-      "id": 120,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "value"
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_s",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Block fetch client block delay",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■リレーノードの有用性判定\n人気のないノードには0に近い値が与えられます。そして、非常に有用なノードには1以上の値が与えられます。\n値が0の場合、誰もあなたのリレーからブロックを取得していないことを意味します。\n1の値は、新しいブロックが作成されるたびに、誰かがそれを取得していることを意味します。\n2以上の値は、ミントされたブロックごとに、2つのノードがあなたからそのブロックをフェッチしていることを意味します。",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "light-blue",
-                "value": null
-              },
-              {
-                "color": "light-green",
-                "value": 2
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
+        "h": 12,
         "w": 3,
-        "x": 21,
-        "y": 17
-      },
-      "id": 123,
-      "options": {
-        "displayMode": "basic",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": true
-      },
-      "pluginVersion": "9.0.2",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "rate(cardano_node_metrics_served_block_latest_count_int[1h])/rate(cardano_node_metrics_blockNum_int[1h])",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Block latest count",
-      "type": "bargauge"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 5,
-            "gradientMode": "opacity",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 2,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "line+area"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "dark-red",
-                "value": null
-              },
-              {
-                "color": "green",
-                "value": 4.5
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 8,
         "x": 0,
         "y": 22
       },
-      "id": 94,
+      "id": 106,
       "options": {
-        "legend": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
-            "lastNotNull"
+            "last"
           ],
-          "displayMode": "hidden",
-          "placement": "bottom"
+          "fields": "",
+          "values": false
         },
-        "tooltip": {
-          "mode": "multi",
-          "sort": "none"
-        }
+        "text": {},
+        "textMode": "auto"
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "9.0.6",
       "targets": [
         {
           "datasource": {
@@ -1849,16 +1277,17 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cardano_node_metrics_density_real * 100",
-          "instant": false,
+          "expr": "cardano_node_metrics_connectedPeers_int",
+          "format": "time_series",
+          "instant": true,
           "interval": "",
           "legendFormat": "{{alias}}",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
-      "title": "Chain density %",
-      "type": "timeseries"
+      "title": "Peers",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -1919,9 +1348,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 8,
+        "h": 12,
+        "w": 9,
+        "x": 3,
         "y": 22
       },
       "id": 50,
@@ -2019,9 +1448,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
-        "w": 8,
-        "x": 16,
+        "h": 12,
+        "w": 9,
+        "x": 12,
         "y": 22
       },
       "id": 111,
@@ -2059,6 +1488,566 @@
       ],
       "title": "System memory usage",
       "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-green",
+                "value": null
+              },
+              {
+                "color": "light-red",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 3,
+        "x": 21,
+        "y": 22
+      },
+      "id": 96,
+      "options": {
+        "displayMode": "basic",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "node_memory_SwapTotal_bytes - node_memory_SwapFree_bytes",
+          "format": "time_series",
+          "hide": false,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "Swap memory usage",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■5秒以上後に到着したブロックの追跡\nミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 3,
+        "x": 0,
+        "y": 34
+      },
+      "id": 121,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {
+          "valueSize": 30
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_lateblocks",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Block fetch client late blocks",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 3,
+        "y": 34
+      },
+      "id": 116,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "node_timex_maxerror_seconds * 1000",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Node timex max error seconds",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 5,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 2,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line+area"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 4.5
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 9,
+        "y": 34
+      },
+      "id": 94,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "hidden",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_density_real * 100",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Chain density %",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 6,
+        "x": 15,
+        "y": 34
+      },
+      "id": 115,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_slotsMissedNum_int",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Slots missed num",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-green",
+                "value": null
+              },
+              {
+                "color": "light-yellow",
+                "value": 0.4
+              },
+              {
+                "color": "light-red",
+                "value": 0.5
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 3,
+        "x": 21,
+        "y": 34
+      },
+      "id": 103,
+      "options": {
+        "displayMode": "basic",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "1 - node_filesystem_avail_bytes / node_filesystem_size_bytes{mountpoint=\"/\"}",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Disk usage rate",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■ブロック受信までの時間\nブロックがミントされるべきだったときから、ローカルのリレーがブロックを受信するまでの遅延を推定した時間\nこの指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 3,
+        "x": 0,
+        "y": 39
+      },
+      "id": 120,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.0.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_s",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Block fetch client block delay",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -2131,10 +2120,10 @@
         ]
       },
       "gridPos": {
-        "h": 17,
+        "h": 22,
         "w": 12,
         "x": 0,
-        "y": 31
+        "y": 45
       },
       "id": 70,
       "options": {
@@ -2256,10 +2245,10 @@
         ]
       },
       "gridPos": {
-        "h": 17,
+        "h": 22,
         "w": 12,
         "x": 12,
-        "y": 31
+        "y": 45
       },
       "id": 64,
       "options": {
@@ -2343,6 +2332,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 7,
+  "version": 16,
   "weekStart": ""
 }
