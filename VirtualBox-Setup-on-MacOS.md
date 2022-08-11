@@ -280,8 +280,12 @@ mkdir -p $HOME/AirGap/share
 
 ## 6- Guest Additionsのインストール
 6-1. ターミナルを開いて以下を実行します。
-> Guest Additionsがインストールされていない状態なのでホストからゲストにコピーアンドペーストできません。タイプミスに留意してください。
+> Guest Additionsがインストールされていない状態なのでホストからゲストにコピーアンドペーストできません。タイプミスに留意してください。  
+> また以下の手順を行なっても、共有フォルダがGUIで表示されない、共有フォルダ化されていない場合は、一度VBox_GAs_6.1.36をアンマウントしてから再度挿入し、再起動すると共有フォルダは完了します。
+> それでもダメなら[`"GUI操作でGuest Additionsがインストールできなかった場合"`](###GUI操作でGuestAdditionsがインストールできなかった場合)を試してください。
 ```console
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install gcc make perl -y
 ```
 
@@ -336,6 +340,8 @@ Virtualbox guest addition packagesをインストールします。
 > Guest Additionsがインストールされていない状態なのでホストからゲストにコピーアンドペーストできません。タイプミスに留意してください。  
 > 成功していれば再起動後、コピーアンドペーストできます。
 ```console
+sudo apt update -y
+sudo apt upgrade -y
 sudo add-apt-repository multiverse
 sudo apt install virtualbox-guest-dkms virtualbox-guest-x11 -y
 ```
