@@ -8,13 +8,17 @@
 2. $NODE_HOME/`startBlockProducingNode.sh`のPORT=6000を変更するポート番号へと書き換えます。
 3. $NODE_HOME/scripts/`env`のCNODE_PORT=6000を変更するポート番号へと書き換えます。
 
-> 以下はポート番号を`49513`とする場合
 ### BPにて実施
+BPノードポート番号を指定します。
+> xxxxxを49513～65535までの任意番号で指定してください
+```console
+PORT=xxxxx
+```
 ```console
 sed -i $NODE_HOME/startBlockProducingNode.sh \
-    -e '1,73s!PORT=6000!PORT=49513!'
+    -e '1,73s!PORT=6000!PORT='${PORT}'!'
 sed -i $NODE_HOME/scripts/env \
-    -e '1,73s!CNODE_PORT=6000!CNODE_PORT=49513!'
+    -e '1,73s!CNODE_PORT=6000!CNODE_PORT='${PORT}'!'
 ```
 
 ### ufw設定変更（リレーが２台ある想定）
@@ -84,9 +88,13 @@ nc -vz <BPIP> 49513
 $NODE_HOME/`relay-topology_pull.sh`のBLOCKPRODUCING_PORT=6000を変更したポート番号へと書き換えます。
 
 > トポロジー共有のため別ファイルを自身で作成している場合は、そちらでも忘れずにポート番号を変更しておいてください。
+> xxxxxは、BPノードポート番号を入力します。
+```console
+PORT=xxxxx
+```
 ```console
 sed -i $NODE_HOME/relay-topology_pull.sh \
-    -e '1,10s!BLOCKPRODUCING_PORT=6000!BLOCKPRODUCING_PORT=49513!'
+    -e '1,10s!BLOCKPRODUCING_PORT=6000!BLOCKPRODUCING_PORT='${PORT}'!'
 ```
 
 トポロジーファイルの更新をします。
