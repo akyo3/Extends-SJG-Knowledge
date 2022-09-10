@@ -80,6 +80,7 @@ Ctrl + b → d
 
 ### リレーにて実施
 疎通確認
+> xxxxxは、BPノードポート番号を入力します。  
 > port [tcp/*] succeeded! であればOKです。
 ```console
 nc -vz <BPIP> xxxxx
