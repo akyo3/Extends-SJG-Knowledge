@@ -32,8 +32,8 @@ echo "BPポートは${b_PORT}です"
 ```console
 sudo ufw status numbered
 sudo ufw delete <削除したい番号>
-sudo ufw allow from <リレー１> to any port xxxxx
-sudo ufw allow from <リレー２> to any port xxxxx
+sudo ufw allow from <リレー１> to any port ${b_PORT}
+sudo ufw allow from <リレー２> to any port ${b_PORT}
 sudo ufw reload
 ```
 
