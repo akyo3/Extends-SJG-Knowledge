@@ -27,8 +27,8 @@ sed -i $NODE_HOME/scripts/env \
 ```console
 sudo ufw status numbered
 sudo ufw delete <削除したい番号>
-sudo ufw allow from <リレー１> to any port 49513
-sudo ufw allow from <リレー２> to any port 49513
+sudo ufw allow from <リレー１> to any port xxxxx
+sudo ufw allow from <リレー２> to any port xxxxx
 sudo ufw reload
 ```
 
@@ -82,7 +82,7 @@ Ctrl + b → d
 疎通確認
 > port [tcp/*] succeeded! であればOKです。
 ```console
-nc -vz <BPIP> 49513
+nc -vz <BPIP> xxxxx
 ```
 
 $NODE_HOME/`relay-topology_pull.sh`のBLOCKPRODUCING_PORT=6000を変更したポート番号へと書き換えます。
