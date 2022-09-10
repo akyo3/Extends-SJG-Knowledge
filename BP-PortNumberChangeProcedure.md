@@ -22,12 +22,12 @@ sed -i $NODE_HOME/scripts/env \
 ```
 
 ### ufw設定変更（リレーが２台ある想定）  
-> 山かっこ<>は不要です
 ```console
 PORT=`grep "PORT=" $NODE_HOME/startBlockProducingNode.sh`
 b_PORT=${PORT#"PORT="}
 echo "BPポートは${b_PORT}です"
 ```
+> 山かっこ<>は不要です
 ```console
 sudo ufw status numbered
 sudo ufw delete <削除したい番号>
