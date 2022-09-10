@@ -17,14 +17,8 @@ PORT=xxxxx
 ```console
 sed -i $NODE_HOME/startBlockProducingNode.sh \
     -e '1,73s!PORT=6000!PORT='${PORT}'!'
-```
-```console
-PORT=`grep "PORT=" $NODE_HOME/startBlockProducingNode.sh`
-b_PORT=${PORT#"PORT="}
-```
-```console
 sed -i $NODE_HOME/scripts/env \
-    -e '1,73s!CNODE_PORT=6000!CNODE_PORT='${b_PORT}'!'
+    -e '1,73s!CNODE_PORT=6000!CNODE_PORT='${PORT}'!'
 ```
 
 ### ufw設定変更（リレーが２台ある想定）
