@@ -22,7 +22,6 @@ sed -i $NODE_HOME/scripts/env \
 ```
 
 ### ufw設定変更（リレーが２台ある想定）  
-> xxxxxは、BPノードポート番号を入力します。  
 > 山かっこ<>は不要です
 ```console
 PORT=`grep "PORT=" $NODE_HOME/startBlockProducingNode.sh`
