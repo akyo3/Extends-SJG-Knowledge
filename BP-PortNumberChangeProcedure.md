@@ -25,6 +25,11 @@ sed -i $NODE_HOME/scripts/env \
 > xxxxxは、BPノードポート番号を入力します。  
 > 山かっこ<>は不要です
 ```console
+PORT=`grep "PORT=" $NODE_HOME/startBlockProducingNode.sh`
+b_PORT=${PORT#"PORT="}
+echo "BPポートは${b_PORT}です"
+```
+```console
 sudo ufw status numbered
 sudo ufw delete <削除したい番号>
 sudo ufw allow from <リレー１> to any port xxxxx
