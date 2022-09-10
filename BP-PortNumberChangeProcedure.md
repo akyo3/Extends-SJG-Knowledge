@@ -21,8 +21,8 @@ sed -i $NODE_HOME/scripts/env \
     -e '1,73s!CNODE_PORT=6000!CNODE_PORT='${PORT}'!'
 ```
 
-### ufw設定変更（リレーが２台ある想定）
-
+### ufw設定変更（リレーが２台ある想定）  
+> xxxxxは、BPノードポート番号を入力します。  
 > 山かっこ<>は不要です
 ```console
 sudo ufw status numbered
