@@ -196,9 +196,10 @@ cd $NODE_HOME/scripts
 
 `旧BP`
 
-ノードを停止します。
+ノードを停止します。また、次の作業でサーバーを停止しますが、万が一サーバーが再起動してしまった際も考慮し、自動起動をオフにしておきます。
 ```console
 sudo systemctl stop cardano-node
+sudo systemctl disable cardano-node
 ```
 > 旧BPのノードが絶対に起動しないようにVPS管理コンソールからサーバーを停止しておいてください。
 
