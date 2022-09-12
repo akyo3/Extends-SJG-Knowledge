@@ -277,7 +277,31 @@ chmod a-rwx $HOME/cold-keys
 - [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
 
 2-13. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得し、インスタンスは不要なので削除します。
+<details>
+<summary>何らかの事情で、旧BPを再稼働したい場合</summary>
+<div>
+新BPのノードを停止します。
+```console
+sudo systemctl stop cardano-node
+```
+新BPのノードが自動起動しないように設定します。
+```console
+sudo systemctl disable cardano-node
+```
+また、新BPが絶対に起動しないように、コンソールで停止しておきます。
+    
+旧BPをコンソールで起動し、自動起動する設定をします。
+```console
+sudo systemctl enable cardano-node
+```
 
+旧BPのノードを起動します。
+ ```console
+sudo systemctl start cardano-node
+```
+    
+</div>
+</details>
 2-14. リレーにて`relay-topology_pull.sh`に設定している旧BPの情報を削除した後、トポロジーファイルの更新をし、ノード再起動します。
 
 `リレー`
