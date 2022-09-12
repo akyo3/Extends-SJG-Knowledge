@@ -146,7 +146,7 @@ journalctl --unit=cardano-node --follow
 なお、ご自身で`relay-topology_pull.sh`ファイルのメモがある場合はそちらを編集して実行してください。
 > IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加します。
 
-    <details>
+<details>
 <summary>DNSではなくIPで入力したほうがお勧めする理由</summary>
 
 <div>
@@ -159,16 +159,6 @@ DNSのAレコードの変更は数分～数日かかります。  2-14で書い�
 
 </div>
 </details>
-
-- relay-topology_pull.shを実行し、リレーノードを再起動します。（2-4に進む前に、ノードが起動するまでしばらく待ちます）
-```console
-cd $NODE_HOME
-./relay-topology_pull.sh
-```
-ノード再起動
-```console
-sudo systemctl reload-or-restart cardano-node
-```
 
 <details>
 <summary>やっぱり最初からDNSベースで移設したい人（正式に動作するかは未検証）</summary>
@@ -186,6 +176,17 @@ Aレコードの変更が各ノードにいきわたるまでの時間が読め�
     ③手順2-14では、旧BPの情報はすでに新BPのものに置き換わっているので、特に操作の必要はない。    
 </div>
 </details>
+
+
+- relay-topology_pull.shを実行し、リレーノードを再起動します。（2-4に進む前に、ノードが起動するまでしばらく待ちます）
+```console
+cd $NODE_HOME
+./relay-topology_pull.sh
+```
+ノード再起動
+```console
+sudo systemctl reload-or-restart cardano-node
+```
     
 2-4. gLiveViewで新BPとリレーの双方向の疎通(I/O)ができているかを確認します。
 
