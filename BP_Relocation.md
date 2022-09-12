@@ -282,23 +282,29 @@ chmod a-rwx $HOME/cold-keys
 <div>
     
 新BPのノードを停止します。
+    
 `新BP`
 ```console
 sudo systemctl stop cardano-node
 ```
     
 新BPのノードが自動起動しないように設定します。また、新BPが絶対に起動しないように、コンソールで停止しておきます。
+
+`新BP`
 ```console
 sudo systemctl disable cardano-node
 ```
         
 旧BPをコンソールで起動し、自動起動する設定をします。
+    
 `旧BP`
 ```console
 sudo systemctl enable cardano-node
 ```
 
 旧BPのノードを起動します。
+    
+`旧BP`
  ```console
 sudo systemctl start cardano-node
 ```
