@@ -280,16 +280,17 @@ chmod a-rwx $HOME/cold-keys
 <details>
 <summary>何らかの事情で、旧BPを再稼働したい場合</summary>
 <div>
+    
 新BPのノードを停止します。
 ```console
 sudo systemctl stop cardano-node
 ```
-新BPのノードが自動起動しないように設定します。
+    
+新BPのノードが自動起動しないように設定します。また、新BPが絶対に起動しないように、コンソールで停止しておきます。
 ```console
 sudo systemctl disable cardano-node
 ```
-また、新BPが絶対に起動しないように、コンソールで停止しておきます。
-    
+        
 旧BPをコンソールで起動し、自動起動する設定をします。
 ```console
 sudo systemctl enable cardano-node
