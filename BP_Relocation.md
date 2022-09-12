@@ -139,7 +139,7 @@ sudo systemctl reload-or-restart cardano-node
 journalctl --unit=cardano-node --follow
 ```
 
-2-3. リレーの`relay-topology_pull.sh`の内容を旧BPのIPとPORTから新BPのIPとPORTへと変更します。また念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。（2-14で旧BPの情報を削除します）
+2-3. リレーの`relay-topology_pull.sh`の内容を旧BPのIPとPORTから新BPのIPとPORTへと変更します。なお、DNSベースではなくIPベースで入力することをお勧めします。また念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。（2-14で旧BPの情報を削除します）
 
 - 以下は、旧BPのパブリックIPとノードポートを新BPのパブリックIPとノードポートに書き換えてからコマンドを実行します。
 
@@ -159,7 +159,7 @@ DNSのAレコードの変更は数分～数日かかります。  2-14で書い�
 </details>
 
 <details>
-<summary>やっぱり最初からDNSベースで移設したい人（正式に動作するかは2022/09/12時点では未検証）</summary>
+<summary>それでもやっぱり最初からDNSベースで移設したい人はこちらをクリック（正式に動作するかは2022/09/12時点では未検証）</summary>
 
 <div>
 
