@@ -278,7 +278,7 @@ chmod a-rwx $HOME/cold-keys
 
 2-13. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得し、インスタンスは不要なので削除します。
 <details>
-<summary>何らかの事情で、旧BPを再稼働したい場合</summary>
+<summary>何らかの事情で、旧BPを再稼働したい場合(IP接続のとき）</summary>
 <div>
     
 新BPのノードを停止します。
