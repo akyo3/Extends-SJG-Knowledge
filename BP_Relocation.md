@@ -177,6 +177,20 @@ Aレコードの変更が各ノードにいきわたるまでの時間が読め�
 </div>
 </details>
 
+        
+`リレー`
+> 以下のコマンドは例なのでトポロジー共有している方は、ファイルのメモがある方かと思いますのでそちらを編集して実行してください。
+```console:relay-topology_pull.sh
+cat > $NODE_HOME/relay-topology_pull.sh << EOF
+#!/bin/bash
+BLOCKPRODUCING_IP=xxx.xxx.xxx
+BLOCKPRODUCING_PORT=6000
+PEERS=18
+curl -4 -s -o $NODE_HOME/${NODE_CONFIG}-topology.json "https://api.clio.one/htopology/v1/fetch/?max=\${PEERS}&customPeers=\${BLOCKPRODUCING_IP}:\${BLOCKPRODUCING_PORT}:1|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X"
+EOF
+```
+
+> 保存して閉じます。
 
 relay-topology_pull.shを実行し、リレーノードを再起動します。（2-4に進む前に、ノードが起動するまでしばらく待ちます）
 ```console
@@ -195,20 +209,6 @@ gLiveView確認
 cd $NODE_HOME/scripts
 ./gLiveView.sh
 ```
-    
-`リレー`
-> 以下のコマンドは例なのでトポロジー共有している方は、ファイルのメモがある方かと思いますのでそちらを編集して実行してください。
-```console:relay-topology_pull.sh
-cat > $NODE_HOME/relay-topology_pull.sh << EOF
-#!/bin/bash
-BLOCKPRODUCING_IP=xxx.xxx.xxx
-BLOCKPRODUCING_PORT=6000
-PEERS=18
-curl -4 -s -o $NODE_HOME/${NODE_CONFIG}-topology.json "https://api.clio.one/htopology/v1/fetch/?max=\${PEERS}&customPeers=\${BLOCKPRODUCING_IP}:\${BLOCKPRODUCING_PORT}:1|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X"
-EOF
-```
-
-> 保存して閉じます。
     
 2-4. gLiveViewで新BPとリレーの双方向の疎通(I/O)ができているかを確認します。
 
