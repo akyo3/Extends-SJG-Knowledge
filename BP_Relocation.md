@@ -214,14 +214,6 @@ gLiveView確認
 cd $NODE_HOME/scripts
 ./gLiveView.sh
 ```
-    
-2-4. gLiveViewで新BPとリレーの双方向の疎通(I/O)ができているかを確認します。
-
-gLiveView確認
-```console
-cd $NODE_HOME/scripts
-./gLiveView.sh
-```
 
 2-5. 新BPのキー設定を行う為、旧BPのノードを停止します。また、旧BPのノードが絶対に起動しないようにVPS管理コンソールからサーバーを停止しておきます。
 
