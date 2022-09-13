@@ -139,27 +139,11 @@ sudo systemctl reload-or-restart cardano-node
 journalctl --unit=cardano-node --follow
 ```
 
-2-3. リレーの`relay-topology_pull.sh`の内容を旧BPのIPとPORTから新BPのIPとPORTへと変更します。また念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。（2-14で旧BPの情報を削除します）
+2-3. リレーの`relay-topology_pull.sh`の内容を旧BPのIPとPORTから新BPのIPとPORTへと変更します。なお、DNSベースではなくIPベースで入力することをお勧めします。また念の為、新BPでブロック生成確認できるまで旧BPとの疎通を残しておきます。（2-14で旧BPの情報を削除します）
 
 - 以下は、旧BPのパブリックIPとノードポートを新BPのパブリックIPとノードポートに書き換えてからコマンドを実行します。
 
-なお、ご自身で`relay-topology_pull.sh`ファイルのメモがある場合はそちらを編集して実行してください。
-> IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加します。
-
-`リレー`
-> 以下のコマンドは例なのでトポロジー共有している方は、ファイルのメモがある方かと思いますのでそちらを編集して実行してください。
-```console:relay-topology_pull.sh
-cat > $NODE_HOME/relay-topology_pull.sh << EOF
-#!/bin/bash
-BLOCKPRODUCING_IP=xxx.xxx.xxx
-BLOCKPRODUCING_PORT=6000
-PEERS=18
-curl -4 -s -o $NODE_HOME/${NODE_CONFIG}-topology.json "https://api.clio.one/htopology/v1/fetch/?max=\${PEERS}&customPeers=\${BLOCKPRODUCING_IP}:\${BLOCKPRODUCING_PORT}:1|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X"
-EOF
-```
-
-> 保存して閉じます。
-
+    
 <details>
 <summary>DNSではなくIPで入力したほうがお勧めする理由</summary>
 
@@ -174,7 +158,46 @@ DNSのAレコードの変更は数分～数日かかります。  2-14で書い�
 </div>
 </details>
 
-- relay-topology_pull.shを実行し、リレーノードを再起動します。（2-4に進む前に、ノードが起動するまでしばらく待ちます）
+<details>
+<summary>（20220913追記:現時点では未検証）それでもやっぱり最初からDNSベースで移設したい人はこちらをクリック</summary>
+
+<div>
+
+IPベースよりも多少リスクがありますが、DNSベースのほうが手順は最小限で済みます。
+リスクというのは、Aレコードの変更が各ノードにいきわたるまでの時間が読めない（最小で数分～最大で数日かかる）ため、
+複数リレーノードを起動している方、もしくはブロック生成スケジュールに相当余裕がある方向けです。
+    
+- 現在Aレコードの割り当てをしているサーバーで、割り当てIPを新BPのIPに変更する。
+- 以下、留意事項
+    
+    ①手順2-3では、BLOCKPRODUSING_PORTの値だけを新BPのものに変更するだけで良い。
+    
+    ②手順2-13で旧BPを再稼働したい場合は、再度Aレコードを旧BPのIPにする。（反映されるまでに最大で数日かかる）
+    
+    ③手順2-14では、旧BPの情報はすでに新BPのものに置き換わっているので、特に操作の必要はない。    
+    
+</div>
+</details>
+    
+なお、ご自身で`relay-topology_pull.sh`ファイルのメモがある場合はそちらを編集して実行してください。
+> IOHKノード情報の後に "|" で区切って旧BPの「IPアドレス:ポート番号:Valency の形式」で追加します。
+
+
+        
+`リレー`
+```console:relay-topology_pull.sh
+cat > $NODE_HOME/relay-topology_pull.sh << EOF
+#!/bin/bash
+BLOCKPRODUCING_IP=xxx.xxx.xxx
+BLOCKPRODUCING_PORT=6000
+PEERS=18
+curl -4 -s -o $NODE_HOME/${NODE_CONFIG}-topology.json "https://api.clio.one/htopology/v1/fetch/?max=\${PEERS}&customPeers=\${BLOCKPRODUCING_IP}:\${BLOCKPRODUCING_PORT}:1|relays-new.cardano-mainnet.iohk.io:3001:2|relay1-eu.xstakepool.com:3001:1|00.000.000.00:3001:1|aaa.aaa.aaa.aaa:XXXX:X"
+EOF
+```
+
+> 保存して閉じます。
+
+relay-topology_pull.shを実行し、リレーノードを再起動します。（2-4に進む前に、ノードが起動するまでしばらく待ちます）
 ```console
 cd $NODE_HOME
 ./relay-topology_pull.sh
@@ -183,7 +206,7 @@ cd $NODE_HOME
 ```console
 sudo systemctl reload-or-restart cardano-node
 ```
-
+    
 2-4. gLiveViewで新BPとリレーの双方向の疎通(I/O)ができているかを確認します。
 
 gLiveView確認
@@ -196,9 +219,10 @@ cd $NODE_HOME/scripts
 
 `旧BP`
 
-ノードを停止します。
+ノードを停止します。また、次の作業でサーバーを停止しますが、万が一サーバーが再起動してしまった際も考慮し、自動起動をオフにしておきます。
 ```console
 sudo systemctl stop cardano-node
+sudo systemctl disable cardano-node
 ```
 > 旧BPのノードが絶対に起動しないようにVPS管理コンソールからサーバーを停止しておいてください。
 
@@ -220,6 +244,7 @@ sudo systemctl stop cardano-node
 | startBlockProducingNode.sh | ノード起動スクリプト |
 > その他のファイルを移動するならしておいてください。過去のブロック生成履歴については、後々ステークプールブロックログ導入手順の途中( [過去のブロック生成実績取得](https://docs.spojapanguild.net/setup/10-blocklog-setup/#10-6) )で取得できます。
 
+> （20220913追記:現時点では未検証）`guil-db``script`の両フォルダも、旧BPからまるごとコピーすると手順2-11,2-12が不要になります。※一度Aichiがそのうち試してみるので、まだ実行はお控えください。
 
 `新BP`
 
@@ -276,7 +301,40 @@ chmod a-rwx $HOME/cold-keys
 - [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
 
 2-13. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得し、インスタンスは不要なので削除します。
+<details>
+<summary>何らかの事情で、旧BPを再稼働したい場合(IP接続のとき）</summary>
+<div>
+    
+新BPのノードを停止します。
+    
+`新BP`
+```console
+sudo systemctl stop cardano-node
+```
+    
+新BPのノードが自動起動しないように設定します。また、新BPが絶対に起動しないように、コンソールで停止しておきます。
 
+`新BP`
+```console
+sudo systemctl disable cardano-node
+```
+        
+旧BPをコンソールで起動し、自動起動する設定をします。
+    
+`旧BP`
+```console
+sudo systemctl enable cardano-node
+```
+
+旧BPのノードを起動します。
+    
+`旧BP`
+ ```console
+sudo systemctl start cardano-node
+```
+    
+</div>
+</details>
 2-14. リレーにて`relay-topology_pull.sh`に設定している旧BPの情報を削除した後、トポロジーファイルの更新をし、ノード再起動します。
 
 `リレー`
