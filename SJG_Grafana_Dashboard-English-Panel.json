@@ -7,6 +7,14 @@
       "type": "datasource",
       "pluginId": "prometheus",
       "pluginName": "Prometheus"
+    },
+    {
+      "name": "DS_INFINITY",
+      "label": "Infinity",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "yesoreyeram-infinity-datasource",
+      "pluginName": "Infinity"
     }
   ],
   "__elements": {},
@@ -21,7 +29,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "9.1.4"
+      "version": "9.1.5"
     },
     {
       "type": "datasource",
@@ -46,6 +54,12 @@
       "id": "timeseries",
       "name": "Time series",
       "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "yesoreyeram-infinity-datasource",
+      "name": "Infinity",
+      "version": "1.0.0"
     }
   ],
   "annotations": {
@@ -83,8 +97,8 @@
         "uid": "${DS_PROMETHEUS}"
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 7,
+        "w": 3,
         "x": 0,
         "y": 0
       },
@@ -93,7 +107,7 @@
         "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://user-images.githubusercontent.com/80967103/177022216-2ef7792b-686e-4110-b001-b6282e4bfa20.png\"></a><br>\n<img width=\"20px\" src=\"https://www.lvlup-stakepool.com/images/adapool.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -139,9 +153,9 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 3,
-        "x": 4,
+        "x": 3,
         "y": 0
       },
       "id": 114,
@@ -160,7 +174,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -175,6 +189,89 @@
         }
       ],
       "title": "Minted blocks",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 6,
+        "y": 0
+      },
+      "id": 129,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "block_count",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"ur pool bech32\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Total Block Count",
       "type": "stat"
     },
     {
@@ -210,17 +307,17 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 3,
-        "x": 7,
+        "x": 9,
         "y": 0
       },
       "id": 98,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "center",
-        "orientation": "horizontal",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -231,7 +328,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -273,6 +370,152 @@
       },
       "fieldConfig": {
         "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 93,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-red",
+                "value": 5
+              },
+              {
+                "color": "light-yellow",
+                "value": 30
+              },
+              {
+                "color": "semi-dark-green",
+                "value": 46
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 9,
+        "x": 12,
+        "y": 0
+      },
+      "id": 108,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "(cardano_node_metrics_remainingKESPeriods_int * 1.5)",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "KES remaining days",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "(startKesPeriod)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 4,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 113,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_slotNum_int{instance=\"localhost:12798\"} / 129600",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Change kes timing",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -300,9 +543,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 10,
-        "y": 0
+        "w": 9,
+        "x": 12,
+        "y": 4
       },
       "id": 97,
       "options": {
@@ -320,7 +563,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -390,96 +633,12 @@
       },
       "fieldConfig": {
         "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "max": 93,
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "semi-dark-red",
-                "value": null
-              },
-              {
-                "color": "semi-dark-red",
-                "value": 5
-              },
-              {
-                "color": "light-yellow",
-                "value": 30
-              },
-              {
-                "color": "semi-dark-green",
-                "value": 46
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 14,
-        "y": 0
-      },
-      "id": 108,
-      "options": {
-        "displayMode": "lcd",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": true,
-        "text": {}
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "(cardano_node_metrics_remainingKESPeriods_int * 1.5)",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "KES remaining days",
-      "type": "bargauge"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "(startKesPeriod)",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 4,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-green",
+                "color": "green",
                 "value": null
               }
             ]
@@ -489,206 +648,9 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 3,
+        "w": 2,
         "x": 21,
-        "y": 0
-      },
-      "id": 113,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_slotNum_int{instance=\"localhost:12798\"} / 129600",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Change kes timing",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■ブロック受信までの時間：ブロックがミントされるべきだった時から、ローカルのリレーがブロックを受信するまでの遅延を推定した時間。この指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 10,
-        "y": 3
-      },
-      "id": 120,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "vertical",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_s",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Time to receive block",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■5秒以上後に到着したブロックの追跡：ミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 14,
-        "y": 3
-      },
-      "id": 121,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_lateblocks",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "Tracking of arriving blocks(5 sec or more)",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 21,
-        "y": 3
+        "y": 4
       },
       "id": 105,
       "options": {
@@ -706,7 +668,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -724,6 +686,312 @@
         }
       ],
       "title": "Txs processed",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 1,
+        "x": 23,
+        "y": 4
+      },
+      "id": 126,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "none",
+            "data": "{\"_pool_bech32_ids\":[\"ur pool bech32\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Node Counter",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "yellow",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 0,
+        "y": 7
+      },
+      "id": 131,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "meta_json.ticker",
+              "text": "",
+              "type": "string"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "none",
+            "data": "{\"_pool_bech32_ids\":[\"ur pool bech32\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Ticker",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 3,
+        "y": 7
+      },
+      "id": 128,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "Live Stake",
+          "root_selector": "",
+          "source": "url",
+          "type": "uql",
+          "uql": "parse-json | project \" \"=div(\"live_stake\",1000000)",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"ur pool bech32\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        },
+        {
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "refId": "Active Stake",
+          "root_selector": "",
+          "source": "url",
+          "type": "uql",
+          "uql": "parse-json | project \" \"=div(\"active_stake\",1000000)",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"ur pool bech32\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Stake",
       "type": "stat"
     },
     {
@@ -752,10 +1020,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 0,
-        "y": 6
+        "h": 4,
+        "w": 6,
+        "x": 9,
+        "y": 7
       },
       "id": 117,
       "options": {
@@ -772,7 +1040,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -819,10 +1087,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 7,
-        "y": 6
+        "h": 4,
+        "w": 6,
+        "x": 15,
+        "y": 7
       },
       "id": 118,
       "options": {
@@ -839,7 +1107,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -858,6 +1126,168 @@
         }
       ],
       "title": "within 3 sec, Approximate estimate of blocks downloaded",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■5秒以上後に到着したブロックの追跡：ミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 7
+      },
+      "id": 121,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_lateblocks",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Tracking of arriving blocks(5 sec or more)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-blue",
+                "value": 50
+              },
+              {
+                "color": "blue",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 3,
+        "y": 11
+      },
+      "id": 130,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "live_delegators",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"ur pool bech32\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Live Delegators",
       "type": "stat"
     },
     {
@@ -886,10 +1316,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 14,
-        "y": 6
+        "h": 4,
+        "w": 6,
+        "x": 9,
+        "y": 11
       },
       "id": 119,
       "options": {
@@ -906,7 +1336,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -925,6 +1355,74 @@
         }
       ],
       "title": "within 5 sec, Approximate estimate of blocks downloaded",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■ブロック受信までの時間：ブロックがミントされるべきだった時から、ローカルのリレーがブロックを受信するまでの遅延を推定した時間。この指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 15,
+        "y": 11
+      },
+      "id": 120,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.5",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_s",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Time to receive block",
       "type": "stat"
     },
     {
@@ -951,10 +1449,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 3,
         "x": 21,
-        "y": 6
+        "y": 11
       },
       "id": 106,
       "options": {
@@ -972,7 +1470,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1022,7 +1520,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 15
       },
       "id": 101,
       "options": {
@@ -1039,7 +1537,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1086,7 +1584,7 @@
         "h": 11,
         "w": 3,
         "x": 0,
-        "y": 13
+        "y": 19
       },
       "id": 104,
       "options": {
@@ -1104,7 +1602,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1187,7 +1685,7 @@
         "h": 11,
         "w": 18,
         "x": 3,
-        "y": 13
+        "y": 19
       },
       "id": 46,
       "options": {
@@ -1253,7 +1751,7 @@
         "h": 11,
         "w": 3,
         "x": 21,
-        "y": 13
+        "y": 19
       },
       "id": 124,
       "options": {
@@ -1271,7 +1769,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1324,7 +1822,7 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 24
+        "y": 30
       },
       "id": 123,
       "options": {
@@ -1341,7 +1839,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1426,7 +1924,7 @@
         "h": 12,
         "w": 9,
         "x": 3,
-        "y": 24
+        "y": 30
       },
       "id": 50,
       "options": {
@@ -1529,7 +2027,7 @@
         "h": 12,
         "w": 9,
         "x": 12,
-        "y": 24
+        "y": 30
       },
       "id": 111,
       "options": {
@@ -1602,7 +2100,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 24
+        "y": 30
       },
       "id": 96,
       "options": {
@@ -1619,7 +2117,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1670,14 +2168,14 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 30
+        "y": 36
       },
       "id": 122,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
+        "graphMode": "area",
         "justifyMode": "auto",
-        "orientation": "auto",
+        "orientation": "vertical",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1688,7 +2186,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1746,7 +2244,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 30
+        "y": 36
       },
       "id": 103,
       "options": {
@@ -1763,7 +2261,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.1.5",
       "targets": [
         {
           "datasource": {
@@ -1841,7 +2339,7 @@
         "h": 11,
         "w": 8,
         "x": 0,
-        "y": 36
+        "y": 42
       },
       "id": 116,
       "options": {
@@ -1939,7 +2437,7 @@
         "h": 11,
         "w": 8,
         "x": 8,
-        "y": 36
+        "y": 42
       },
       "id": 94,
       "options": {
@@ -2033,7 +2531,7 @@
         "h": 11,
         "w": 8,
         "x": 16,
-        "y": 36
+        "y": 42
       },
       "id": 115,
       "options": {
@@ -2145,7 +2643,7 @@
         "h": 24,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 53
       },
       "id": 70,
       "options": {
@@ -2273,7 +2771,7 @@
         "h": 24,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 53
       },
       "id": 64,
       "options": {
@@ -2358,6 +2856,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 1,
+  "version": 13,
   "weekStart": ""
 }
