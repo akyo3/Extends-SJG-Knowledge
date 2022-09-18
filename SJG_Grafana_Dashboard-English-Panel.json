@@ -409,7 +409,7 @@
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"pool1jsxk3ymqv2gdc6mhqk52544g2aun4zhq5wgx6n32l5s3jlne70n\"]}",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
                 "key": "Accept",
@@ -759,7 +759,7 @@
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "none",
-            "data": "{\"_pool_bech32_ids\":[\"pool1jsxk3ymqv2gdc6mhqk52544g2aun4zhq5wgx6n32l5s3jlne70n\"]}",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
                 "key": "Accept",
@@ -907,7 +907,7 @@
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "none",
-            "data": "{\"_pool_bech32_ids\":[\"pool1jsxk3ymqv2gdc6mhqk52544g2aun4zhq5wgx6n32l5s3jlne70n\"]}",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
                 "key": "Accept",
@@ -1266,7 +1266,7 @@
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"pool1jsxk3ymqv2gdc6mhqk52544g2aun4zhq5wgx6n32l5s3jlne70n\"]}",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
                 "key": "Accept",
@@ -1358,7 +1358,7 @@
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"pool1jsxk3ymqv2gdc6mhqk52544g2aun4zhq5wgx6n32l5s3jlne70n\"]}",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
                 "key": "Accept",
@@ -1453,7 +1453,7 @@
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"pool1jsxk3ymqv2gdc6mhqk52544g2aun4zhq5wgx6n32l5s3jlne70n\"]}",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
                 "key": "Accept",
@@ -1544,7 +1544,7 @@
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"pool1jsxk3ymqv2gdc6mhqk52544g2aun4zhq5wgx6n32l5s3jlne70n\"]}",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
                 "key": "Accept",
