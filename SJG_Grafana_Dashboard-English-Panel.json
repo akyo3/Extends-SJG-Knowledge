@@ -414,6 +414,10 @@
               {
                 "key": "Accept",
                 "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
               }
             ],
             "method": "POST"
@@ -906,7 +910,7 @@
           "url": "https://api.koios.rest/api/v0/pool_info",
           "url_options": {
             "body_content_type": "application/json",
-            "body_type": "none",
+            "body_type": "raw",
             "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
             "headers": [
               {
@@ -3061,6 +3065,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 28,
+  "version": 29,
   "weekStart": ""
 }
