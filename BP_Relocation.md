@@ -285,7 +285,7 @@ cardano-cli query protocol-parameters \
     --out-file params.json
 ```
 
-2-10. エアギャップマシンにて`stakepoolid_bech32.txt`と`stakepoolid_hex.txt`を生成し、新BPのcnodeディレクトリにコピーします。
+2-10. エアギャップマシンにて`stakepoolid_bech32.txt`と`stakepoolid_hex.txt`を生成し、新BPのcnodeディレクトリにコピーします。（旧BP内の該当ファイルのコピーでも良いです）
 
 `エアギャップマシン`
 ```console
