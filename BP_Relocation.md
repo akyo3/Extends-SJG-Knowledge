@@ -134,6 +134,8 @@ DIRECTORY=/home/<new_user_name>/cnode
 sed -i $NODE_HOME/scripts/env \
     -e '1,73s!#UPDATE_CHECK="Y"!UPDATE_CHECK="N"!'
 ```
+> （20220913追記）envファイルは旧BPからそのままコピーして新BPに移動してもかまいません。その場合は、以後の流れの中でenvファイルのsedコマンドを用いた置換が必要なくなります。
+    
 2-2. 旧BPのcnodeディレクトリにある`mainnet-topology.json`、`mainnet-config.json`を新BPのcnodeディレクトリにコピーし、新BPのノードを再起動します。
 
 `新BP`
