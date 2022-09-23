@@ -126,6 +126,11 @@ DIRECTORY=/home/<new_user_name>/cnode
 2-1. [Cabal/GHCインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-1-cabalghc) 〜
 [gLiveViewのインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-7-gliveview)まで実施します。
 
+- envファイルのupdatecheckをNにしておきます。
+```console
+sed -i $NODE_HOME/scripts/env \
+    -e '1,73s!#UPDATE_CHECK="Y"!UPDATE_CHECK="N"!'
+```
 2-2. 旧BPのcnodeディレクトリにある`mainnet-topology.json`、`mainnet-config.json`を新BPのcnodeディレクトリにコピーし、新BPのノードを再起動します。
 
 `新BP`
