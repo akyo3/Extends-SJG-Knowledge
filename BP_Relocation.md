@@ -254,8 +254,6 @@ sudo systemctl disable cardano-node
 | startBlockProducingNode.sh | ノード起動スクリプト |
 > その他のファイルを移動するならしておいてください。過去のブロック生成履歴については、後々ステークプールブロックログ導入手順の途中( [過去のブロック生成実績取得](https://docs.spojapanguild.net/setup/10-blocklog-setup/#10-6) )で取得できます。
 
-> （20220913追記:現時点では未検証）`guild-db`のフォルダも、旧BPからまるごとコピーすると手順2-11のcncliの同期がスムーズになります。※一度Aichiがそのうち試してみるので、まだ実行はお控えください。
-
 `新BP`
 
 2-6. VRFキーのパーミッションを変更します。
@@ -307,6 +305,8 @@ chmod a-rwx $HOME/cold-keys
 
 - [ステークプールブロックログ導入手順](https://docs.spojapanguild.net/setup/10-blocklog-setup/)
 
+> （20220913追記:Aichiが検証済）`guild-db`のフォルダも、旧BPからまるごとコピーすると手順2-11のcncliの同期が一瞬で終わります。ただし`guild-db`のフォルダのコピー自体が時間がかかりました。日本から近いロケーションのときのみに限ったほうが良いかもしれません。
+    
 2-12. ブロックが生成できる状態にあるかどうか、`SPO JAPAN GUILD TOOL`でチェックします。
 
 - [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
