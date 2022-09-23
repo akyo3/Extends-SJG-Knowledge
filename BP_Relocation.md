@@ -127,7 +127,7 @@ DIRECTORY=/home/<new_user_name>/cnode
 [gLiveViewのインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-7-gliveview)まで実施します。
 
 - ノードの同期は通常２～３日かかります。
-  [RSYNC+SSH]を応用(https://docs.spojapanguild.net/operation/node-update/#3rsyncssh)して、近くのロケーション（地理的位置）にあるdbフォルダをコピーすると早く終わります。
+  [RSYNC+SSHを応用](https://docs.spojapanguild.net/operation/node-update/#3rsyncssh)して、近くのロケーション（地理的位置）にあるdbフォルダをコピーすると早く終わります。
     
 - gLiveViewインストール後、envファイルのupdatecheckをNにしておきます。
 ```console
