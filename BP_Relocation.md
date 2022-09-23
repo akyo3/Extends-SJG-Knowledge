@@ -246,7 +246,7 @@ sudo systemctl disable cardano-node
 | startBlockProducingNode.sh | ノード起動スクリプト |
 > その他のファイルを移動するならしておいてください。過去のブロック生成履歴については、後々ステークプールブロックログ導入手順の途中( [過去のブロック生成実績取得](https://docs.spojapanguild.net/setup/10-blocklog-setup/#10-6) )で取得できます。
 
-> （20220913追記:現時点では未検証）`guild-db`と`script`の両フォルダも、旧BPからまるごとコピーすると手順2-11,2-12が不要になります。※一度Aichiがそのうち試してみるので、まだ実行はお控えください。
+> （20220913追記:現時点では未検証）`guild-db`と`script`の両フォルダも、旧BPからまるごとコピーすると手順cncliの同期がスムーズになります。※一度Aichiがそのうち試してみるので、まだ実行はお控えください。
 
 `新BP`
 
