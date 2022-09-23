@@ -252,7 +252,8 @@ sudo systemctl disable cardano-node
 
 2-6. VRFキーのパーミッションを変更します。
 ```console
-chmod 400 vrf.skey
+cd $NODE_HOME
+    chmod 400 vrf.skey
 chmod 400 vrf.vkey
 chmod +x startBlockProducingNode.sh
 ```
