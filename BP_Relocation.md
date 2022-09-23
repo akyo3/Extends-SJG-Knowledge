@@ -126,7 +126,10 @@ DIRECTORY=/home/<new_user_name>/cnode
 2-1. [Cabal/GHCインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-1-cabalghc) 〜
 [gLiveViewのインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-7-gliveview)まで実施します。
 
-- envファイルのupdatecheckをNにしておきます。
+- ノードの同期は通常２～３日かかります。
+  RSYNC+SSHを応用([https://docs.spojapanguild.net/operation/node-update/#3rsyncssh])して、近くのロケーション（地理的位置）にあるdbフォルダをコピーすると早く終わります。
+    
+- gLiveViewインストール後、envファイルのupdatecheckをNにしておきます。
 ```console
 sed -i $NODE_HOME/scripts/env \
     -e '1,73s!#UPDATE_CHECK="Y"!UPDATE_CHECK="N"!'
