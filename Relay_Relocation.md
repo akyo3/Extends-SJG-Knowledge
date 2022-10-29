@@ -76,7 +76,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　nslookup <DNS>
 ```
 　このコマンドでで表示された結果が新RelayのIPになっていれば、反映されている。
-- [Cexplorer.io](https://cexplorer.io/)の反映はさらに最大半日ほどかかる。
+- [Cexplorer.io](https://cexplorer.io/)の反映はさらに最大１日程度かかる。
 
 ## 6.旧Relayのノードを停止する。
 - これによりトポロジー設定は４時間に自動削除されます。これをしないと手順７でtopologyUpdater.shの戻り値で競合エラーが起こる。
