@@ -15,10 +15,10 @@ sudo ufw allow from <NEW_RELAY_IP> to any port <BP_PORT>
 - 以下のファイルは同階層に旧RelayからコピーすればOK。
 mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の必要もありません。
 
-| cnode内  |
-| ------------- |
-| mainnet-byron-genesis.json  |
-| mainnet-topology.jsonl  |
+| cnode内  | cnode/scripts内 |
+| ------------- | ------------- |
+| mainnet-byron-genesis.json  | gLiveView.sh  |
+| mainnet-topology.jsonl  | env  |
 | mainnet-shelley-genesis.json  |
 | mainnet-alonzo-genesis.json  |
 | mainnet-config.json  |
