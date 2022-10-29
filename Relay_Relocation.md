@@ -23,18 +23,16 @@ mainnet-alonzo-genesis.json
 mainnet-config.json
 relay-topology_pull.sh
 topologyUpdater.sh
-| ファイル名 | 用途 |
+| ファイル名 |
 :----|:----
-| vrf.skey | ブロック生成に必須 |
-| vrf.vkey | ブロック生成に必須 |
-| kes.skey | ブロック生成に必須 |
-| kes.vkey | KES公開鍵 |
-| node.cert | ブロック生成に必須 |
-| payment.addr | 残高確認で必要 |
-| stake.addr | 残高確認で必要 |
-| poolMetaData.json | pool.cert作成時に必要 |
-| poolMetaDataHash.txt | pool.cert作成時に必要 |
-| startBlockProducingNode.sh | ノード起動スクリプト |
+| vrf.skey |
+| vrf.vkey |
+| kes.skey |
+| kes.vkey |
+| node.cert |
+| payment.addr |
+| stake.addr |
+
 
 script内
 gLiveView.sh
