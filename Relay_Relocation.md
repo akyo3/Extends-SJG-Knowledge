@@ -66,10 +66,8 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 ```
 　このコマンドでで表示された結果が新RelayのIPになっていれば、反映されている。
 
-## 6.新RelayのgLiveViewにて、BPからの疎通確認をする。
+## 6.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
 - 疎通がない場合は以下の項目を確認
-  
-　まずはBPを再起動してみる。これでも治らなかったら
   
 　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
   ＝　リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
