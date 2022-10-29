@@ -28,9 +28,9 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 ## 3.ブロックチェーンが同期されるのを待つ。２日～３日程度必要。
 - できる人は、旧Relayや近くのロケーションのサーバーからrsinc+sshでdbフォルダを送ると待つ必要が無くなる。
 
-事前設定https://docs.spojapanguild.net/operation/rsync-ssh/
+　事前設定https://docs.spojapanguild.net/operation/rsync-ssh/
 
-実際のコマンドhttps://docs.spojapanguild.net/operation/node-update/#3rsyncssh
+　実際のコマンドhttps://docs.spojapanguild.net/operation/node-update/#3rsyncssh
 
 ## 4.BPのgLiveViewにて、新Relayからの疎通確認をする。
 - ３が完了していなければ疎通が行われない。
@@ -42,8 +42,9 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　となっているか
 
 - 疎通確認コマンド
-　リレーにて
-　nc -vz <BPIP> xxxxx
+```Relay
+　nc -vz <BP-IP> xxxxx
+```
 　xxxxxは、BPノードポート番号を入力します。<>は無しで入力。例：nc -vz 111.111.111.111 54321
 　port [tcp/*] succeeded! であればOKです。　
 　また、BPからリレーでも同じコマンドを行う。
