@@ -35,33 +35,50 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 ## 4.BPのgLiveViewにて、新Relayからの疎通確認をする。
 - ３が完了していなければ疎通が行われない。
 - 疎通がない場合は以下の項目を確認
+- 
 　BPのファイアーウォール許可設定に新RelayのIP/ポート番号が含まれているか
+ 
 　新Relayの$NODE_HOME/relay-topology_pull.shのポート番号
+ 
 　＝　新Relayのcat $NODE_HOME/mainnet-topology.jsonのポート番号
+ 
 　＝　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
+ 
 　となっているか
 
 - 疎通確認コマンド
-```Relay
+`新Relay`
+```
 　nc -vz <BP-IP> xxxxx
 ```
-　xxxxxは、BPノードポート番号を入力します。<>は無しで入力。例：nc -vz 111.111.111.111 54321
+　xxxxxは、BPノードポート番号を入力します。<>は無しで入力。
+ 
+  例：nc -vz 111.111.111.111 54321
+  
 　port [tcp/*] succeeded! であればOKです。　
 　また、BPからリレーでも同じコマンドを行う。
 
 ## 5.DNSサーバーにてAレコードの割り当て変更を行う。割り当て変更の反映には数分～数日（とはいっても、おそらく６時間以内には反映される）かかる。
 - 割り当て変更が反映されたかの確認をするには
-　BPにて
+`BP`
+```
 　nslookup <DNS>
-　で表示された結果が新RelayのIPになっていれば、反映されている。
+```
+　このコマンドでで表示された結果が新RelayのIPになっていれば、反映されている。
 
 ## 6.新RelayのgLiveViewにて、BPからの疎通確認をする。
 - 疎通がない場合は以下の項目を確認
+  
 　まずはBPを再起動してみる。これでも治らなかったら
+  
 　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
+  
 　＝　リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
+  
 　＝　リレーで$NODE_HOME/relay-topology_pull.shのポート番号
+  
 　＝　新Relayのファイアーウォール許可設定の番号
+  
 　となっているかを確認する。
 
 ## 7.監視ツールセットアップを行う。
