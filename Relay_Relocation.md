@@ -15,7 +15,7 @@ sudo ufw allow from <NEW_RELAY_IP> to any port <BP_PORT>
 - 以下のファイルは同階層に旧RelayからコピーすればOK。
 mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の必要もありません。
 
-| cnode内  | cnode/scripts内 |
+| cnodeにコピー  | cnode/scriptsにコピー |
 | ------------- | ------------- |
 | mainnet-byron-genesis.json  | gLiveView.sh  |
 | mainnet-topology.jsonl  | env  |
@@ -24,10 +24,6 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 | mainnet-config.json  |
 | relay-topology_pull.sh  |
 | topologyUpdater.sh  |
-
-script内
-gLiveView.sh
-env
 
 ## 3.ブロックチェーンが同期されるのを待つ。２日～３日程度必要。
 - できる人は、旧Relayや近くのロケーションのサーバーからrsinc+sshでdbフォルダを送ると待つ必要が無くなる。
