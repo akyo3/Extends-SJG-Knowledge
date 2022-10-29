@@ -6,12 +6,14 @@
 リレーが１基のみの場合のリレーノードの移行は、IPベースで行うことを推奨します。
 
 ## 1.ubuntu初期設定を行う。
-- アカウント名は旧Relayと極力同じにする。同じでない場合は２の※にて、ファイルパスが異なるので旧Relayからコピーせずにファイルをダウンロード→sed置換でOK
+- https://docs.spojapanguild.net/setup/1-ubuntu-setup/
+- アカウント名・ノードのポート番号（sshログインポート番号ではなく、startRelayNode1.shに入力している番号）は旧Relayと極力同じにする。同じでない場合は２の※にて、ファイルパスや内容が異なるので旧Relayからコピーせずにファイルをダウンロード→sed置換でOK
 - ファイアーウォール設定は、旧Relayと同じで良い。
 - 旧RelayとつないでいるBPのファイアーウォールに新Relayを追加する。
 sudo ufw allow from <NEW_RELAY_IP> to any port <BP_PORT>
 
 ## 2．ノードインストールを行う。
+- https://docs.spojapanguild.net/setup/2-node-setup/
 - 「2-7. gLiveViewのインストール」まででOK。「2-8. エアギャップオフラインマシンの作成」は不要。
 - 以下のファイルは同階層に旧RelayからコピーすればOK。
 mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の必要もありません。
@@ -19,7 +21,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 | cnodeにコピー  | cnode/scriptsにコピー |
 | ------------- | ------------- |
 | mainnet-byron-genesis.json  | gLiveView.sh  |
-| mainnet-topology.jsonl  | env  |
+| mainnet-topology.json  | env  |
 | mainnet-shelley-genesis.json  |
 | mainnet-alonzo-genesis.json  |
 | mainnet-config.json  |
@@ -71,7 +73,11 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 ```
 　このコマンドでで表示された結果が新RelayのIPになっていれば、反映されている。
 
-## 6.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
+## 6.P2Pトポロジー設定を行う。
+- https://docs.spojapanguild.net/setup/8.topology-setup/
+- 旧Relayのトポロジー設定は消えるのに４時間かかる反面、新Relayのトポロジー設定が登録されるのに４時間かかります。
+
+## 7.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
 - 疎通がない場合は以下の番号がすべて等しいか確認する。
  
 　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
@@ -83,9 +89,9 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
   新Relayのファイアーウォール許可設定の番号
   
 
-## 7.旧Relayのノードを停止する。その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
+## 8.旧Relayのノードを停止する。その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
 
-## 8.監視ツールセットアップを行う。
+## 9.監視ツールセットアップを行う。
 https://docs.spojapanguild.net/setup/9-monitoring-tools-setup/#2-4
 - Grafanaの表示は７を終えれば正しく表示されるようになる。ただししばらくは旧Relayの情報が残る。
 - 時間がたてば新Relayの情報だけを参照できるようになる。
