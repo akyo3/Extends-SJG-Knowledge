@@ -75,8 +75,19 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 
 ## 6.P2Pトポロジー設定を行う。
 - https://docs.spojapanguild.net/setup/8.topology-setup/
-- 旧Relayのトポロジー設定は消えるのに４時間かかる反面、新Relayのトポロジー設定が登録されるのに４時間かかります。
-
+- 旧Relayのトポロジー設定は４時間に自動削除されます。
+- 新Relayのトポロジー設定が登録されるのに４時間かかります。（旧Relayの削除と同時並行）
+- ４時間後に以下の戻り値が最終行に表示されているかどうか確認する。
+```
+cd $NODE_HOME/logs
+cat topologyUpdater_lastresult.json
+```
+戻り値
+```
+{ "resultcode": "201", "datetime":"2021-01-10 18:30:06", "clientIp": "000.000.000.000", "iptype": 4, "msg": "nice to meet you" }
+{ "resultcode": "203", "datetime":"2021-01-10 19:30:03", "clientIp": "000.000.000.000", "iptype": 4, "msg": "welcome to the topology" }
+{ "resultcode": "204", "datetime":"2021-01-10 20:30:04", "clientIp": "000.000.000.000", "iptype": 4, "msg": "glad you're staying with us" }
+```
 ## 7.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
 - 疎通がない場合は以下の番号がすべて等しいか確認する。
  
