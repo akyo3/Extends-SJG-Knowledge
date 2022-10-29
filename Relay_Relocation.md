@@ -28,6 +28,8 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 | relay-topology_pull.sh  |
 | topologyUpdater.sh  |
 
+- IPベースの場合はmainnet-topology.json,relay-topology_pull.shの内容を新しいIPに変更する。
+
 ## 3.ブロックチェーンが同期されるのを待つ。２日～３日程度必要。
 - できる人は、旧Relayや近くのロケーションのサーバーからrsinc+sshでdbフォルダを送ると待つ必要が無くなる。
 
@@ -54,17 +56,18 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 
 `新Relay`
 ```
-　nc -vz <BP-IP> xxxxx
+　nc -vz <BP-DNSorIP> xxxxx
 ```
 　xxxxxは、BPノードポート番号を入力します。<>は無しで入力。
  
-  例：nc -vz 111.111.111.111 54321
+  例：nc -vz xxxx.com 54321
   
 　succeeded! と表示されればOKです。　
 
 
 ## 5.DNSサーバーにてAレコードの割り当て変更を行う。
 - 割り当て変更の反映には数分～数日（とはいっても、おそらく６時間以内には反映される）かかる。
+- IPベースの場合はこの手順はスキップする。
 - 割り当て変更が反映されたかの確認をするには
 
 `BP`
@@ -112,11 +115,11 @@ cat topologyUpdater_lastresult.json
 
 `BP`
 ```
-nc -vz <NEW-Relay-IP> xxxxx
+nc -vz <NEW-Relay-DNSorIP> xxxxx
 ```
 　xxxxxは、新リレーのポート番号を入力します。<>は無しで入力。
 
-　例：nc -vz 111.111.111.111 54321
+　例：nc -vz xxxx.com 54321
 
 　succeeded! と表示されればOKです。
  
