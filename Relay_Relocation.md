@@ -35,7 +35,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 ## 4.BPのgLiveViewにて、新Relayからの疎通確認をする。
 - ３が完了していなければ疎通が行われない。
 - 疎通がない場合は以下の項目を確認
-- 
+
 　BPのファイアーウォール許可設定に新RelayのIP/ポート番号が含まれているか
  
 　新Relayの$NODE_HOME/relay-topology_pull.shのポート番号
