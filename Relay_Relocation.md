@@ -44,11 +44,11 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　
 　以下の番号がすべて等しいか確認
  
-　新Relayの$NODE_HOME/relay-topology_pull.shのポート番号
+　　　新Relayの$NODE_HOME/relay-topology_pull.shのポート番号
 
-　新Relayのcat $NODE_HOME/mainnet-topology.jsonのポート番号
+　　　新Relayのcat $NODE_HOME/mainnet-topology.jsonのポート番号
 
-　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
+　　　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
 
 - gLiveViewを用いない疎通確認コマンド
 
@@ -80,13 +80,13 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 ## 7.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
 - 疎通がない場合は以下の番号がすべて等しいか確認する。
  
-　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
+　　　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
   
-  リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
+  　　リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
   
-  リレーで$NODE_HOME/relay-topology_pull.shのポート番号
+  　　リレーで$NODE_HOME/relay-topology_pull.shのポート番号
   
-  新Relayのファイアーウォール許可設定の番号
+  　　新Relayのファイアーウォール許可設定の番号
   
 
 ## 8.旧Relayのノードを停止する。その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
