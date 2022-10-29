@@ -98,9 +98,13 @@ cat topologyUpdater_lastresult.json
   　　　リレーで$NODE_HOME/relay-topology_pull.shのポート番号
   
 　　　新Relayのファイアーウォール許可設定の番号
-   　
+- IPベースの場合は、以下を参考にプール情報の更新も行う。
 
-## 8.旧Relayのノードを停止する。その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
+　https://docs.spojapanguild.net/operation/cert-update/#0-1spo
+
+## 8.旧Relayのノードを停止する。
+- その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
+- BPにて、旧Relayのファイアーウォール設定を解除しておく。
 
 ## 9.監視ツールセットアップを行う。
 https://docs.spojapanguild.net/setup/9-monitoring-tools-setup/#2-4
