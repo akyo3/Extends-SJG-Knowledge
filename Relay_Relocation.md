@@ -61,7 +61,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
   例：nc -vz 111.111.111.111 54321
   
 　succeeded! と表示されればOKです。　
-　また、BPからリレーでも同じコマンドを行う。
+
 
 ## 5.DNSサーバーにてAレコードの割り当て変更を行う。
 - 割り当て変更の反映には数分～数日（とはいっても、おそらく６時間以内には反映される）かかる。
@@ -114,7 +114,11 @@ cat topologyUpdater_lastresult.json
 ```
 nc -vz <NEW-Relay-IP> xxxxx
 ```
-xxxxxは、新リレーのポート番号を入力します。<>は無しで入力。
+　xxxxxは、新リレーのポート番号を入力します。<>は無しで入力。
+
+　例：nc -vz 111.111.111.111 54321
+
+　succeeded! と表示されればOKです。
  
 ## 9.監視ツールセットアップを行う。
 https://docs.spojapanguild.net/setup/9-monitoring-tools-setup/#2-4
