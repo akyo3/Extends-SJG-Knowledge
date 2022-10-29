@@ -74,9 +74,14 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　このコマンドでで表示された結果が新RelayのIPになっていれば、反映されている。
 - [Cexplorer.io](https://cexplorer.io/)の反映はさらに最大半日ほどかかる。
 
-## 6.P2Pトポロジー設定を行う。
+## 6.旧Relayのノードを停止する。
+- これによりトポロジー設定は４時間に自動削除されます。これをしないと手順７でtopologyUpdater.shの戻り値で競合エラーが起こる。
+- その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
+- BPにて、旧Relayのファイアーウォール設定を解除しておく。
+
+## 7.P2Pトポロジー設定を行う。
 - https://docs.spojapanguild.net/setup/8.topology-setup/
-- 旧Relayのトポロジー設定は４時間に自動削除されます。
+- topologyUpdater.shの戻り値で最初の１回だけは「２回起動しないでね」的なエラーメッセージが表示される可能性がある。（旧RelayでのtopologyUpdater.shの起動時間と近いとエラーが生じる）しかし、そのまま放っておけばOK。
 - 新Relayのトポロジー設定が登録されるのに４時間かかります。（旧Relayの削除と同時並行）
 - ４時間後に以下の戻り値が最終行に表示されているかどうか確認する。
 ```
@@ -89,7 +94,7 @@ cat topologyUpdater_lastresult.json
 { "resultcode": "203", "datetime":"2021-01-10 19:30:03", "clientIp": "000.000.000.000", "iptype": 4, "msg": "welcome to the topology" }
 { "resultcode": "204", "datetime":"2021-01-10 20:30:04", "clientIp": "000.000.000.000", "iptype": 4, "msg": "glad you're staying with us" }
 ```
-## 7.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
+## 8.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
 - 疎通がない場合は以下の番号がすべて等しいか確認する。
  
 　　　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
@@ -102,10 +107,6 @@ cat topologyUpdater_lastresult.json
 - IPベースの場合は、以下を参考にプール情報の更新も行う。
 
 　https://docs.spojapanguild.net/operation/cert-update/#0-1spo
-
-## 8.旧Relayのノードを停止する。
-- その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
-- BPにて、旧Relayのファイアーウォール設定を解除しておく。
 
 ## 9.監視ツールセットアップを行う。
 https://docs.spojapanguild.net/setup/9-monitoring-tools-setup/#2-4
