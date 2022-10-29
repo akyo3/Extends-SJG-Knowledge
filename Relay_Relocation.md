@@ -39,10 +39,8 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　BPのファイアーウォール許可設定に新RelayのIP/ポート番号が含まれているか
  
 　新Relayの$NODE_HOME/relay-topology_pull.shのポート番号
- 
-　＝　新Relayのcat $NODE_HOME/mainnet-topology.jsonのポート番号
- 
-　＝　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
+ ＝　新Relayのcat $NODE_HOME/mainnet-topology.jsonのポート番号
+ ＝　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
  
 　となっているか
 
@@ -74,12 +72,9 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　まずはBPを再起動してみる。これでも治らなかったら
   
 　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
-  
-　＝　リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
-  
-　＝　リレーで$NODE_HOME/relay-topology_pull.shのポート番号
-  
-　＝　新Relayのファイアーウォール許可設定の番号
+  ＝　リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
+  ＝　リレーで$NODE_HOME/relay-topology_pull.shのポート番号
+  ＝　新Relayのファイアーウォール許可設定の番号
   
 　となっているかを確認する。
 
