@@ -39,11 +39,14 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 
 　BPのファイアーウォール許可設定に新RelayのIP/ポート番号が含まれているか
  
-　新Relayの$NODE_HOME/relay-topology_pull.shのポート番号
- ＝　新Relayのcat $NODE_HOME/mainnet-topology.jsonのポート番号
- ＝　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
+　
+　以下の番号がすべて等しいか確認
  
-　となっているか
+　新Relayの$NODE_HOME/relay-topology_pull.shのポート番号
+
+　新Relayのcat $NODE_HOME/mainnet-topology.jsonのポート番号
+
+　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
 
 - 疎通確認コマンド
 
@@ -68,14 +71,16 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　このコマンドでで表示された結果が新RelayのIPになっていれば、反映されている。
 
 ## 6.BPの再起動を行う。その後新RelayのgLiveViewにて、BPからの疎通確認をする。
-- 疎通がない場合は以下の項目を確認
-  
+- 疎通がない場合は以下の番号がすべて等しいか確認する。
+ 
 　BPのcat $NODE_HOME/mainnet-topology.jsonのポート番号
-  ＝　リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
-  ＝　リレーで$NODE_HOME/relay-topology_pull.shのポート番号
-  ＝　新Relayのファイアーウォール許可設定の番号
   
-　となっているかを確認する。
+  リレーで/home/ubuntu/cnode/startRelayNode1.shのポート番号
+  
+  リレーで$NODE_HOME/relay-topology_pull.shのポート番号
+  
+  新Relayのファイアーウォール許可設定の番号
+  
 
 ## 7.監視ツールセットアップを行う。
 https://docs.spojapanguild.net/setup/9-monitoring-tools-setup/#2-4
