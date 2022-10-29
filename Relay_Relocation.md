@@ -86,7 +86,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
   
   　　　リレーで$NODE_HOME/relay-topology_pull.shのポート番号
   
-　　　　新Relayのファイアーウォール許可設定の番号
+　　　新Relayのファイアーウォール許可設定の番号
    　
 
 ## 8.旧Relayのノードを停止する。その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
