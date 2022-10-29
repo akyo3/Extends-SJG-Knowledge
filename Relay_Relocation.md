@@ -108,6 +108,13 @@ cat topologyUpdater_lastresult.json
 
 　https://docs.spojapanguild.net/operation/cert-update/#0-1spo
 
+- gLiveViewを用いない疎通確認コマンド
+`BP``
+```
+nc -vz <NEW-Relay-IP> xxxxx
+```
+xxxxxは、新リレーのポート番号を入力します。<>は無しで入力。
+ 
 ## 9.監視ツールセットアップを行う。
 https://docs.spojapanguild.net/setup/9-monitoring-tools-setup/#2-4
 - Grafanaの表示は７を終えれば正しく表示されるようになる。ただししばらくは旧Relayの情報が残る。
