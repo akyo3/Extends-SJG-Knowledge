@@ -109,6 +109,7 @@ cat topologyUpdater_lastresult.json
 　https://docs.spojapanguild.net/operation/cert-update/#0-1spo
 
 - gLiveViewを用いない疎通確認コマンド
+- 
 `BP`
 ```
 nc -vz <NEW-Relay-IP> xxxxx
