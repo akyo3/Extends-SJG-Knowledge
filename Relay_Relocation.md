@@ -11,7 +11,8 @@
 - 旧RelayとつないでいるBPのファイアーウォールに新Relayを追加する。
 sudo ufw allow from <NEW_RELAY_IP> to any port <BP_PORT>
 
-## 2．ノードインストールを行う。2-7. gLiveViewのインストールまででOK。2-8. エアギャップオフラインマシンの作成は不要。
+## 2．ノードインストールを行う。
+- 「2-7. gLiveViewのインストール」まででOK。「2-8. エアギャップオフラインマシンの作成」は不要。
 - 以下のファイルは同階層に旧RelayからコピーすればOK。
 mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の必要もありません。
 
