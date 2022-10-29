@@ -48,7 +48,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 
 　BPの$NODE_HOME/startBlockProducingNode.shのポート番号
 
-- 疎通確認コマンド
+- gLiveViewを用いない疎通確認コマンド
 
 `新Relay`
 ```
@@ -58,7 +58,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
  
   例：nc -vz 111.111.111.111 54321
   
-　port [tcp/*] succeeded! であればOKです。　
+　succeeded! と表示されればOKです。　
 　また、BPからリレーでも同じコマンドを行う。
 
 ## 5.DNSサーバーにてAレコードの割り当て変更を行う。割り当て変更の反映には数分～数日（とはいっても、おそらく６時間以内には反映される）かかる。
@@ -82,7 +82,9 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
   新Relayのファイアーウォール許可設定の番号
   
 
-## 7.監視ツールセットアップを行う。
+## 7.旧Relayのノードを停止する。その後サーバーのコンソールで停止。様子を見て特に問題なければインスタンスを削除。
+
+## 8.監視ツールセットアップを行う。
 https://docs.spojapanguild.net/setup/9-monitoring-tools-setup/#2-4
 - Grafanaの表示は７を終えれば正しく表示されるようになる。ただししばらくは旧Relayの情報が残る。
 - 時間がたてば新Relayの情報だけを参照できるようになる。
