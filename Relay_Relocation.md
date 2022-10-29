@@ -72,6 +72,7 @@ mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の�
 　nslookup <DNS>
 ```
 　このコマンドでで表示された結果が新RelayのIPになっていれば、反映されている。
+- [Cexplorer.io](https://cexplorer.io/)の反映はさらに最大半日ほどかかる。
 
 ## 6.P2Pトポロジー設定を行う。
 - https://docs.spojapanguild.net/setup/8.topology-setup/
