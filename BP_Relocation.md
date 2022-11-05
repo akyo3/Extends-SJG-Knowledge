@@ -126,6 +126,16 @@ DIRECTORY=/home/<new_user_name>/cnode
 2-1. [Cabal/GHCインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-1-cabalghc) 〜
 [gLiveViewのインストール](https://docs.spojapanguild.net/setup/2-node-setup/#2-7-gliveview)まで実施します。
 
+- ノードの同期は通常２～３日かかります。
+  [RSYNC+SSHを応用](https://docs.spojapanguild.net/operation/node-update/#3rsyncssh)して、近くのロケーション（地理的位置）にあるdbフォルダをコピーすると早く終わります。
+    
+- gLiveViewインストール後、envファイルのupdatecheckをNにしておきます。
+```console
+sed -i $NODE_HOME/scripts/env \
+    -e '1,73s!#UPDATE_CHECK="Y"!UPDATE_CHECK="N"!'
+```
+> （20220913追記）envファイルは旧BPからそのままコピーして新BPに移動してもかまいません。その場合は、以後の流れの中でenvファイルのsedコマンドを用いた置換が必要なくなります。
+    
 2-2. 旧BPのcnodeディレクトリにある`mainnet-topology.json`、`mainnet-config.json`を新BPのcnodeディレクトリにコピーし、新BPのノードを再起動します。
 
 `新BP`
@@ -168,14 +178,16 @@ IPベースよりも多少リスクがありますが、DNSベースのほうが
 複数リレーノードを起動している方、もしくはブロック生成スケジュールに相当余裕がある方向けです。
     
 - 現在Aレコードの割り当てをしているサーバーで、割り当てIPを新BPのIPに変更する。
+- 同時に2-5を先に行う。これにより、旧BPと新BPが同時に稼働することは無い。
 - 以下、留意事項
     
     ①手順2-3では、BLOCKPRODUSING_PORTの値だけを新BPのものに変更するだけで良い。
     
-    ②手順2-13で旧BPを再稼働したい場合は、再度Aレコードを旧BPのIPにする。（反映されるまでに最大で数日かかる）
-    
+    ②手順2-13で旧BPを再稼働したい場合は、再度Aレコードを旧BPのIPにする。（反映されるまでに最大で数日かかる。とはいえ、十数分～６時間以内に終わることが多いようです。）
+
     ③手順2-14では、旧BPの情報はすでに新BPのものに置き換わっているので、特に操作の必要はない。    
-    
+
+- 以下の作業をスキップし、2-4に進む。ただし割り当てIPが新BPに反映されるまで待つ必要がある（最小で数分～最大で数日かかる）。
 </div>
 </details>
     
@@ -244,12 +256,11 @@ sudo systemctl disable cardano-node
 | startBlockProducingNode.sh | ノード起動スクリプト |
 > その他のファイルを移動するならしておいてください。過去のブロック生成履歴については、後々ステークプールブロックログ導入手順の途中( [過去のブロック生成実績取得](https://docs.spojapanguild.net/setup/10-blocklog-setup/#10-6) )で取得できます。
 
-> （20220913追記:現時点では未検証）`guil-db``script`の両フォルダも、旧BPからまるごとコピーすると手順2-11,2-12が不要になります。※一度Aichiがそのうち試してみるので、まだ実行はお控えください。
-
 `新BP`
 
 2-6. VRFキーのパーミッションを変更します。
 ```console
+cd $NODE_HOME
 chmod 400 vrf.skey
 chmod 400 vrf.vkey
 chmod +x startBlockProducingNode.sh
@@ -282,7 +293,7 @@ cardano-cli query protocol-parameters \
     --out-file params.json
 ```
 
-2-10. エアギャップマシンにて`stakepoolid_bech32.txt`と`stakepoolid_hex.txt`を生成し、新BPのcnodeディレクトリにコピーします。
+2-10. エアギャップマシンにて`stakepoolid_bech32.txt`と`stakepoolid_hex.txt`を生成し、新BPのcnodeディレクトリにコピーします。（旧BP内の該当ファイルのコピーでも良いです）
 
 `エアギャップマシン`
 ```console
@@ -296,6 +307,8 @@ chmod a-rwx $HOME/cold-keys
 
 - [ステークプールブロックログ導入手順](https://docs.spojapanguild.net/setup/10-blocklog-setup/)
 
+> （20220913追記:Aichiが検証済）`guild-db`のフォルダも、旧BPからまるごとコピーすると手順2-11のcncliの同期が一瞬で終わります。ただし`guild-db`のフォルダのコピー自体が時間がかかりました。日本から近いロケーションのときのみに限ったほうが良いかもしれません。
+    
 2-12. ブロックが生成できる状態にあるかどうか、`SPO JAPAN GUILD TOOL`でチェックします。
 
 - [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
