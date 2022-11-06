@@ -18,7 +18,7 @@ sudo ufw allow from <NEW_RELAY_IP> to any port <BP_PORT>
 - https://docs.spojapanguild.net/setup/2-node-setup/
 - 「2-7. gLiveViewのインストール」まででOK。「2-8. エアギャップオフラインマシンの作成」は不要。
 - 以下のファイルは同階層に旧RelayからコピーすればOK。
-mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の必要もありません。
+mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の必要もありません。ただ、作業を進めていったりメンテナンスをするうちに「Permission denied」と表示されることがあるので、chmod +xコマンドでその都度ファイルのパーミッションを許可すること。
 
 | cnodeにコピー  | cnode/scriptsにコピー |
 | ------------- | ------------- |
