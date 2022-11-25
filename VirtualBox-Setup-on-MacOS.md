@@ -172,7 +172,7 @@ mkdir -p $HOME/airGap/share
 
 5-4. 「アップデートと他のソフトウェア」の設定では、以下のように設定し、「続ける」をクリックします。
 
-![BootVirtualMachine-3](https://user-images.githubusercontent.com/80967103/159128238-53def4ff-7699-45c0-85e4-c5e1115c87cb.png)
+![BootVirtualMachine-3](https://user-images.githubusercontent.com/80967103/203983361-de583135-1f98-4578-819e-98ceef0ba661.png)
 
 ---
 
