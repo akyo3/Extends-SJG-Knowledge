@@ -245,9 +245,13 @@ mkdir -p $HOME/airGap/share
 
 ![BootVirtualMachine-14](https://user-images.githubusercontent.com/80967103/200108519-0226b6db-95b1-48c0-9bed-b9f746c3c310.png)
 
-5-17. 「ソフトウェアの更新」と表示されたら右上の「×」をクリックします。
+5-17. 「ソフトウェアの更新」を求められたら「アップグレードしない」をクリックし、その後「OK」をクリックします。
 
-![BootVirtualMachine-14](https://user-images.githubusercontent.com/80967103/200108854-0f9a3989-6946-4d21-a92d-eb831d83c958.png)
+![BootVirtualMachine-14](https://user-images.githubusercontent.com/80967103/203997822-2d823615-395b-49e4-be07-aa36fa2153a3.png)
+
+5-18. 「アップデート情報→不完全な言語サポート」が表示されたら「この操作を今すぐ実行する」→「インストール」をクリック後、認証を求められるのでパスワードを入力し、「システム全体に適用」をクリックします。
+
+![BootVirtualMachine-14](https://user-images.githubusercontent.com/80967103/204000214-49e1af9b-780f-4cea-a90d-6dfc33c00f75.png)
 
 ---
 
@@ -355,22 +359,9 @@ ls /media/sf_share/
 
 ---
 
-### Swapファイルの設定時のエラーについて
-
-- 「テキストファイルがビジー状態です」と表示されたら以下を実行します。
-```console
-sudo swapoff /swapfile
-rm /swapfile
-```
-
-- [Swap領域設定](https://docs.spojapanguild.net/setup/1-ubuntu-setup/#1-7swap)
-
----
-
 ### 本番運用で使用する際の注意点
 
 - 本番運用で使用される場合は必ず「ネットワークアダプターを有効化」のチェックを外してください。  
 [2-8. エアギャップオフラインマシンの作成](https://docs.spojapanguild.net/setup/2-node-setup/#2-8)を終えた後に行ってください。
-
 
 ![BootVirtualMachine-21](https://user-images.githubusercontent.com/80967103/200110479-30bdd7ea-88b4-41f2-8642-b6653e45762a.png)
