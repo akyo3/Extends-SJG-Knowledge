@@ -20,7 +20,7 @@
 | ファイル名 | ubuntu-20.04.5-desktop-amd64.iso |
 :---|:---
 
-![UbuntuInstall-1](https://user-images.githubusercontent.com/80967103/199964000-a4794ead-3015-4a04-8189-858e3b7e67bd.png)
+![UbuntuInstall-1](https://user-images.githubusercontent.com/80967103/203985883-cd707677-fdf5-44a5-9571-1f32197d7292.png)
 
 ---
 
@@ -133,7 +133,7 @@
 ## 共有フォルダー
 
 4-4. ホスト側で共有させたいフォルダを事前に作成しておきます。
-- 例）「AirGap」フォルダを作成後、配下に「share」フォルダを作成。
+- 例）「airGap」フォルダを作成後、配下に「share」フォルダを作成。
 
 `Mac Terminal`
 ```console
