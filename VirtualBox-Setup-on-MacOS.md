@@ -327,6 +327,8 @@ sudo swapoff /swapfile
 sudo rm /swapfile
 ```
 
+---
+
 7-2. 新規Swapファイルを作成  
 ```console
 cd $HOME
