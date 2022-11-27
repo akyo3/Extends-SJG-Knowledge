@@ -329,13 +329,16 @@ sudo rm /swapfile
 ```console
 cd $HOME
 sudo fallocate -l 6G /swapfile
-
+```
+```console
 sudo chmod 600 /swapfile
-
+```
+```console
 sudo mkswap /swapfile
 sudo swapon /swapfile
 sudo swapon --show
-
+```
+```console
 sudo cp /etc/fstab /etc/fstab.bak
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
