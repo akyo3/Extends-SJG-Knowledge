@@ -319,7 +319,7 @@ ls /media/sf_share/
 ---
 
 6-8. Swapファイルの作成  
-> 既存Swapファイルを削除して、新規Swapファイルを作成
+既存Swapファイルを削除して、新規Swapファイルを作成
 
 ```console
 sudo swapoff /swapfile
