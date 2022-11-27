@@ -323,6 +323,8 @@ ls /media/sf_share/
 
 ```console
 sudo swapoff /swapfile
+```
+```console
 sudo rm /swapfile
 ```
 > rm: 書き込み保護されたファイル 通常ファイル '/swapfile' を削除しますか? → yでEnter
