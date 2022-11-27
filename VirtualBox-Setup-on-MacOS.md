@@ -319,16 +319,15 @@ ls /media/sf_share/
 ---
 
 ## 7- Swapファイルの作成  
-- 既存Swapファイルを削除して、新規Swapファイルを作成
-
+7-1. 既存Swapファイルを削除  
 ```console
 sudo swapoff /swapfile
 ```
 ```console
 sudo rm /swapfile
 ```
-> rm: 書き込み保護されたファイル 通常ファイル '/swapfile' を削除しますか? → yでEnter
 
+7-2. 新規Swapファイルを作成  
 ```console
 cd $HOME
 sudo fallocate -l 6G /swapfile
