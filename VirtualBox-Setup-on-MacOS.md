@@ -318,6 +318,34 @@ ls /media/sf_share/
 
 ---
 
+6-8. Swapファイルの作成  
+
+```console
+sudo swapoff /swapfile
+sudo rm /swapfile
+```
+> rm: 書き込み保護されたファイル 通常ファイル '/swapfile' を削除しますか? → yでEnter
+
+```console
+cd $HOME
+sudo fallocate -l 6G /swapfile
+
+sudo chmod 600 /swapfile
+
+sudo mkswap /swapfile
+sudo swapon /swapfile
+sudo swapon --show
+
+sudo cp /etc/fstab /etc/fstab.bak
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
+echo 'vm.vfs_cache_pressure=50' | sudo tee -a /etc/sysctl.conf
+cat /proc/sys/vm/vfs_cache_pressure
+cat /proc/sys/vm/swappiness
+```
+
+---
+
 ### 本番運用で使用する際の注意点
 
 - 本番運用で使用される場合は必ず「ネットワークアダプターを有効化」のチェックを外してください。  
