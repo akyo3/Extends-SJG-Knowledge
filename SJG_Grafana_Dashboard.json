@@ -7,6 +7,14 @@
       "type": "datasource",
       "pluginId": "prometheus",
       "pluginName": "Prometheus"
+    },
+    {
+      "name": "DS_INFINITY",
+      "label": "Infinity",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "yesoreyeram-infinity-datasource",
+      "pluginName": "Infinity"
     }
   ],
   "__elements": {},
@@ -21,7 +29,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "9.1.4"
+      "version": "9.2.6"
     },
     {
       "type": "datasource",
@@ -46,6 +54,12 @@
       "id": "timeseries",
       "name": "Time series",
       "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "yesoreyeram-infinity-datasource",
+      "name": "Infinity",
+      "version": "1.0.0"
     }
   ],
   "annotations": {
@@ -83,17 +97,22 @@
         "uid": "${DS_PROMETHEUS}"
       },
       "gridPos": {
-        "h": 6,
-        "w": 4,
+        "h": 7,
+        "w": 3,
         "x": 0,
         "y": 0
       },
       "id": 110,
       "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
         "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://user-images.githubusercontent.com/80967103/177022216-2ef7792b-686e-4110-b001-b6282e4bfa20.png\"></a><br>\n<img width=\"20px\" src=\"https://www.lvlup-stakepool.com/images/adapool.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -115,74 +134,7 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "blue",
-                "value": 1
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 6,
-        "w": 3,
-        "x": 4,
-        "y": 0
-      },
-      "id": 114,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "none",
-        "justifyMode": "center",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "exemplar": true,
-          "expr": "cardano_node_metrics_Forge_forged_int",
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "refId": "A"
-        }
-      ],
-      "title": "ブロック生成",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "現在のエポックとそのエポックが始まってからの経過日数。",
+      "description": "現在のエポック",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -201,7 +153,7 @@
                 "value": 3.5
               },
               {
-                "color": "light-green",
+                "color": "semi-dark-blue",
                 "value": 5
               }
             ]
@@ -210,14 +162,159 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 6,
+        "h": 7,
         "w": 3,
-        "x": 7,
+        "x": 3,
         "y": 0
       },
       "id": 98,
       "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_epoch_int{instance=\"localhost:12798\"}",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "現在のエポック",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "そのエポックが始まってからの経過日数。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              },
+              {
+                "color": "semi-dark-red",
+                "value": 3.5
+              },
+              {
+                "color": "green",
+                "value": 5
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 6,
+        "y": 0
+      },
+      "id": 133,
+      "options": {
         "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_slotInEpoch_int{instance=\"localhost:12798\"}/1440/60",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "経過日数",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 9,
+        "y": 0
+      },
+      "id": 114,
+      "options": {
+        "colorMode": "background",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
@@ -231,7 +328,170 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "exemplar": true,
+          "expr": "cardano_node_metrics_Forge_forged_int",
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "refId": "A"
+        }
+      ],
+      "title": "ブロック生成",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "dark-blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 12,
+        "y": 0
+      },
+      "id": 129,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "block_count",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "トータルブロック生成数",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "max": 93,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "semi-dark-red",
+                "value": null
+              },
+              {
+                "color": "semi-dark-red",
+                "value": 5
+              },
+              {
+                "color": "light-yellow",
+                "value": 30
+              },
+              {
+                "color": "green",
+                "value": 46
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 15,
+        "y": 0
+      },
+      "id": 108,
+      "options": {
+        "displayMode": "lcd",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true,
+        "text": {}
+      },
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -240,13 +500,66 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cardano_node_metrics_epoch_int{instance=\"localhost:12798\"}",
+          "expr": "(cardano_node_metrics_remainingKESPeriods_int * 1.5)",
           "instant": true,
           "interval": "",
-          "legendFormat": "現在のエポック",
+          "legendFormat": "{{alias}}",
           "range": false,
           "refId": "A"
+        }
+      ],
+      "title": "KES残り日数",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "(startKesPeriod)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 4,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
         },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 113,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
         {
           "datasource": {
             "type": "prometheus",
@@ -254,16 +567,15 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cardano_node_metrics_slotInEpoch_int{instance=\"localhost:12798\"}/1440/60",
-          "hide": false,
+          "expr": "cardano_node_metrics_slotNum_int{instance=\"localhost:12798\"} / 129600",
           "instant": true,
           "interval": "",
-          "legendFormat": "経過日数",
+          "legendFormat": "{{alias}}",
           "range": false,
-          "refId": "B"
+          "refId": "A"
         }
       ],
-      "title": "エポック",
+      "title": "KES変更タイミング",
       "type": "stat"
     },
     {
@@ -290,7 +602,7 @@
                 "value": 21
               },
               {
-                "color": "semi-dark-green",
+                "color": "green",
                 "value": 31
               }
             ]
@@ -301,8 +613,8 @@
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 10,
-        "y": 0
+        "x": 15,
+        "y": 4
       },
       "id": 97,
       "options": {
@@ -320,7 +632,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -361,7 +673,7 @@
           "format": "time_series",
           "instant": true,
           "interval": "",
-          "legendFormat": "KESの整合性",
+          "legendFormat": "KES consistency",
           "refId": "C"
         },
         {
@@ -385,8 +697,8 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
       },
       "fieldConfig": {
         "defaults": {
@@ -394,26 +706,16 @@
             "mode": "thresholds"
           },
           "mappings": [],
-          "max": 93,
-          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-red",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "semi-dark-red",
-                "value": 5
-              },
-              {
-                "color": "light-yellow",
-                "value": 30
-              },
-              {
-                "color": "semi-dark-green",
-                "value": 46
+                "color": "red",
+                "value": 80
               }
             ]
           }
@@ -422,81 +724,14 @@
       },
       "gridPos": {
         "h": 3,
-        "w": 7,
-        "x": 14,
-        "y": 0
+        "w": 2,
+        "x": 19,
+        "y": 4
       },
-      "id": 108,
-      "options": {
-        "displayMode": "lcd",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showUnfilled": true,
-        "text": {}
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "(cardano_node_metrics_remainingKESPeriods_int * 1.5)",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "KES残り日数",
-      "type": "bargauge"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "(startKesPeriod)",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "decimals": 4,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "semi-dark-green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 3,
-        "x": 21,
-        "y": 0
-      },
-      "id": 113,
+      "id": 126,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
+        "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
@@ -506,162 +741,49 @@
           "fields": "",
           "values": false
         },
-        "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_slotNum_int{instance=\"localhost:12798\"} / 129600",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "KES変更タイミング",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■ブロック受信までの時間：ブロックがミントされるべきだった時から、ローカルのリレーがブロックを受信するまでの遅延を推定した時間。この指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 10,
-        "y": 3
-      },
-      "id": 120,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "vertical",
-        "reduceOptions": {
-          "calcs": [
-            "last"
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
           ],
-          "fields": "",
-          "values": false
-        },
-        "text": {},
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
           },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_s",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
-        }
-      ],
-      "title": "ブロック受信までの時間",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
-      "description": "■5秒以上後に到着したブロックの追跡：ミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "none",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
               {
-                "color": "green",
-                "value": null
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
               }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 14,
-        "y": 3
-      },
-      "id": 121,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "9.1.4",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_lateblocks",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
+            ],
+            "method": "POST"
+          }
         }
       ],
-      "title": "到着ブロックの追跡(5秒以上)",
+      "title": "最新カウンター番号",
       "type": "stat"
     },
     {
@@ -688,7 +810,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 3
+        "y": 4
       },
       "id": 105,
       "options": {
@@ -706,7 +828,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -720,10 +842,96 @@
           "interval": "",
           "legendFormat": "{{alias}}",
           "range": false,
-          "refId": "A"
+          "refId": "B"
         }
       ],
       "title": "処理されたトランザクション",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#293952",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 3,
+        "x": 0,
+        "y": 7
+      },
+      "id": 131,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "/.*/",
+          "values": true
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "meta_json.ticker",
+              "text": "",
+              "type": "string"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "ティッカー",
       "type": "stat"
     },
     {
@@ -737,6 +945,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "decimals": 2,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -752,10 +961,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 0,
-        "y": 6
+        "h": 4,
+        "w": 6,
+        "x": 3,
+        "y": 7
       },
       "id": 117,
       "options": {
@@ -772,7 +981,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -804,6 +1013,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "decimals": 2,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -819,10 +1029,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 7,
-        "y": 6
+        "h": 4,
+        "w": 6,
+        "x": 9,
+        "y": 7
       },
       "id": 118,
       "options": {
@@ -839,7 +1049,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -871,6 +1081,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "decimals": 2,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -886,10 +1097,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 7,
-        "x": 14,
-        "y": 6
+        "h": 4,
+        "w": 6,
+        "x": 15,
+        "y": 7
       },
       "id": 119,
       "options": {
@@ -906,7 +1117,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -925,6 +1136,520 @@
         }
       ],
       "title": "5秒以内、ダウンロードされたブロックの概算値",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■5秒以上後に到着したブロックの追跡：ミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 21,
+        "y": 7
+      },
+      "id": 121,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_lateblocks",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "到着ブロックの追跡(5秒以上)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 3,
+        "y": 11
+      },
+      "id": 128,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "uql",
+          "uql": "parse-json | project \"live_stake\"=div(\"live_stake\",1000000)",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "最新ステーク",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 3,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "取得中"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "currencyUSD"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 6,
+        "y": 11
+      },
+      "id": 132,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "uql",
+          "uql": "parse-json | project \"active_stake\"=div(\"active_stake\",1000000)",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "有効ステーク",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-blue",
+                "value": 50
+              },
+              {
+                "color": "blue",
+                "value": 100
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 9,
+        "y": 11
+      },
+      "id": 130,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "live_delegators",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "最新の委任者数",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "yellow",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 11
+      },
+      "id": 134,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "live_saturation",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "最新の飽和状態",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "■ブロック受信までの時間：ブロックがミントされるべきだった時から、ローカルのリレーがブロックを受信するまでの遅延を推定した時間。この指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 15,
+        "y": 11
+      },
+      "id": 120,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.2.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_s",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "ブロック受信までの時間",
       "type": "stat"
     },
     {
@@ -951,10 +1676,10 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
+        "h": 4,
         "w": 3,
         "x": 21,
-        "y": 6
+        "y": 11
       },
       "id": 106,
       "options": {
@@ -972,7 +1697,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1022,7 +1747,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 9
+        "y": 15
       },
       "id": 101,
       "options": {
@@ -1039,7 +1764,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1086,7 +1811,7 @@
         "h": 11,
         "w": 3,
         "x": 0,
-        "y": 13
+        "y": 19
       },
       "id": 104,
       "options": {
@@ -1104,7 +1829,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1187,7 +1912,7 @@
         "h": 11,
         "w": 18,
         "x": 3,
-        "y": 13
+        "y": 19
       },
       "id": 46,
       "options": {
@@ -1253,7 +1978,7 @@
         "h": 11,
         "w": 3,
         "x": 21,
-        "y": 13
+        "y": 19
       },
       "id": 124,
       "options": {
@@ -1271,7 +1996,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1311,7 +2036,7 @@
                 "value": null
               },
               {
-                "color": "light-green",
+                "color": "green",
                 "value": 2
               }
             ]
@@ -1324,7 +2049,7 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 24
+        "y": 30
       },
       "id": 123,
       "options": {
@@ -1341,7 +2066,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1426,7 +2151,7 @@
         "h": 12,
         "w": 9,
         "x": 3,
-        "y": 24
+        "y": 30
       },
       "id": 50,
       "options": {
@@ -1529,7 +2254,7 @@
         "h": 12,
         "w": 9,
         "x": 12,
-        "y": 24
+        "y": 30
       },
       "id": 111,
       "options": {
@@ -1585,11 +2310,11 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "light-red",
+                "color": "red",
                 "value": 1
               }
             ]
@@ -1602,7 +2327,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 24
+        "y": 30
       },
       "id": 96,
       "options": {
@@ -1619,7 +2344,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1635,7 +2360,7 @@
           "interval": "",
           "legendFormat": "{{alias}}",
           "range": true,
-          "refId": "A"
+          "refId": "B"
         }
       ],
       "title": "スワップメモリ使用量",
@@ -1670,14 +2395,14 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 30
+        "y": 36
       },
       "id": 122,
       "options": {
         "colorMode": "value",
-        "graphMode": "none",
+        "graphMode": "area",
         "justifyMode": "auto",
-        "orientation": "auto",
+        "orientation": "vertical",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1688,7 +2413,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1725,15 +2450,15 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "light-yellow",
+                "color": "yellow",
                 "value": 0.4
               },
               {
-                "color": "light-red",
+                "color": "red",
                 "value": 0.5
               }
             ]
@@ -1746,7 +2471,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 30
+        "y": 36
       },
       "id": 103,
       "options": {
@@ -1763,7 +2488,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.1.4",
+      "pluginVersion": "9.2.6",
       "targets": [
         {
           "datasource": {
@@ -1841,7 +2566,7 @@
         "h": 11,
         "w": 8,
         "x": 0,
-        "y": 36
+        "y": 42
       },
       "id": 116,
       "options": {
@@ -1939,7 +2664,7 @@
         "h": 11,
         "w": 8,
         "x": 8,
-        "y": 36
+        "y": 42
       },
       "id": 94,
       "options": {
@@ -2027,13 +2752,38 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "BP-Node"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 11,
         "w": 8,
         "x": 16,
-        "y": 36
+        "y": 42
       },
       "id": 115,
       "options": {
@@ -2145,7 +2895,7 @@
         "h": 24,
         "w": 12,
         "x": 0,
-        "y": 47
+        "y": 53
       },
       "id": 70,
       "options": {
@@ -2273,7 +3023,7 @@
         "h": 24,
         "w": 12,
         "x": 12,
-        "y": 47
+        "y": 53
       },
       "id": 64,
       "options": {
@@ -2327,7 +3077,7 @@
       "type": "timeseries"
     }
   ],
-  "refresh": "17s",
+  "refresh": "20s",
   "schemaVersion": 37,
   "style": "dark",
   "tags": [],
@@ -2358,6 +3108,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 3,
+  "version": 5,
   "weekStart": ""
 }
