@@ -673,7 +673,7 @@
           "format": "time_series",
           "instant": true,
           "interval": "",
-          "legendFormat": "KES consistency",
+          "legendFormat": "KESの整合性",
           "refId": "C"
         },
         {
