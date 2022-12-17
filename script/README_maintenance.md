@@ -1,3 +1,4 @@
+maintenance.shは、システム更新、トポロジーファイルの更新をしています。
 ```console
 cd $NODE_HOME
 curl -s -o maintenance.sh https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/script/maintenance.sh
