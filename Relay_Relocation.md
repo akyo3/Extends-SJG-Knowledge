@@ -19,6 +19,7 @@ sudo ufw allow from <NEW_RELAY_IP> to any port <BP_PORT>
 - 「2-7. gLiveViewのインストール」まででOK。「2-8. エアギャップオフラインマシンの作成」は不要。
 - 以下のファイルは同階層に旧RelayからコピーすればOK。
 mainnet-config.jsonやenvファイルなどのsedコマンドによる更新の必要もありません。ただ、作業を進めていったりメンテナンスをするうちに「Permission denied」と表示されることがあるので、chmod +xコマンドでその都度ファイルのパーミッションを許可すること。
+- ただし、mainnet-topology.jsonのみは手順３が終わってからコピーすること。（20221217の時点では、同期が終わる前にコピーしたら同期が進みませんでした。iohkのノードで100%同期が終わってからにしてください）
 
 | cnodeにコピー  | cnode/scriptsにコピー |
 | ------------- | ------------- |
