@@ -20,6 +20,10 @@
 * `genesis`: ジェネシスブロックコマンド
 * `text-view`: トランザクションやアドレスなど、ディスクに保存されたテキストビューファイルを扱うためのコマンド
 * `governance`: ガバナンスコマンド
+* `key`: Key utility commands
+* `byron`: Byron specific commands
+* `help`: 全てのヘルプを表示する
+* `version`: cardano-cliのバージョンを表示する
 
 **cardano-cli address** : `address` コマンドは以下のサブコマンドを含んでいます。
 * `key-gen`: 単一のアドレスキーペアを作成
