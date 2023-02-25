@@ -8,7 +8,7 @@
 このセクションでは、中核となる `cardano-cli` コマンドとそれに関連するサブコマンドのリファレンスを提供します。
 
 
-**cardano-cli -h** : `cardano-cli`の使い方。
+**cardano-cli help** : `cardano-cli`の使い方。
 
 **cardano-cli** : `cardano-cli`のコマンド一式は以下の通りです。
 * `address`: 支払いアドレスコマンド
