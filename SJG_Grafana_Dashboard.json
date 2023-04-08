@@ -1,67 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "Prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    },
-    {
-      "name": "DS_INFINITY",
-      "label": "Infinity",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "yesoreyeram-infinity-datasource",
-      "pluginName": "Infinity"
-    }
-  ],
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "bargauge",
-      "name": "Bar gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "9.2.6"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "text",
-      "name": "Text",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "yesoreyeram-infinity-datasource",
-      "name": "Infinity",
-      "version": "1.0.0"
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -87,14 +24,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
+  "id": 87,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "gridPos": {
         "h": 7,
@@ -109,15 +46,15 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://user-images.githubusercontent.com/80967103/177022216-2ef7792b-686e-4110-b001-b6282e4bfa20.png\"></a><br>\n<img width=\"20px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/Cex-logo.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
+        "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/sjg-yoko-white-logo.png\"></a><br>\n<img width=\"20px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/Cex-logo.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
           "expr": "cardano_node_metrics_Forge_forged_int",
@@ -132,7 +69,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "現在のエポック",
       "fieldConfig": {
@@ -183,12 +120,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -206,7 +143,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "そのエポックが始まってからの経過日数。",
       "fieldConfig": {
@@ -257,12 +194,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -281,7 +218,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "",
       "fieldConfig": {
@@ -328,12 +265,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "exemplar": true,
           "expr": "cardano_node_metrics_Forge_forged_int",
@@ -348,7 +285,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "AwK6ln7Vk"
       },
       "fieldConfig": {
         "defaults": {
@@ -389,7 +326,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "columns": [
@@ -401,7 +338,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "AwK6ln7Vk"
           },
           "filters": [],
           "format": "table",
@@ -435,7 +372,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -491,12 +428,12 @@
         "showUnfilled": true,
         "text": {}
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -514,7 +451,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "(startKesPeriod)",
       "fieldConfig": {
@@ -558,12 +495,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -581,7 +518,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -632,12 +569,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -651,7 +588,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -665,7 +602,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -679,7 +616,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": true,
@@ -698,7 +635,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "AwK6ln7Vk"
       },
       "fieldConfig": {
         "defaults": {
@@ -743,7 +680,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "columns": [
@@ -755,7 +692,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "AwK6ln7Vk"
           },
           "filters": [],
           "format": "table",
@@ -789,7 +726,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -828,12 +765,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -851,7 +788,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "AwK6ln7Vk"
       },
       "fieldConfig": {
         "defaults": {
@@ -891,7 +828,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "columns": [
@@ -903,7 +840,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "AwK6ln7Vk"
           },
           "filters": [],
           "format": "table",
@@ -937,7 +874,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロックの伝搬について：1秒以内にブロックをダウンロードできたおおよその推定値。※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
@@ -981,12 +918,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1005,7 +942,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロックの伝搬について：3秒以内にブロックをダウンロードできたおおよその推定値。95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
@@ -1049,12 +986,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1073,7 +1010,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロックの伝搬について：5秒以内にブロックをダウンロードできたおおよその推定値。95%のブロックを5秒以内にダウンロードすることは、ウロボロスPraosのセキュリティ上の最低ラインとなります。※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
@@ -1117,12 +1054,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1141,7 +1078,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "■5秒以上後に到着したブロックの追跡：ミントされたはずのブロックが5秒以上後に到着したブロックを追跡します。",
       "fieldConfig": {
@@ -1184,12 +1121,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1208,7 +1145,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "AwK6ln7Vk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1252,7 +1189,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "columns": [
@@ -1264,7 +1201,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "AwK6ln7Vk"
           },
           "filters": [],
           "format": "table",
@@ -1299,7 +1236,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "AwK6ln7Vk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1353,7 +1290,7 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "columns": [
@@ -1365,7 +1302,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "AwK6ln7Vk"
           },
           "filters": [],
           "format": "table",
@@ -1401,7 +1338,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "AwK6ln7Vk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1450,7 +1387,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "columns": [
@@ -1462,7 +1399,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "AwK6ln7Vk"
           },
           "filters": [],
           "format": "table",
@@ -1496,7 +1433,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "AwK6ln7Vk"
       },
       "fieldConfig": {
         "defaults": {
@@ -1541,7 +1478,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "columns": [
@@ -1553,7 +1490,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "AwK6ln7Vk"
           },
           "filters": [],
           "format": "table",
@@ -1587,7 +1524,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "■ブロック受信までの時間：ブロックがミントされるべきだった時から、ローカルのリレーがブロックを受信するまでの遅延を推定した時間。この指標には、コンセンサス/元帳がそのブロックを採用するまでの時間は含まれていません（採用されない可能性もあります）",
       "fieldConfig": {
@@ -1611,7 +1548,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
+        "w": 3,
         "x": 15,
         "y": 11
       },
@@ -1631,12 +1568,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1655,8 +1592,75 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 18,
+        "y": 11
+      },
+      "id": 106,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "text": {},
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ZKZ6iIk7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_connectedPeers_int",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "ピア",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "ZKZ6iIk7k"
+      },
+      "description": "Hot Peers=アクティブ接続のPeer数(ミニプロトコル使用)のこと。最適値は20。\nWarm Peers=バックアップ接続のPeer数(ミニプロトコル未使用)のこと。デフォルト30。\nCold Peers=検知済みの予備Peer(未接続ピア、バックアップ)のこと。デフォルト 50。",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1681,7 +1685,7 @@
         "x": 21,
         "y": 11
       },
-      "id": 106,
+      "id": 135,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -1697,31 +1701,64 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cardano_node_metrics_connectedPeers_int",
+          "expr": "cardano_node_metrics_peerSelection_hot",
           "format": "time_series",
+          "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "{{alias}}",
+          "legendFormat": "Hot Peers",
           "range": false,
-          "refId": "A"
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ZKZ6iIk7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_peerSelection_warm",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Warm Peers",
+          "range": false,
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "ZKZ6iIk7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_peerSelection_cold",
+          "format": "time_series",
+          "hide": false,
+          "instant": true,
+          "interval": "",
+          "legendFormat": "Cold Peers",
+          "range": false,
+          "refId": "D"
         }
       ],
-      "title": "ピア",
+      "title": "動的P2P",
       "type": "stat"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -1764,12 +1801,12 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1787,7 +1824,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -1829,12 +1866,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1852,7 +1889,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "",
       "fieldConfig": {
@@ -1936,7 +1973,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -1954,7 +1991,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -1996,12 +2033,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2019,7 +2056,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "■リレーノードの有用性判定：人気のないノードには0に近い値が与えられ、非常に有用なノードには1以上の値が与えられます。\n値が0の場合、誰もあなたのリレーからブロックを取得していないことを意味します。\n値が1の場合、新しいブロックが作成されるたびに、誰かがそれを取得していることを意味します。\n値が2以上の場合は、ミントされたブロックごとに、2つのノードがあなたからそのブロックをフェッチしていることを意味します。",
       "fieldConfig": {
@@ -2066,12 +2103,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2090,7 +2127,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "",
       "fieldConfig": {
@@ -2175,7 +2212,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2193,7 +2230,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "",
       "fieldConfig": {
@@ -2278,7 +2315,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2296,7 +2333,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "",
       "fieldConfig": {
@@ -2344,12 +2381,12 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2369,7 +2406,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "■チェーン上のフォーク数をカウント：ノードがスタートしてからのフォーク数。ブロック伝播遅延の影響で2秒前後のスロット間のスケジュールで発生",
       "fieldConfig": {
@@ -2413,12 +2450,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2437,7 +2474,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -2488,12 +2525,12 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.2.6",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2511,7 +2548,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -2586,7 +2623,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2605,7 +2642,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -2686,7 +2723,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2704,7 +2741,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -2803,7 +2840,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2822,7 +2859,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "description": "",
       "fieldConfig": {
@@ -2919,7 +2956,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2933,7 +2970,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -2951,7 +2988,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "ZKZ6iIk7k"
       },
       "fieldConfig": {
         "defaults": {
@@ -3047,7 +3084,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -3061,7 +3098,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "ZKZ6iIk7k"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -3078,14 +3115,15 @@
     }
   ],
   "refresh": "20s",
-  "schemaVersion": 37,
+  "revision": 1,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
     "list": []
   },
   "time": {
-    "from": "now-3h",
+    "from": "now-1h",
     "to": "now"
   },
   "timepicker": {
@@ -3108,6 +3146,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 5,
+  "version": 3,
   "weekStart": ""
 }
