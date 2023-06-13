@@ -333,7 +333,7 @@ cat /proc/sys/vm/swappiness
 - `本番運用で使用される場合`は必ず`ネットワークアダプターを有効化`の`チェックを外してください`。  
 [2-8. エアギャップマシンセットアップ](https://docs.spojapanguild.net/setup/2-node-setup/#2-8)を終えた後に行ってください。
 
-![BootVirtualMachine-19](https://user-images.githubusercontent.com/80967103/200110479-30bdd7ea-88b4-41f2-8642-b6653e45762a.png)
+![BootVirtualMachine-19](https://github-production-user-asset-6210df.s3.amazonaws.com/80967103/245509613-4e361f43-93f5-4db9-a4cc-aec501fe557f.png)
 
 ---
 
