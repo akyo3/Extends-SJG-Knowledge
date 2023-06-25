@@ -124,7 +124,7 @@ sudo hostnamectl
   複数リレー運用かつディスク空き容量に余裕がある場合は、[RSYNC+SSH](https://docs.spojapanguild.net/operation/node-update/#3rsyncssh)手順を試してみるといいでしょう。  
   `必ずディスク空き容量を確認して実行して下さい。`
 
-2-2. 旧BPのcnodeディレクトリにある`mainnet-topology.json`、`mainnet-config.json`を新BPのcnodeディレクトリにコピーし、新BPのノードを再起動します。
+2-2. 旧BPのcnodeディレクトリにある`mainnet-topology.json`を新BPのcnodeディレクトリにコピーし、新BPのノードを再起動します。
 
 `新BP`
 
