@@ -253,7 +253,7 @@ sudo systemctl disable cardano-node
 | stakepoolid_bech32.txt | stakepoolid、bech32形式 |
 | stakepoolid_hex.txt | stakepoolid、hex形式 |
 | guild-db | ブロックログ関連フォルダ |
-> guild-dbフォルダは容量が大きいので転送に時間がかかります。過去のブロック生成実績が書き込まれているので旧BPを削除する前までに移動しておくといいでしょう。
+> 旧BPからguild-dbフォルダを移動しないと、過去の「Ideal」、「Luck」が全て消えます(この2つは再取得できません)ので、[FileZillaをセットアップ](https://docs.spojapanguild.net/operation/sftp/)して、必ず移動してください。
 > その他の必要ファイルがあれば移動しておいてください。
 
 2-6. VRFキーのパーミッションを変更します。
@@ -291,12 +291,14 @@ cardano-cli query protocol-parameters \
     --out-file params.json
 ```
 
+2-10. ブロックログの導入前に、cncli.dbを削除します。
+```
+rm $NODE_HOME/guild-db/cncli/cncli.db
+```
 
-2-10. ブロックログの設定をします。
+2-11. ブロックログの設定をします。
 
 - [ステークプールブロックログ導入手順](https://docs.spojapanguild.net/setup/10-blocklog-setup/)
-
-> （20220913追記:Aichiが検証済）`guild-db`のフォルダも、旧BPからまるごとコピーすると手順2-11のcncliの同期が一瞬で終わります。ただし`guild-db`のフォルダのコピー自体が時間がかかりました。日本から近いロケーションのときのみに限ったほうが良いかもしれません。
 
 - envファイルのupdatecheckをNにしておきます。
 ```console
@@ -304,11 +306,11 @@ sed -i $NODE_HOME/scripts/env \
     -e '1,73s!#UPDATE_CHECK="Y"!UPDATE_CHECK="N"!'
 ```
 
-2-11. ブロックが生成できる状態にあるかどうか、`SPO JAPAN GUILD TOOL`でチェックします。
+2-12. ブロックが生成できる状態にあるかどうか、`SPO JAPAN GUILD TOOL`でチェックします。
 
 - [SPO JAPAN GUILD TOOL](https://docs.spojapanguild.net/operation/tool/#spo-japan-guild-tool)
 
-2-12. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得し、インスタンスは不要なので削除します。
+2-13. ブロック生成を確認したら、旧BPのバックアップ(スナップショット)を取得し、インスタンスは不要なので削除します。
 <details>
 <summary>何らかの事情で、旧BPを再稼働したい場合(IP接続のとき）</summary>
 <div>
@@ -334,7 +336,7 @@ sudo systemctl start cardano-node
 </div>
 </details>
 
-2-13. リレーにて `relay-topology_pull.sh` に設定している旧BPの情報を削除した後、トポロジーファイルの更新をし、ノード再起動します。
+2-14. リレーにて `relay-topology_pull.sh` に設定している旧BPの情報を削除した後、トポロジーファイルの更新をし、ノード再起動します。
 
 `リレー`
 ```console
@@ -355,7 +357,7 @@ cd $NODE_HOME/scripts
 ```
 > DNSベースで接続している人は、DNSのAレコードの変更が反映されたらIPをDNSに書き換えます。
 
-2-14. Prometheus、Grafanaの設定
+2-15. Prometheus、Grafanaの設定
 
 - 新BPにて`prometheus node exporter`をインストールします。
 
