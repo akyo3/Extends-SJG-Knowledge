@@ -4,6 +4,11 @@ cd $NODE_HOME/scripts
 wget https://raw.githubusercontent.com/papacarp/pooltool.io/master/sendmytip/shell/sendmytip.sh -O ./sendmytip.sh
 ```
 
+- パーミッションを設定する
+```console
+chmod 755 sendmytip.sh
+```
+
 - XXXは、PoolToolのAPI KEYに置き換えてください。
 ```console
 PT_MY_API_KEY=XXX
