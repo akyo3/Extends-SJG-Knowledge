@@ -11,13 +11,13 @@ echo "BPポートは${b_PORT}です"
 ```
 ```console
 sed -i $NODE_HOME/scripts/cncli.sh \
--e '1,73s!#PT_API_KEY=""!PT_API_KEY="'${PT_API_KEY}'"!' \
--e '1,73s!#POOL_TICKER=""!POOL_TICKER="'$(echo `jq -r '.ticker' $NODE_HOME/poolMetaData.json`)'"!' \
--e '1,73s!#PT_HOST="127.0.0.1"!PT_HOST="127.0.0.1"!' \
--e '1,73s!#PT_PORT="${CNODE_PORT}"!PT_PORT="'${b_PORT}'"!' \
--e '1,73s!#PT_SENDSLOTS_START=30!PT_SENDSLOTS_START=30!' \
--e '1,73s!#PT_SENDSLOTS_STOP=60!PT_SENDSLOTS_STOP=60!' \
--e '1,73s!#SLEEP_RATE=60!SLEEP_RATE=60!'
+  -e '1,73s!#PT_API_KEY=""!PT_API_KEY="'${PT_API_KEY}'"!' \
+  -e '1,73s!#POOL_TICKER=""!POOL_TICKER="'$(echo `jq -r '.ticker' $NODE_HOME/poolMetaData.json`)'"!' \
+  -e '1,73s!#PT_HOST="127.0.0.1"!PT_HOST="127.0.0.1"!' \
+  -e '1,73s!#PT_PORT="${CNODE_PORT}"!PT_PORT="'${b_PORT}'"!' \
+  -e '1,73s!#PT_SENDSLOTS_START=30!PT_SENDSLOTS_START=30!' \
+  -e '1,73s!#PT_SENDSLOTS_STOP=60!PT_SENDSLOTS_STOP=60!' \
+  -e '1,73s!#SLEEP_RATE=60!SLEEP_RATE=60!'
 ```
 
 - サービスファイル作成・登録
