@@ -1,3 +1,32 @@
+## CNCLIのリビルド（Ubuntu22.04の場合）
+
+- 依存関係の追加とアップデート
+```console
+sudo apt update -y && sudo apt install -y automake build-essential pkg-config libffi-dev libgmp-dev libssl-dev libtinfo-dev libsystemd-dev zlib1g-dev make g++ tmux git jq wget libncursesw5 libtool autoconf musl-tools
+```
+
+- Rustパッケージアップデート
+```console
+rustup update
+rustup target add x86_64-unknown-linux-musl
+```
+
+- インストール
+```console
+cd $HOME/git/cncli
+git fetch --all --prune
+git checkout $(curl -s https://api.github.com/repos/cardano-community/cncli/releases/latest | jq -r .tag_name)
+cargo install --path . --force
+```
+
+- CNCLIのバージョンを確認します。
+```console
+cncli --version
+```
+> cncli 5.3.2 が最新バージョンです
+
+## SendTip設定
+
 - envファイルを修正します
 ```console
 sed -i $NODE_HOME/scripts/env \
