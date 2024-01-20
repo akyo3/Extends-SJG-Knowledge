@@ -144,15 +144,15 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "semi-dark-red",
+                "color": "#ff2d2d",
                 "value": 3.5
               },
               {
-                "color": "semi-dark-green",
+                "color": "#2c75ff",
                 "value": 5
               }
             ]
@@ -168,7 +168,7 @@
       },
       "id": 98,
       "options": {
-        "colorMode": "background",
+        "colorMode": "value",
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
@@ -219,15 +219,15 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "semi-dark-red",
+                "color": "#ff2d2d",
                 "value": 3.5
               },
               {
-                "color": "semi-dark-green",
+                "color": "#2c75ff",
                 "value": 5
               }
             ]
@@ -243,7 +243,7 @@
       },
       "id": 133,
       "options": {
-        "colorMode": "background",
+        "colorMode": "value",
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
@@ -288,18 +288,18 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-green",
+                "color": "green",
                 "value": null
               },
               {
-                "color": "light-green",
+                "color": "#2c75ff",
                 "value": 1
               }
             ]
@@ -315,7 +315,7 @@
       },
       "id": 114,
       "options": {
-        "colorMode": "background",
+        "colorMode": "value",
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
@@ -362,8 +362,12 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "semi-dark-green",
+                "color": "green",
                 "value": null
+              },
+              {
+                "color": "#2c75ff",
+                "value": 1
               }
             ]
           }
@@ -378,7 +382,7 @@
       },
       "id": 129,
       "options": {
-        "colorMode": "background",
+        "colorMode": "value",
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
@@ -1669,7 +1673,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -1737,7 +1741,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "thresholds"
+            "mode": "palette-classic"
           },
           "mappings": [],
           "thresholds": {
@@ -3261,6 +3265,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
