@@ -61,3 +61,20 @@ sudo systemctl daemon-reload
 sudo systemctl enable cnode-cncli-pt-sendslots.service
 sudo systemctl start cnode-cncli-pt-sendslots.service
 ```
+
+- Cronジョブの設定
+```console
+cat > $NODE_HOME/crontab-fragment.txt << EOF
+30 22 * * * tmux send-keys -t ptsendslots './cncli.sh ptsendslots' C-m
+EOF
+crontab -l | cat - crontab-fragment.txt >crontab.txt && crontab crontab.txt
+rm crontab-fragment.txt
+```
+> no crontab for ~~ というメッセージが表示されることがありますが、Cron初回設定時に表示されるメッセージとなりますので、問題ありません。
+
+```console
+crontab -l
+```
+
+- 以下が返り値として表示されればOK。
+> 30 22 * * * tmux send-keys -t ptsendslots './cncli.sh ptsendslots' C-m
