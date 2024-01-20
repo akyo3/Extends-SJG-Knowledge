@@ -29,7 +29,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "9.5.2"
+      "version": "10.2.3"
     },
     {
       "type": "datasource",
@@ -59,7 +59,7 @@
       "type": "datasource",
       "id": "yesoreyeram-infinity-datasource",
       "name": "Infinity",
-      "version": "1.0.0"
+      "version": "2.0.0"
     }
   ],
   "annotations": {
@@ -112,7 +112,7 @@
         "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/sjg-yoko-white-logo.png\"></a><br>\n<img width=\"20px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/Cex-logo.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -126,7 +126,6 @@
           "refId": "A"
         }
       ],
-      "transparent": true,
       "type": "text"
     },
     {
@@ -145,7 +144,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
+                "color": "semi-dark-green",
                 "value": null
               },
               {
@@ -153,7 +152,7 @@
                 "value": 3.5
               },
               {
-                "color": "semi-dark-blue",
+                "color": "semi-dark-green",
                 "value": 5
               }
             ]
@@ -181,9 +180,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -219,7 +219,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
+                "color": "semi-dark-green",
                 "value": null
               },
               {
@@ -227,7 +227,7 @@
                 "value": 3.5
               },
               {
-                "color": "green",
+                "color": "semi-dark-green",
                 "value": 5
               }
             ]
@@ -243,7 +243,7 @@
       },
       "id": 133,
       "options": {
-        "colorMode": "value",
+        "colorMode": "background",
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
@@ -255,9 +255,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -294,11 +295,11 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
+                "color": "semi-dark-green",
                 "value": null
               },
               {
-                "color": "semi-dark-orange",
+                "color": "light-green",
                 "value": 1
               }
             ]
@@ -326,9 +327,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -360,7 +362,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-blue",
+                "color": "semi-dark-green",
                 "value": null
               }
             ]
@@ -387,9 +389,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "columns": [
@@ -478,8 +481,10 @@
       "id": 108,
       "options": {
         "displayMode": "lcd",
+        "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
+        "namePlacement": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
@@ -489,10 +494,11 @@
           "values": false
         },
         "showUnfilled": true,
+        "sizing": "manual",
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -557,9 +563,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -631,9 +638,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -742,9 +750,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "columns": [
@@ -827,9 +836,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -890,9 +900,10 @@
           "fields": "/.*/",
           "values": true
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "columns": [
@@ -980,9 +991,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1048,9 +1060,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1116,9 +1129,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1183,9 +1197,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1222,7 +1237,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
+                "color": "green",
                 "value": null
               }
             ]
@@ -1251,9 +1266,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "columns": [
@@ -1323,7 +1339,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-green",
+                "color": "green",
                 "value": null
               }
             ]
@@ -1352,9 +1368,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "columns": [
@@ -1416,14 +1433,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "light-blue",
-                "value": 50
-              },
-              {
-                "color": "blue",
-                "value": 100
               }
             ]
           }
@@ -1449,9 +1458,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "columns": [
@@ -1511,10 +1521,6 @@
               {
                 "color": "green",
                 "value": null
-              },
-              {
-                "color": "yellow",
-                "value": 50
               }
             ]
           }
@@ -1540,9 +1546,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "columns": [
@@ -1630,9 +1637,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1661,7 +1669,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "mappings": [],
           "thresholds": {
@@ -1696,9 +1704,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1728,7 +1737,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "palette-classic"
+            "mode": "thresholds"
           },
           "mappings": [],
           "thresholds": {
@@ -1763,9 +1772,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1853,8 +1863,10 @@
       "id": 101,
       "options": {
         "displayMode": "basic",
+        "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
+        "namePlacement": "auto",
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
@@ -1864,9 +1876,10 @@
           "values": false
         },
         "showUnfilled": true,
+        "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1901,7 +1914,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
+                "color": "light-blue",
                 "value": null
               }
             ]
@@ -1929,9 +1942,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -1949,6 +1963,7 @@
         }
       ],
       "title": "スロット",
+      "transparent": true,
       "type": "stat"
     },
     {
@@ -1963,26 +1978,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 22,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2051,6 +2068,7 @@
         }
       ],
       "title": "CPU使用量",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -2068,7 +2086,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "blue",
+                "color": "light-blue",
                 "value": null
               }
             ]
@@ -2096,9 +2114,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -2116,6 +2135,7 @@
         }
       ],
       "title": "ブロック",
+      "transparent": true,
       "type": "stat"
     },
     {
@@ -2134,12 +2154,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "light-blue",
-                "value": null
-              },
-              {
                 "color": "green",
-                "value": 2
+                "value": null
               }
             ]
           },
@@ -2166,9 +2182,10 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -2187,6 +2204,7 @@
         }
       ],
       "title": "最新のブロック数",
+      "transparent": true,
       "type": "stat"
     },
     {
@@ -2201,26 +2219,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 15,
-            "gradientMode": "hue",
+            "fillOpacity": 22,
+            "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2290,6 +2310,7 @@
         }
       ],
       "title": "ノードメモリ使用量",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -2304,26 +2325,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 15,
-            "gradientMode": "hue",
+            "fillOpacity": 22,
+            "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2393,6 +2416,7 @@
         }
       ],
       "title": "システムメモリ使用量",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -2417,7 +2441,7 @@
               },
               {
                 "color": "red",
-                "value": 1
+                "value": 50
               }
             ]
           },
@@ -2434,8 +2458,10 @@
       "id": 96,
       "options": {
         "displayMode": "basic",
+        "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
+        "namePlacement": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -2445,9 +2471,10 @@
           "values": false
         },
         "showUnfilled": true,
+        "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -2467,6 +2494,7 @@
         }
       ],
       "title": "スワップメモリ使用量",
+      "transparent": true,
       "type": "bargauge"
     },
     {
@@ -2514,9 +2542,10 @@
           "values": false
         },
         "text": {},
-        "textMode": "auto"
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -2535,6 +2564,7 @@
         }
       ],
       "title": "フォーク",
+      "transparent": true,
       "type": "stat"
     },
     {
@@ -2558,7 +2588,7 @@
               },
               {
                 "color": "yellow",
-                "value": 0.4
+                "value": 0.35
               },
               {
                 "color": "red",
@@ -2579,8 +2609,10 @@
       "id": 103,
       "options": {
         "displayMode": "basic",
+        "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
+        "namePlacement": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -2590,9 +2622,10 @@
           "values": false
         },
         "showUnfilled": true,
+        "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.2.3",
       "targets": [
         {
           "datasource": {
@@ -2610,6 +2643,7 @@
         }
       ],
       "title": "ディスク使用率",
+      "transparent": true,
       "type": "bargauge"
     },
     {
@@ -2623,26 +2657,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 5,
+            "fillOpacity": 22,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2704,6 +2740,7 @@
         }
       ],
       "title": "ノードタイムエラー最大秒数",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -2717,26 +2754,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 5,
-            "gradientMode": "opacity",
+            "fillOpacity": 15,
+            "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 2,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2803,6 +2842,7 @@
         }
       ],
       "title": "チェーン密度",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -2816,26 +2856,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 22,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "auto",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -2876,7 +2918,7 @@
                 "value": {
                   "legend": false,
                   "tooltip": false,
-                  "viz": true
+                  "viz": false
                 }
               }
             ]
@@ -2921,6 +2963,7 @@
         }
       ],
       "title": "スロットミス数",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -2935,26 +2978,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "transmit（-）/receive（+）",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 22,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -3050,6 +3095,7 @@
         }
       ],
       "title": "ネットワーク使用量",
+      "transparent": true,
       "type": "timeseries"
     },
     {
@@ -3063,26 +3109,28 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisLabel": "Bytes read (-) / write (+)",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
-            "fillOpacity": 10,
+            "fillOpacity": 22,
             "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
               "viz": false
             },
+            "insertNulls": false,
             "lineInterpolation": "linear",
             "lineWidth": 1,
-            "pointSize": 5,
+            "pointSize": 4,
             "scaleDistribution": {
               "type": "linear"
             },
-            "showPoints": "never",
+            "showPoints": "always",
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -3178,13 +3226,13 @@
         }
       ],
       "title": "ディスク使用量",
+      "transparent": true,
       "type": "timeseries"
     }
   ],
   "refresh": "20s",
   "revision": 1,
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": []
@@ -3213,6 +3261,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }
