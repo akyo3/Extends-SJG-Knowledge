@@ -31,22 +31,18 @@ BindsTo=cnode-cncli-sync.service
 After=cnode-cncli-sync.service
 
 [Service]
-Type=oneshot
-RemainAfterExit=yes
+Type=simple
 Restart=on-failure
 RestartSec=20
 User=$(whoami)
-WorkingDirectory=$NODE_HOME/scripts
-ExecStart=/bin/bash -c "sleep 25;/usr/bin/tmux new -d -s ptsendslots"
-ExecStartPost=/usr/bin/tmux send-keys -t ptsendslots ./cncli.sh Space ptsendslots Enter
-ExecStop=/usr/bin/tmux kill-session -t ptsendslots
-KillSignal=SIGINT
-RestartKillSignal=SIGINT
+WorkingDirectory=${NODE_HOME}
+ExecStart=/bin/bash -l -c "exec ${NODE_HOME}/scripts/cncli.sh ptsendslots"
 SuccessExitStatus=143
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=cnode-cncli-pt-sendslots
 TimeoutStopSec=5
+KillMode=mixed
 
 [Install]
 WantedBy=cnode-cncli-sync.service
@@ -65,7 +61,7 @@ sudo systemctl start cnode-cncli-pt-sendslots.service
 - Cronジョブの設定
 ```console
 cat > $NODE_HOME/crontab-fragment.txt << EOF
-30 22 * * * tmux send-keys -t ptsendslots './cncli.sh ptsendslots' C-m
+30 22 * * * exec ${NODE_HOME}/scripts/cncli.sh ptsendslots
 EOF
 crontab -l | cat - crontab-fragment.txt >crontab.txt && crontab crontab.txt
 rm crontab-fragment.txt
@@ -77,4 +73,4 @@ crontab -l
 ```
 
 - 以下が返り値として表示されればOK。
-> 30 22 * * * tmux send-keys -t ptsendslots './cncli.sh ptsendslots' C-m
+> 30 22 * * * exec ${NODE_HOME}/scripts/cncli.sh ptsendslots
