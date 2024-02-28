@@ -20,7 +20,7 @@ sed -i $NODE_HOME/scripts/cncli.sh \
   -e '1,73s!#SLEEP_RATE=60!SLEEP_RATE=60!'
 ```
 
-- サービスファイル作成・登録
+- サービスファイル作成
 ```console
 cat > $NODE_HOME/service/cnode-cncli-pt-sendslots.service << EOF 
 # file: /etc/systemd/system/cnode-cncli-pt-sendslots.service
@@ -49,28 +49,33 @@ WantedBy=cnode-cncli-sync.service
 EOF
 ```
 
+- タイマーの作成
+```console
+cat > $NODE_HOME/service/cnode-cncli-pt-sendslots.timer << EOF 
+# file: /etc/systemd/system/cnode-cncli-pt-sendslots.timer
+[Unit]
+Description=Cardano Node - CNCLI PT sendslots
+BindsTo=cnode-cncli-sync.service
+After=cnode-cncli-sync.service
+
+[Timer]
+OnCalendar=*-*-* 22:30:00
+AccuracySec=1m
+
+[Install]
+WantedBy=timers.target
+EOF
+```
+
 - サービスファイルをコピーして、有効化と起動をします。
 ```console
 sudo cp $NODE_HOME/service/cnode-cncli-pt-sendslots.service /etc/systemd/system/cnode-cncli-pt-sendslots.service
+sudo cp $NODE_HOME/service/cnode-cncli-pt-sendslots.timer /etc/systemd/system/cnode-cncli-pt-sendslots.timer
 sudo chmod 644 /etc/systemd/system/cnode-cncli-pt-sendslots.service
+sudo chmod 644 /etc/systemd/system/cnode-cncli-pt-sendslots.timer
 sudo systemctl daemon-reload
 sudo systemctl enable cnode-cncli-pt-sendslots.service
+sudo systemctl enable cnode-cncli-pt-sendslots.timer
 sudo systemctl start cnode-cncli-pt-sendslots.service
+sudo systemctl start cnode-cncli-pt-sendslots.timer
 ```
-
-- Cronジョブの設定
-```console
-cat > $NODE_HOME/crontab-fragment.txt << EOF
-30 22 * * * exec ${NODE_HOME}/scripts/cncli.sh ptsendslots
-EOF
-crontab -l | cat - crontab-fragment.txt >crontab.txt && crontab crontab.txt
-rm crontab-fragment.txt
-```
-> no crontab for ~~ というメッセージが表示されることがありますが、Cron初回設定時に表示されるメッセージとなりますので、問題ありません。
-
-```console
-crontab -l
-```
-
-- 以下が返り値として表示されればOK。
-> 30 22 * * * exec ${NODE_HOME}/scripts/cncli.sh ptsendslots
