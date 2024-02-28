@@ -36,6 +36,7 @@ Restart=on-failure
 RestartSec=20
 User=$(whoami)
 WorkingDirectory=${NODE_HOME}
+ExecStartPre=/bin/sleep 5
 ExecStart=/bin/bash -l -c "exec ${NODE_HOME}/scripts/cncli.sh ptsendslots"
 SuccessExitStatus=143
 StandardOutput=syslog
@@ -78,4 +79,9 @@ sudo systemctl enable cnode-cncli-pt-sendslots.service
 sudo systemctl enable cnode-cncli-pt-sendslots.timer
 sudo systemctl start cnode-cncli-pt-sendslots.service
 sudo systemctl start cnode-cncli-pt-sendslots.timer
+```
+
+- タイマーの一覧と設定状況確認
+```console
+sudo systemctl list-timers
 ```
