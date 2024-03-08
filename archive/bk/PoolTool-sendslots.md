@@ -36,8 +36,7 @@ Restart=on-failure
 RestartSec=20
 User=$(whoami)
 WorkingDirectory=${NODE_HOME}
-ExecStartPre=/bin/sleep 5
-ExecStart=/bin/bash -l -c "exec ${NODE_HOME}/scripts/cncli.sh ptsendslots"
+ExecStart=/bin/bash -c "sleep 15; exec ${NODE_HOME}/scripts/cncli.sh ptsendslots"
 SuccessExitStatus=143
 StandardOutput=syslog
 StandardError=syslog
@@ -60,7 +59,7 @@ BindsTo=cnode-cncli-sync.service
 After=cnode-cncli-sync.service
 
 [Timer]
-OnCalendar=*-*-* 22:30:00
+OnCalendar=*-*-* 09:41:00
 AccuracySec=1m
 
 [Install]

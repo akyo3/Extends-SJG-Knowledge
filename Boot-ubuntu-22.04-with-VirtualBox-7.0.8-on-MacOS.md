@@ -293,8 +293,22 @@ ls /media/sf_share/
 
 ---
 
-## 7- Swapファイルの作成  
-7-1. 既存Swapファイルを削除  
+## 7- ブラケットペーストモードOFFの設定
+```console
+echo "set enable-bracketed-paste off" >> ~/.inputrc
+```
+デーモン再起動自動化
+```console
+echo "\$nrconf{restart} = 'a';" | sudo tee /etc/needrestart/conf.d/50local.conf
+```
+```console
+echo "\$nrconf{blacklist_rc} = [qr(^cardano-node\\.service$) => 0,];" | sudo tee -a /etc/needrestart/conf.d/50local.conf
+```
+
+---
+
+## 8- Swapファイルの作成  
+8-1. 既存Swapファイルを削除  
 ```console
 sudo swapoff /swapfile
 ```
@@ -304,7 +318,7 @@ sudo rm /swapfile
 
 ---
 
-7-2. 新規Swapファイルを作成  
+8-2. 新規Swapファイルを作成  
 ```console
 cd $HOME
 sudo fallocate -l 6G /swapfile
