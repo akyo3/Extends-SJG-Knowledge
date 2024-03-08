@@ -297,12 +297,8 @@ ls /media/sf_share/
 ```console
 echo "set enable-bracketed-paste off" >> ~/.inputrc
 ```
-デーモン再起動自動化
 ```console
-echo "\$nrconf{restart} = 'a';" | sudo tee /etc/needrestart/conf.d/50local.conf
-```
-```console
-echo "\$nrconf{blacklist_rc} = [qr(^cardano-node\\.service$) => 0,];" | sudo tee -a /etc/needrestart/conf.d/50local.conf
+sudo reboot
 ```
 
 ---
