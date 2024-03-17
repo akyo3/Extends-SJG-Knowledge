@@ -23,7 +23,7 @@ cargo install --path . --force
 ```console
 cncli --version
 ```
-> cncli 5.3.2 が最新バージョンです
+> cncli 6.0.1 が最新バージョンです
 
 ## SendTip設定
 
@@ -66,22 +66,18 @@ BindsTo=cnode-cncli-sync.service
 After=cnode-cncli-sync.service
 
 [Service]
-Type=oneshot
-RemainAfterExit=yes
+Type=simple
 Restart=on-failure
 RestartSec=20
 User=$(whoami)
-WorkingDirectory=$NODE_HOME/scripts
-ExecStart=/bin/bash -c "sleep 25;/usr/bin/tmux new -d -s ptsendtip"
-ExecStartPost=/usr/bin/tmux send-keys -t ptsendtip ./cncli.sh Space ptsendtip Enter
-ExecStop=/usr/bin/tmux kill-session -t ptsendtip
-KillSignal=SIGINT
-RestartKillSignal=SIGINT
+WorkingDirectory=${NODE_HOME}
+ExecStart=/bin/bash -l -c "exec ${NODE_HOME}/scripts/cncli.sh ptsendtip"
 SuccessExitStatus=143
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=cnode-cncli-pt-sendtip
 TimeoutStopSec=5
+KillMode=mixed
 
 [Install]
 WantedBy=cnode-cncli-sync.service

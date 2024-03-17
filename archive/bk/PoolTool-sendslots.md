@@ -20,7 +20,7 @@ sed -i $NODE_HOME/scripts/cncli.sh \
   -e '1,73s!#SLEEP_RATE=60!SLEEP_RATE=60!'
 ```
 
-- サービスファイル作成・登録
+- サービスファイル作成
 ```console
 cat > $NODE_HOME/service/cnode-cncli-pt-sendslots.service << EOF 
 # file: /etc/systemd/system/cnode-cncli-pt-sendslots.service
@@ -31,50 +31,56 @@ BindsTo=cnode-cncli-sync.service
 After=cnode-cncli-sync.service
 
 [Service]
-Type=oneshot
-RemainAfterExit=yes
+Type=simple
 Restart=on-failure
 RestartSec=20
 User=$(whoami)
-WorkingDirectory=$NODE_HOME/scripts
-ExecStart=/bin/bash -c "sleep 25;/usr/bin/tmux new -d -s ptsendslots"
-ExecStartPost=/usr/bin/tmux send-keys -t ptsendslots ./cncli.sh Space ptsendslots Enter
-ExecStop=/usr/bin/tmux kill-session -t ptsendslots
-KillSignal=SIGINT
-RestartKillSignal=SIGINT
+WorkingDirectory=${NODE_HOME}
+ExecStart=/bin/bash -c "sleep 15; exec ${NODE_HOME}/scripts/cncli.sh ptsendslots"
 SuccessExitStatus=143
 StandardOutput=syslog
 StandardError=syslog
 SyslogIdentifier=cnode-cncli-pt-sendslots
 TimeoutStopSec=5
+KillMode=mixed
 
 [Install]
 WantedBy=cnode-cncli-sync.service
 EOF
 ```
 
+- タイマーの作成
+```console
+cat > $NODE_HOME/service/cnode-cncli-pt-sendslots.timer << EOF 
+# file: /etc/systemd/system/cnode-cncli-pt-sendslots.timer
+[Unit]
+Description=Cardano Node - CNCLI PT sendslots
+BindsTo=cnode-cncli-sync.service
+After=cnode-cncli-sync.service
+
+[Timer]
+OnCalendar=*-*-* 09:41:00
+AccuracySec=1m
+
+[Install]
+WantedBy=timers.target
+EOF
+```
+
 - サービスファイルをコピーして、有効化と起動をします。
 ```console
 sudo cp $NODE_HOME/service/cnode-cncli-pt-sendslots.service /etc/systemd/system/cnode-cncli-pt-sendslots.service
+sudo cp $NODE_HOME/service/cnode-cncli-pt-sendslots.timer /etc/systemd/system/cnode-cncli-pt-sendslots.timer
 sudo chmod 644 /etc/systemd/system/cnode-cncli-pt-sendslots.service
+sudo chmod 644 /etc/systemd/system/cnode-cncli-pt-sendslots.timer
 sudo systemctl daemon-reload
 sudo systemctl enable cnode-cncli-pt-sendslots.service
+sudo systemctl enable cnode-cncli-pt-sendslots.timer
 sudo systemctl start cnode-cncli-pt-sendslots.service
+sudo systemctl start cnode-cncli-pt-sendslots.timer
 ```
 
-- Cronジョブの設定
+- タイマーの一覧と設定状況確認
 ```console
-cat > $NODE_HOME/crontab-fragment.txt << EOF
-30 22 * * * tmux send-keys -t ptsendslots './cncli.sh ptsendslots' C-m
-EOF
-crontab -l | cat - crontab-fragment.txt >crontab.txt && crontab crontab.txt
-rm crontab-fragment.txt
+sudo systemctl list-timers
 ```
-> no crontab for ~~ というメッセージが表示されることがありますが、Cron初回設定時に表示されるメッセージとなりますので、問題ありません。
-
-```console
-crontab -l
-```
-
-- 以下が返り値として表示されればOK。
-> 30 22 * * * tmux send-keys -t ptsendslots './cncli.sh ptsendslots' C-m
