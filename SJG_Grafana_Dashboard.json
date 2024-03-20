@@ -29,7 +29,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.2.3"
+      "version": "10.4.0"
     },
     {
       "type": "datasource",
@@ -112,7 +112,7 @@
         "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/sjg-yoko-white-logo.png\"></a><br>\n<img width=\"20px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/Cex-logo.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -179,11 +179,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -254,11 +255,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -326,11 +328,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -393,10 +396,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "columns": [
@@ -502,7 +506,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -566,11 +570,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -641,11 +646,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -754,10 +760,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "columns": [
@@ -839,11 +846,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -904,10 +912,11 @@
           "fields": "/.*/",
           "values": true
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "columns": [
@@ -995,10 +1004,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1064,10 +1074,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1133,10 +1144,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1201,10 +1213,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1269,11 +1282,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "columns": [
@@ -1371,11 +1385,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "columns": [
@@ -1462,10 +1477,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "columns": [
@@ -1550,10 +1566,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "columns": [
@@ -1623,7 +1640,7 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
+        "w": 4,
         "x": 15,
         "y": 11
       },
@@ -1640,11 +1657,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1690,8 +1708,8 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
-        "x": 18,
+        "w": 5,
+        "x": 19,
         "y": 11
       },
       "id": 106,
@@ -1707,11 +1725,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1737,7 +1756,6 @@
         "type": "prometheus",
         "uid": "${DS_PROMETHEUS}"
       },
-      "description": "Hot Peers=アクティブ接続のPeer数(ミニプロトコル使用)のこと。最適値は20。\nWarm Peers=バックアップ接続のPeer数(ミニプロトコル未使用)のこと。デフォルト30。\nCold Peers=検知済みの予備Peer(未接続ピア、バックアップ)のこと。デフォルト 50。",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1758,9 +1776,9 @@
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
-        "x": 21,
-        "y": 11
+        "w": 12,
+        "x": 0,
+        "y": 15
       },
       "id": 135,
       "options": {
@@ -1775,11 +1793,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1788,49 +1807,84 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cardano_node_metrics_peerSelection_hot",
+          "expr": "cardano_node_metrics_connectionManager_incomingConns",
           "format": "time_series",
-          "hide": false,
           "instant": true,
           "interval": "",
-          "legendFormat": "Hot Peers",
+          "legendFormat": "{{alias}}",
           "range": false,
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_peerSelection_warm",
-          "format": "time_series",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "Warm Peers",
-          "range": false,
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_peerSelection_cold",
-          "format": "time_series",
-          "hide": false,
-          "instant": true,
-          "interval": "",
-          "legendFormat": "Cold Peers",
-          "range": false,
-          "refId": "D"
+          "refId": "A"
         }
       ],
-      "title": "動的P2P",
+      "title": "P2P着信( In )",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 15
+      },
+      "id": 136,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_connectionManager_outgoingConns",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "P2P発信 ( Out )",
       "type": "stat"
     },
     {
@@ -1862,7 +1916,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 15
+        "y": 19
       },
       "id": 101,
       "options": {
@@ -1883,7 +1937,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -1930,7 +1984,7 @@
         "h": 11,
         "w": 3,
         "x": 0,
-        "y": 19
+        "y": 23
       },
       "id": 104,
       "options": {
@@ -1945,11 +1999,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -2035,7 +2090,7 @@
         "h": 11,
         "w": 18,
         "x": 3,
-        "y": 19
+        "y": 23
       },
       "id": 46,
       "options": {
@@ -2102,7 +2157,7 @@
         "h": 11,
         "w": 3,
         "x": 21,
-        "y": 19
+        "y": 23
       },
       "id": 124,
       "options": {
@@ -2117,11 +2172,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -2171,7 +2227,7 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 30
+        "y": 34
       },
       "id": 123,
       "options": {
@@ -2186,10 +2242,11 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -2277,7 +2334,7 @@
         "h": 12,
         "w": 9,
         "x": 3,
-        "y": 30
+        "y": 34
       },
       "id": 50,
       "options": {
@@ -2383,7 +2440,7 @@
         "h": 12,
         "w": 9,
         "x": 12,
-        "y": 30
+        "y": 34
       },
       "id": 111,
       "options": {
@@ -2457,7 +2514,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 30
+        "y": 34
       },
       "id": 96,
       "options": {
@@ -2478,7 +2535,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -2530,7 +2587,7 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 36
+        "y": 40
       },
       "id": 122,
       "options": {
@@ -2545,11 +2602,12 @@
           "fields": "",
           "values": false
         },
+        "showPercentChange": false,
         "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -2608,7 +2666,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 36
+        "y": 40
       },
       "id": 103,
       "options": {
@@ -2629,7 +2687,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "10.2.3",
+      "pluginVersion": "10.4.0",
       "targets": [
         {
           "datasource": {
@@ -2649,6 +2707,318 @@
       "title": "ディスク使用率",
       "transparent": true,
       "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 0,
+        "y": 46
+      },
+      "id": 137,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_peerSelection_hot",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}} - Hot",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "ピア ホット",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 8,
+        "y": 46
+      },
+      "id": 140,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_peerSelection_warm",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}} - Warm",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "ピア ウォーム",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "always",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 8,
+        "x": 16,
+        "y": 46
+      },
+      "id": 141,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.0.2",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_peerSelection_cold",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "{{alias}} - Cold",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "ピア コールド",
+      "transparent": true,
+      "type": "timeseries"
     },
     {
       "datasource": {
@@ -2710,7 +3080,7 @@
         "h": 11,
         "w": 8,
         "x": 0,
-        "y": 42
+        "y": 58
       },
       "id": 116,
       "options": {
@@ -2811,7 +3181,7 @@
         "h": 11,
         "w": 8,
         "x": 8,
-        "y": 42
+        "y": 58
       },
       "id": 94,
       "options": {
@@ -2933,7 +3303,7 @@
         "h": 11,
         "w": 8,
         "x": 16,
-        "y": 42
+        "y": 58
       },
       "id": 115,
       "options": {
@@ -3048,7 +3418,7 @@
         "h": 24,
         "w": 12,
         "x": 0,
-        "y": 53
+        "y": 69
       },
       "id": 70,
       "options": {
@@ -3179,7 +3549,7 @@
         "h": 24,
         "w": 12,
         "x": 12,
-        "y": 53
+        "y": 69
       },
       "id": 64,
       "options": {
@@ -3265,6 +3635,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 4,
+  "version": 2,
   "weekStart": ""
 }
