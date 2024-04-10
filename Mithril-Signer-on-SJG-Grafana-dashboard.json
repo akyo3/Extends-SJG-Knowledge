@@ -134,7 +134,7 @@
             "h": 7,
             "w": 3,
             "x": 0,
-            "y": 2
+            "y": 1
           },
           "id": 5,
           "options": {
@@ -211,7 +211,7 @@
             "h": 7,
             "w": 3,
             "x": 3,
-            "y": 2
+            "y": 1
           },
           "id": 6,
           "options": {
@@ -289,7 +289,7 @@
             "h": 7,
             "w": 3,
             "x": 6,
-            "y": 2
+            "y": 1
           },
           "id": 7,
           "options": {
@@ -394,7 +394,7 @@
             "h": 7,
             "w": 15,
             "x": 9,
-            "y": 2
+            "y": 1
           },
           "id": 1,
           "options": {
@@ -497,7 +497,7 @@
             "h": 7,
             "w": 3,
             "x": 0,
-            "y": 9
+            "y": 8
           },
           "id": 13,
           "options": {
@@ -573,7 +573,7 @@
             "h": 7,
             "w": 3,
             "x": 3,
-            "y": 9
+            "y": 8
           },
           "id": 14,
           "options": {
@@ -650,7 +650,7 @@
             "h": 7,
             "w": 3,
             "x": 6,
-            "y": 9
+            "y": 8
           },
           "id": 15,
           "options": {
@@ -755,7 +755,7 @@
             "h": 7,
             "w": 15,
             "x": 9,
-            "y": 9
+            "y": 8
           },
           "id": 16,
           "options": {
@@ -858,7 +858,7 @@
             "h": 7,
             "w": 3,
             "x": 0,
-            "y": 16
+            "y": 15
           },
           "id": 9,
           "options": {
@@ -934,7 +934,7 @@
             "h": 7,
             "w": 3,
             "x": 3,
-            "y": 16
+            "y": 15
           },
           "id": 10,
           "options": {
@@ -1010,7 +1010,7 @@
             "h": 7,
             "w": 3,
             "x": 6,
-            "y": 16
+            "y": 15
           },
           "id": 11,
           "options": {
@@ -1153,7 +1153,7 @@
             "h": 7,
             "w": 15,
             "x": 9,
-            "y": 16
+            "y": 15
           },
           "id": 12,
           "options": {
@@ -2080,15 +2080,16 @@
     },
     {
       "datasource": {
-        "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
+      "description": "■ブロックの伝搬について：1秒以内にブロックをダウンロードできたおおよその推定値。※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 3,
+          "decimals": 2,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2099,17 +2100,17 @@
               }
             ]
           },
-          "unit": "currencyUSD"
+          "unit": "percentunit"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
+        "w": 6,
         "x": 3,
         "y": 9
       },
-      "id": 128,
+      "id": 117,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2123,168 +2124,42 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
       "pluginVersion": "10.4.0",
       "targets": [
         {
-          "columns": [
-            {
-              "selector": "op_cert_counter",
-              "text": "",
-              "type": "number"
-            }
-          ],
           "datasource": {
-            "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
-          "filters": [],
-          "format": "table",
-          "global_query_id": "",
-          "refId": "A",
-          "root_selector": "",
-          "source": "url",
-          "type": "uql",
-          "uql": "parse-json | project \"live_stake\"=div(\"live_stake\",1000000)",
-          "url": "https://api.koios.rest/api/v0/pool_info",
-          "url_options": {
-            "body_content_type": "application/json",
-            "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
-            "headers": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST"
-          }
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfOne",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
         }
       ],
-      "title": "最新ステーク",
+      "title": "1秒以内、ダウンロードされたブロックの概算値",
       "type": "stat"
     },
     {
       "datasource": {
-        "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
       },
+      "description": "■ブロックの伝搬について：3秒以内にブロックをダウンロードできたおおよその推定値。95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 3,
-          "mappings": [
-            {
-              "options": {
-                "0": {
-                  "index": 0,
-                  "text": "取得中"
-                }
-              },
-              "type": "value"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          },
-          "unit": "currencyUSD"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 6,
-        "y": 9
-      },
-      "id": 132,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "vertical",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "text": {},
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "10.4.0",
-      "targets": [
-        {
-          "columns": [
-            {
-              "selector": "op_cert_counter",
-              "text": "",
-              "type": "number"
-            }
-          ],
-          "datasource": {
-            "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
-          },
-          "filters": [],
-          "format": "table",
-          "global_query_id": "",
-          "hide": false,
-          "refId": "A",
-          "root_selector": "",
-          "source": "url",
-          "type": "uql",
-          "uql": "parse-json | project \"active_stake\"=div(\"active_stake\",1000000)",
-          "url": "https://api.koios.rest/api/v0/pool_info",
-          "url_options": {
-            "body_content_type": "application/json",
-            "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
-            "headers": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST"
-          }
-        }
-      ],
-      "title": "有効ステーク",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
+          "decimals": 2,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2294,17 +2169,18 @@
                 "value": null
               }
             ]
-          }
+          },
+          "unit": "percentunit"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 4,
-        "w": 3,
+        "w": 6,
         "x": 9,
         "y": 9
       },
-      "id": 130,
+      "id": 118,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2324,133 +2200,22 @@
       "pluginVersion": "10.4.0",
       "targets": [
         {
-          "columns": [
-            {
-              "selector": "live_delegators",
-              "text": "",
-              "type": "number"
-            }
-          ],
           "datasource": {
-            "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
-          "filters": [],
-          "format": "table",
-          "global_query_id": "",
-          "refId": "A",
-          "root_selector": "",
-          "source": "url",
-          "type": "json",
-          "url": "https://api.koios.rest/api/v0/pool_info",
-          "url_options": {
-            "body_content_type": "application/json",
-            "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
-            "headers": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST"
-          }
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfThree",
+          "format": "time_series",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{alias}}",
+          "range": false,
+          "refId": "A"
         }
       ],
-      "title": "最新の委任者数",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 4,
-        "w": 3,
-        "x": 12,
-        "y": 9
-      },
-      "id": 134,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "vertical",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "showPercentChange": false,
-        "textMode": "auto",
-        "wideLayout": true
-      },
-      "pluginVersion": "10.4.0",
-      "targets": [
-        {
-          "columns": [
-            {
-              "selector": "live_saturation",
-              "text": "",
-              "type": "number"
-            }
-          ],
-          "datasource": {
-            "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
-          },
-          "filters": [],
-          "format": "table",
-          "global_query_id": "",
-          "refId": "A",
-          "root_selector": "",
-          "source": "url",
-          "type": "json",
-          "url": "https://api.koios.rest/api/v0/pool_info",
-          "url_options": {
-            "body_content_type": "application/json",
-            "body_type": "raw",
-            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
-            "headers": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              },
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST"
-          }
-        }
-      ],
-      "title": "最新の飽和状態",
+      "title": "3秒以内、ダウンロードされたブロックの概算値",
       "type": "stat"
     },
     {
@@ -2594,16 +2359,15 @@
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
       },
-      "description": "■ブロックの伝搬について：1秒以内にブロックをダウンロードできたおおよその推定値。※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 2,
+          "decimals": 3,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2614,17 +2378,17 @@
               }
             ]
           },
-          "unit": "percentunit"
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
+        "w": 3,
         "x": 3,
         "y": 13
       },
-      "id": 117,
+      "id": 128,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2638,43 +2402,76 @@
           "values": false
         },
         "showPercentChange": false,
+        "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
       "pluginVersion": "10.4.0",
       "targets": [
         {
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
+          ],
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
           },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfOne",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "uql",
+          "uql": "parse-json | project \"live_stake\"=div(\"live_stake\",1000000)",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
         }
       ],
-      "title": "1秒以内、ダウンロードされたブロックの概算値",
+      "title": "最新ステーク",
       "type": "stat"
     },
     {
       "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
       },
-      "description": "■ブロックの伝搬について：3秒以内にブロックをダウンロードできたおおよその推定値。95%のブロックを3秒以内にダウンロードしていれば、よく稼働しているノード指標となります。※ノードを再起動すると初期化されますので適正値になるまで時間がかかります。",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
-          "decimals": 2,
-          "mappings": [],
+          "decimals": 3,
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "取得中"
+                }
+              },
+              "type": "value"
+            }
+          ],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -2684,17 +2481,109 @@
               }
             ]
           },
-          "unit": "percentunit"
+          "unit": "currencyUSD"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 4,
-        "w": 6,
+        "w": 3,
+        "x": 6,
+        "y": 13
+      },
+      "id": 132,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "text": {},
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "op_cert_counter",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "uql",
+          "uql": "parse-json | project \"active_stake\"=div(\"active_stake\",1000000)",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "有効ステーク",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
         "x": 9,
         "y": 13
       },
-      "id": 118,
+      "id": 130,
       "options": {
         "colorMode": "value",
         "graphMode": "area",
@@ -2714,22 +2603,133 @@
       "pluginVersion": "10.4.0",
       "targets": [
         {
+          "columns": [
+            {
+              "selector": "live_delegators",
+              "text": "",
+              "type": "number"
+            }
+          ],
           "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
           },
-          "editorMode": "code",
-          "exemplar": false,
-          "expr": "cardano_node_metrics_blockfetchclient_blockdelay_cdfThree",
-          "format": "time_series",
-          "instant": true,
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "range": false,
-          "refId": "A"
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
         }
       ],
-      "title": "3秒以内、ダウンロードされたブロックの概算値",
+      "title": "最新の委任者数",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_INFINITY}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 3,
+        "x": 12,
+        "y": 13
+      },
+      "id": 134,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "10.4.0",
+      "targets": [
+        {
+          "columns": [
+            {
+              "selector": "live_saturation",
+              "text": "",
+              "type": "number"
+            }
+          ],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_INFINITY}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "refId": "A",
+          "root_selector": "",
+          "source": "url",
+          "type": "json",
+          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\"_pool_bech32_ids\":[\"bech32_id_of_your_pool\"]}",
+            "headers": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "最新の飽和状態",
       "type": "stat"
     },
     {
@@ -4186,8 +4186,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           },
@@ -4283,8 +4282,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red",
-                "value": null
+                "color": "dark-red"
               },
               {
                 "color": "green",
@@ -4385,8 +4383,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               }
             ]
           }
@@ -4507,8 +4504,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4638,8 +4634,7 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
-                "value": null
+                "color": "green"
               },
               {
                 "color": "red",
@@ -4754,6 +4749,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 8,
+  "version": 2,
   "weekStart": ""
 }
