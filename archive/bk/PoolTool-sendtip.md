@@ -23,7 +23,7 @@ cargo install --path . --force
 ```console
 cncli --version
 ```
-> cncli 6.0.1 が最新バージョンです
+> cncli 6.1.0 が最新バージョンです
 
 ## SendTip設定
 
@@ -57,11 +57,11 @@ sed -i $NODE_HOME/scripts/cncli.sh \
 
 - サービスファイル作成・登録
 ```console
-cat > $NODE_HOME/service/cnode-cncli-pt-sendtip.service << EOF 
-# file: /etc/systemd/system/cnode-cncli-pt-sendtip.service
+cat > $NODE_HOME/service/cnode-cncli-ptsendtip.service << EOF 
+# file: /etc/systemd/system/cnode-cncli-ptsendtip.service
 
 [Unit]
-Description=Cardano Node - CNCLI PT sendtip
+Description=Cardano Node - CNCLI PoolTool SendTip
 BindsTo=cnode-cncli-sync.service
 After=cnode-cncli-sync.service
 
@@ -70,12 +70,14 @@ Type=simple
 Restart=on-failure
 RestartSec=20
 User=$(whoami)
-WorkingDirectory=${NODE_HOME}
+WorkingDirectory=${NODE_HOME}/scripts
 ExecStart=/bin/bash -l -c "exec ${NODE_HOME}/scripts/cncli.sh ptsendtip"
+ExecStop=/bin/bash -l -c "exec kill -2 \$(ps -ef | grep [c]ncli.sendtip.*.cnode-pooltool.json | tr -s ' ' | cut -d ' ' -f2) &>/dev/null"
+KillSignal=SIGINT
 SuccessExitStatus=143
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=cnode-cncli-pt-sendtip
+SyslogIdentifier=cnode-cncli-ptsendtip
 TimeoutStopSec=5
 KillMode=mixed
 
@@ -86,9 +88,9 @@ EOF
 
 - サービスファイルをコピーして、有効化と起動をします。
 ```console
-sudo cp $NODE_HOME/service/cnode-cncli-pt-sendtip.service /etc/systemd/system/cnode-cncli-pt-sendtip.service
-sudo chmod 644 /etc/systemd/system/cnode-cncli-pt-sendtip.service
+sudo cp $NODE_HOME/service/cnode-cncli-ptsendtip.service /etc/systemd/system/cnode-cncli-ptsendtip.service
+sudo chmod 644 /etc/systemd/system/cnode-cncli-ptsendtip.service
 sudo systemctl daemon-reload
-sudo systemctl enable cnode-cncli-pt-sendtip.service
-sudo systemctl start cnode-cncli-pt-sendtip.service
+sudo systemctl enable cnode-cncli-ptsendtip.service
+sudo systemctl start cnode-cncli-ptsendtip.service
 ```

@@ -22,25 +22,29 @@ sed -i $NODE_HOME/scripts/cncli.sh \
 
 - サービスファイル作成
 ```console
-cat > $NODE_HOME/service/cnode-cncli-pt-sendslots.service << EOF 
-# file: /etc/systemd/system/cnode-cncli-pt-sendslots.service
+cat > $NODE_HOME/service/cnode-cncli-ptsendslots.service << EOF 
+# file: /etc/systemd/system/cnode-cncli-ptsendslots.service
 
 [Unit]
-Description=Cardano Node - CNCLI PT sendslots
+Description=Cardano Node - CNCLI PoolTool SendSlots
 BindsTo=cnode-cncli-sync.service
 After=cnode-cncli-sync.service
 
 [Service]
-Type=simple
+Type=oneshot
+RemainAfterExit=yes
 Restart=on-failure
 RestartSec=20
 User=$(whoami)
-WorkingDirectory=${NODE_HOME}
-ExecStart=/bin/bash -c "sleep 15; exec ${NODE_HOME}/scripts/cncli.sh ptsendslots"
+WorkingDirectory=${NODE_HOME}/scripts
+ExecStart=/bin/bash -c "sleep 25;/usr/bin/tmux new -d -s ptsendslots"
+ExecStartPost=/usr/bin/tmux send-keys -t ptsendslots ./cncli.sh Space ptsendslots Enter
+ExecStop=/usr/bin/tmux kill-session -t ptsendslots
+KillSignal=SIGINT
 SuccessExitStatus=143
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier=cnode-cncli-pt-sendslots
+SyslogIdentifier=cnode-cncli-ptsendslots
 TimeoutStopSec=5
 KillMode=mixed
 
@@ -49,38 +53,22 @@ WantedBy=cnode-cncli-sync.service
 EOF
 ```
 
-- タイマーの作成
+- cronの設定
 ```console
-cat > $NODE_HOME/service/cnode-cncli-pt-sendslots.timer << EOF 
-# file: /etc/systemd/system/cnode-cncli-pt-sendslots.timer
-[Unit]
-Description=Cardano Node - CNCLI PT sendslots
-BindsTo=cnode-cncli-sync.service
-After=cnode-cncli-sync.service
-
-[Timer]
-OnCalendar=*-*-* 09:41:00
-AccuracySec=1m
-
-[Install]
-WantedBy=timers.target
+cd $NODE_HOME
+cat > $NODE_HOME/crontab-fragment.txt << EOF
+30 22 * * * tmux send-keys -t ptsendslots './cncli.sh ptsendslots' C-m
 EOF
+crontab -l | cat - crontab-fragment.txt >crontab.txt && crontab crontab.txt
+rm crontab-fragment.txt
+crontab -l
 ```
 
 - サービスファイルをコピーして、有効化と起動をします。
 ```console
-sudo cp $NODE_HOME/service/cnode-cncli-pt-sendslots.service /etc/systemd/system/cnode-cncli-pt-sendslots.service
-sudo cp $NODE_HOME/service/cnode-cncli-pt-sendslots.timer /etc/systemd/system/cnode-cncli-pt-sendslots.timer
-sudo chmod 644 /etc/systemd/system/cnode-cncli-pt-sendslots.service
-sudo chmod 644 /etc/systemd/system/cnode-cncli-pt-sendslots.timer
+sudo cp $NODE_HOME/service/cnode-cncli-ptsendslots.service /etc/systemd/system/cnode-cncli-ptsendslots.service
+sudo chmod 644 /etc/systemd/system/cnode-cncli-ptsendslots.service
 sudo systemctl daemon-reload
-sudo systemctl enable cnode-cncli-pt-sendslots.service
-sudo systemctl enable cnode-cncli-pt-sendslots.timer
-sudo systemctl start cnode-cncli-pt-sendslots.service
-sudo systemctl start cnode-cncli-pt-sendslots.timer
-```
-
-- タイマーの一覧と設定状況確認
-```console
-sudo systemctl list-timers
+sudo systemctl enable cnode-cncli-ptsendslots.service
+sudo systemctl start cnode-cncli-ptsendslots.service
 ```
