@@ -9,8 +9,8 @@
       "pluginName": "Prometheus"
     },
     {
-      "name": "DS_INFINITY",
-      "label": "Infinity",
+      "name": "DS_YESOREYERAM-INFINITY-DATASOURCE",
+      "label": "yesoreyeram-infinity-datasource",
       "description": "",
       "type": "datasource",
       "pluginId": "yesoreyeram-infinity-datasource",
@@ -29,7 +29,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.4.0"
+      "version": "11.3.1"
     },
     {
       "type": "datasource",
@@ -59,7 +59,7 @@
       "type": "datasource",
       "id": "yesoreyeram-infinity-datasource",
       "name": "Infinity",
-      "version": "2.0.0"
+      "version": "2.11.4"
     }
   ],
   "annotations": {
@@ -89,7 +89,6 @@
   "graphTooltip": 0,
   "id": null,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": true,
@@ -142,6 +141,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -153,7 +153,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -219,6 +219,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -230,7 +231,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -297,6 +298,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -308,7 +310,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -350,6 +352,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 22,
                 "gradientMode": "none",
@@ -410,6 +413,7 @@
               "sort": "none"
             }
           },
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -505,6 +509,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -516,7 +521,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -581,6 +586,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -592,7 +598,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -658,6 +664,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -669,7 +676,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -711,6 +718,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 22,
                 "gradientMode": "none",
@@ -771,6 +779,7 @@
               "sort": "none"
             }
           },
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -866,6 +875,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -877,7 +887,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -942,6 +952,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -953,7 +964,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -1018,6 +1029,7 @@
             "graphMode": "none",
             "justifyMode": "auto",
             "orientation": "auto",
+            "percentChangeColorMode": "standard",
             "reduceOptions": {
               "calcs": [
                 "last"
@@ -1029,7 +1041,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "10.4.0",
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -1071,6 +1083,7 @@
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 22,
                 "gradientMode": "none",
@@ -1169,6 +1182,7 @@
               "sort": "none"
             }
           },
+          "pluginVersion": "11.3.1",
           "targets": [
             {
               "datasource": {
@@ -1211,10 +1225,6 @@
       "type": "row"
     },
     {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
-      },
       "gridPos": {
         "h": 7,
         "w": 3,
@@ -1231,20 +1241,7 @@
         "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/sjg-yoko-white-logo.png\"></a><br>\n<img width=\"20px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/Cex-logo.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "10.4.0",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "exemplar": true,
-          "expr": "cardano_node_metrics_Forge_forged_int",
-          "interval": "",
-          "legendFormat": "{{alias}}",
-          "refId": "A"
-        }
-      ],
+      "pluginVersion": "11.3.1",
       "type": "text"
     },
     {
@@ -1291,6 +1288,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1303,7 +1301,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -1367,6 +1365,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1379,7 +1378,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -1440,6 +1439,7 @@
         "graphMode": "none",
         "justifyMode": "center",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1452,7 +1452,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -1472,7 +1472,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1508,6 +1508,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1519,7 +1520,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "columns": [
@@ -1531,7 +1532,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
           },
           "filters": [],
           "format": "table",
@@ -1540,7 +1541,7 @@
           "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url": "https://api.koios.rest/api/v1/pool_info",
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
@@ -1608,6 +1609,12 @@
       "id": 108,
       "options": {
         "displayMode": "lcd",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
         "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
@@ -1625,7 +1632,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -1682,6 +1689,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1694,7 +1702,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -1758,6 +1766,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1770,7 +1779,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -1836,7 +1845,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1872,6 +1881,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -1883,7 +1893,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "columns": [
@@ -1895,7 +1905,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
           },
           "filters": [],
           "format": "table",
@@ -1904,7 +1914,7 @@
           "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url": "https://api.koios.rest/api/v1/pool_info",
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "none",
@@ -1958,6 +1968,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -1970,7 +1981,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -1993,7 +2004,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2026,6 +2037,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [],
           "fields": "/.*/",
@@ -2035,7 +2047,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "columns": [
@@ -2047,7 +2059,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
           },
           "filters": [],
           "format": "table",
@@ -2056,7 +2068,7 @@
           "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url": "https://api.koios.rest/api/v1/pool_info",
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
@@ -2116,6 +2128,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2127,7 +2140,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -2186,6 +2199,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2197,7 +2211,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -2256,6 +2270,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -2267,7 +2282,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -2325,6 +2340,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -2336,7 +2352,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -2360,7 +2376,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2394,6 +2410,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2406,7 +2423,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "columns": [
@@ -2418,7 +2435,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
           },
           "filters": [],
           "format": "table",
@@ -2428,7 +2445,7 @@
           "source": "url",
           "type": "uql",
           "uql": "parse-json | project \"live_stake\"=div(\"live_stake\",1000000)",
-          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url": "https://api.koios.rest/api/v1/pool_info",
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
@@ -2453,7 +2470,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2497,6 +2514,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2509,7 +2527,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "columns": [
@@ -2521,7 +2539,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
           },
           "filters": [],
           "format": "table",
@@ -2532,7 +2550,7 @@
           "source": "url",
           "type": "uql",
           "uql": "parse-json | project \"active_stake\"=div(\"active_stake\",1000000)",
-          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url": "https://api.koios.rest/api/v1/pool_info",
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
@@ -2557,7 +2575,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2589,6 +2607,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2600,7 +2619,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "columns": [
@@ -2612,7 +2631,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
           },
           "filters": [],
           "format": "table",
@@ -2621,7 +2640,7 @@
           "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url": "https://api.koios.rest/api/v1/pool_info",
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
@@ -2646,7 +2665,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_INFINITY}"
+        "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2678,6 +2697,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -2689,7 +2709,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "columns": [
@@ -2701,7 +2721,7 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_INFINITY}"
+            "uid": "${DS_YESOREYERAM-INFINITY-DATASOURCE}"
           },
           "filters": [],
           "format": "table",
@@ -2710,7 +2730,7 @@
           "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "https://api.koios.rest/api/v0/pool_info",
+          "url": "https://api.koios.rest/api/v1/pool_info",
           "url_options": {
             "body_content_type": "application/json",
             "body_type": "raw",
@@ -2769,6 +2789,7 @@
         "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -2781,7 +2802,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -2837,6 +2858,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -2849,7 +2871,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -2905,6 +2927,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -2917,7 +2940,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -2973,6 +2996,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -2985,7 +3009,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3040,6 +3064,12 @@
       "id": 101,
       "options": {
         "displayMode": "basic",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
         "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
@@ -3056,7 +3086,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3111,6 +3141,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -3123,7 +3154,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3162,6 +3193,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 22,
             "gradientMode": "none",
@@ -3228,7 +3260,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3284,6 +3316,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -3296,7 +3329,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3354,6 +3387,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -3365,7 +3399,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3405,6 +3439,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 22,
             "gradientMode": "none",
@@ -3472,7 +3507,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3511,6 +3546,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 22,
             "gradientMode": "none",
@@ -3578,7 +3614,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3638,6 +3674,12 @@
       "id": 96,
       "options": {
         "displayMode": "basic",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
         "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
@@ -3654,7 +3696,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3714,6 +3756,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "vertical",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "last"
@@ -3726,7 +3769,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3790,6 +3833,12 @@
       "id": 103,
       "options": {
         "displayMode": "basic",
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
         "maxVizHeight": 300,
         "minVizHeight": 10,
         "minVizWidth": 0,
@@ -3806,7 +3855,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "10.4.0",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3845,6 +3894,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -3910,7 +3960,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -3949,6 +3999,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -4014,7 +4065,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -4053,6 +4104,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -4118,7 +4170,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -4156,6 +4208,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 22,
             "gradientMode": "none",
@@ -4186,7 +4239,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           },
@@ -4213,7 +4267,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -4252,6 +4306,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 15,
             "gradientMode": "none",
@@ -4282,7 +4337,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "dark-red"
+                "color": "dark-red",
+                "value": null
               },
               {
                 "color": "green",
@@ -4315,7 +4371,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -4353,6 +4409,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 22,
             "gradientMode": "none",
@@ -4383,7 +4440,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               }
             ]
           }
@@ -4434,7 +4492,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -4474,6 +4532,7 @@
             "axisLabel": "transmit（-）/receive（+）",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 22,
             "gradientMode": "none",
@@ -4504,7 +4563,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -4552,7 +4612,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -4604,6 +4664,7 @@
             "axisLabel": "Bytes read (-) / write (+)",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "line",
             "fillOpacity": 22,
             "gradientMode": "none",
@@ -4634,7 +4695,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": null
               },
               {
                 "color": "red",
@@ -4682,7 +4744,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "9.0.2",
+      "pluginVersion": "11.3.1",
       "targets": [
         {
           "datasource": {
@@ -4719,8 +4781,7 @@
     }
   ],
   "refresh": "20s",
-  "revision": 1,
-  "schemaVersion": 39,
+  "schemaVersion": 40,
   "tags": [],
   "templating": {
     "list": []
@@ -4749,6 +4810,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 2,
+  "version": 4,
   "weekStart": ""
 }
