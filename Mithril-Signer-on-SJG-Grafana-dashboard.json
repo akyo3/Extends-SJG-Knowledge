@@ -29,7 +29,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "11.3.1"
+      "version": "12.1.1"
     },
     {
       "type": "datasource",
@@ -91,7 +91,7 @@
   "links": [],
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -99,1117 +99,1119 @@
         "y": 0
       },
       "id": 143,
-      "panels": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+      "panels": [],
+      "title": "Mithril-Signer",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "最後に Signer 登録が成功したエポック。更新が止まる場合、登録失敗または疎通不良の可能性があります。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "fixed"
           },
-          "description": "Signer Registration Last Epoch",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "semi-dark-green",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 0,
-            "y": 1
-          },
-          "id": 5,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "mithril_signer_signer_registration_success_last_epoch{alias=\"BP-signer\"}",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "署名者登録の最終エポック",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Signer Registration Success",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "green",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 3,
-            "y": 1
-          },
-          "id": 6,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "round(increase(mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}[$__range]))",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "interval": "",
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "署名者登録の成功",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Signer Registration Errors",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "#ff2d2d",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 6,
-            "y": 1
-          },
-          "id": 7,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "round(increase(mithril_signer_signer_registration_total_since_startup{alias=\"BP-signer\"}[$__range])-increase(mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}[$__range]))",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "署名者登録のエラー",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Signer Registration",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "barWidthFactor": 0.6,
-                "drawStyle": "line",
-                "fillOpacity": 22,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 4,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "dashed"
-                }
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 15,
-            "x": 9,
-            "y": 1
-          },
-          "id": 1,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "maxHeight": 600,
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "mithril_signer_signer_registration_total_since_startup{alias=\"BP-signer\"}",
-              "fullMetaSearch": false,
-              "hide": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "合計",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}",
-              "fullMetaSearch": false,
-              "hide": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "成功",
-              "range": true,
-              "refId": "B",
-              "useBackend": false
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "mithril_signer_signer_registration_total_since_startup{alias=\"BP-signer\"}-mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "エラー",
-              "range": true,
-              "refId": "C"
-            }
-          ],
-          "title": "署名者の登録",
-          "transparent": true,
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Signature Registration Last Epoch",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "semi-dark-green",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 0,
-            "y": 8
-          },
-          "id": 13,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "mithril_signer_signature_registration_success_last_epoch{alias=\"BP-signer\"}",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "署名登録の最終エポック",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Signature Registration Success",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "green",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 3,
-            "y": 8
-          },
-          "id": 14,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "round(increase(mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}[$__range]))",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "署名登録の成功",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Signature Registration Errors",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "#ff2d2d",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 6,
-            "y": 8
-          },
-          "id": 15,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "round(increase(mithril_signer_signature_registration_total_since_startup{alias=\"BP-signer\"}[$__range])-increase(mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}[$__range]))",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "署名登録のエラー",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "Signature Registration",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "barWidthFactor": 0.6,
-                "drawStyle": "line",
-                "fillOpacity": 22,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 4,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "dashed"
-                }
-              },
-              "mappings": [],
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 15,
-            "x": 9,
-            "y": 8
-          },
-          "id": 16,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "maxHeight": 600,
-              "mode": "single",
-              "sort": "none"
-            }
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "mithril_signer_signature_registration_total_since_startup{alias=\"BP-signer\"}",
-              "fullMetaSearch": false,
-              "hide": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "合計",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}",
-              "fullMetaSearch": false,
-              "hide": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "成功",
-              "range": true,
-              "refId": "B",
-              "useBackend": false
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "editorMode": "code",
-              "expr": "mithril_signer_signature_registration_total_since_startup{alias=\"BP-signer\"}-mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}",
-              "hide": false,
-              "instant": false,
-              "legendFormat": "エラー",
-              "range": true,
-              "refId": "C"
-            }
-          ],
-          "title": "署名登録",
-          "transparent": true,
-          "type": "timeseries"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "State Machine Cycles",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "semi-dark-green",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 0,
-            "y": 15
-          },
-          "id": 9,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "round(increase(mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"}[$__range]))",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "ステートマシン周期",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "State Machine Cycles Success",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "green",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 3,
-            "y": 15
-          },
-          "id": 10,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "round(increase(mithril_signer_runtime_cycle_success_since_startup{alias=\"BP-signer\"}[$__range]))",
-              "format": "table",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "ステートマシン周期 - 成功",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "State Machine Cycles Errors",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "#ff2d2d",
-                "mode": "fixed"
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  }
-                ]
-              }
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 3,
-            "x": 6,
-            "y": 15
-          },
-          "id": 11,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "percentChangeColorMode": "standard",
-            "reduceOptions": {
-              "calcs": [
-                "last"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "expr": "round(increase(mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"}[$__range])-increase(mithril_signer_runtime_cycle_success_since_startup{alias=\"BP-signer\"}[$__range]))",
-              "format": "time_series",
-              "fullMetaSearch": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "ステートマシン周期 - エラー",
-          "transparent": true,
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
-          },
-          "description": "State Machine Success Rate",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "palette-classic"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "barAlignment": 0,
-                "barWidthFactor": 0.6,
-                "drawStyle": "line",
-                "fillOpacity": 22,
-                "gradientMode": "none",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "insertNulls": false,
-                "lineInterpolation": "linear",
-                "lineWidth": 1,
-                "pointSize": 4,
-                "scaleDistribution": {
-                  "type": "linear"
-                },
-                "showPoints": "auto",
-                "spanNulls": false,
-                "stacking": {
-                  "group": "A",
-                  "mode": "none"
-                },
-                "thresholdsStyle": {
-                  "mode": "dashed"
-                }
-              },
-              "mappings": [],
-              "max": 110,
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "green",
-                    "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 90
-                  },
-                  {
-                    "color": "#6ED0E0",
-                    "value": 100
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": [
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
-                "__systemRef": "hideSeriesFrom",
-                "matcher": {
-                  "id": "byNames",
-                  "options": {
-                    "mode": "exclude",
-                    "names": [
-                      "成功率"
-                    ],
-                    "prefix": "All except:",
-                    "readOnly": true
-                  }
-                },
-                "properties": [
-                  {
-                    "id": "custom.hideFrom",
-                    "value": {
-                      "legend": false,
-                      "tooltip": false,
-                      "viz": true
-                    }
-                  }
-                ]
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 0,
+        "y": 1
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "mithril_signer_signer_registration_success_last_epoch{alias=\"BP-signer\"}",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "署名者登録：最終成功エポック",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "表示期間中に成功した回数。プロセス再起動でカウンタがリセットされる場合があります。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 3,
+        "y": 1
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "round(increase(mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}[$__range]))",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "interval": "",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "署名者登録：成功（選択期間）",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "表示期間中の失敗回数（合計 - 成功）。0が望ましい。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#ff2d2d",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 6,
+        "y": 1
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "clamp_min(round(increase(mithril_signer_signer_registration_total_since_startup{alias=\"BP-signer\"}[$__range]) - increase(mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}[$__range])), 0)",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "署名者登録：失敗（選択期間）",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "起動以来の累積（合計/成功/失敗）。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 22,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
               }
             ]
           },
-          "gridPos": {
-            "h": 7,
-            "w": 15,
-            "x": 9,
-            "y": 15
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 15,
+        "x": 9,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
-          "id": 12,
-          "options": {
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": true
-            },
-            "tooltip": {
-              "maxHeight": 600,
-              "mode": "single",
-              "sort": "none"
-            }
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "mithril_signer_signer_registration_total_since_startup{alias=\"BP-signer\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "合計",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
           },
-          "pluginVersion": "11.3.1",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
-              },
-              "disableTextWrap": false,
-              "editorMode": "code",
-              "exemplar": false,
-              "expr": "100*(1-(mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"}-mithril_signer_runtime_cycle_success_since_startup{alias=\"BP-signer\"})/mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"})",
-              "fullMetaSearch": false,
-              "hide": false,
-              "includeNullMetadata": true,
-              "instant": false,
-              "legendFormat": "成功率",
-              "range": true,
-              "refId": "A",
-              "useBackend": false
-            }
-          ],
-          "title": "ステートマシン成功率",
-          "transparent": true,
-          "type": "timeseries"
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "成功",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "mithril_signer_signer_registration_total_since_startup{alias=\"BP-signer\"}-mithril_signer_signer_registration_success_since_startup{alias=\"BP-signer\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "失敗",
+          "range": true,
+          "refId": "C"
         }
       ],
-      "title": "Mithril-Signer",
-      "type": "row"
+      "title": "署名者登録：(累計)",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "最後に署名登録が成功したエポック番号。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 0,
+        "y": 8
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "mithril_signer_signature_registration_success_last_epoch{alias=\"BP-signer\"}",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "署名登録：最終成功エポック",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "表示期間中に成功した署名登録回数。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 3,
+        "y": 8
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "round(increase(mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}[$__range]))",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "署名登録：成功（選択期間）",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "表示期間中の失敗回数(合計 - 成功)。0が望ましい。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#ff2d2d",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 6,
+        "y": 8
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "clamp_min(round(increase(mithril_signer_signature_registration_total_since_startup{alias=\"BP-signer\"}[$__range]) - increase(mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}[$__range])), 0)",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "署名登録：失敗（選択期間）",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "起動以来の累積(合計 / 成功 / 失敗)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 22,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 15,
+        "x": 9,
+        "y": 8
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "mithril_signer_signature_registration_total_since_startup{alias=\"BP-signer\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "合計",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "成功",
+          "range": true,
+          "refId": "B",
+          "useBackend": false
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "editorMode": "code",
+          "expr": "mithril_signer_signature_registration_total_since_startup{alias=\"BP-signer\"}-mithril_signer_signature_registration_success_since_startup{alias=\"BP-signer\"}",
+          "hide": false,
+          "instant": false,
+          "legendFormat": "失敗",
+          "range": true,
+          "refId": "C"
+        }
+      ],
+      "title": "署名登録(累積)",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "表示期間中に実行されたサイクル回数。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 0,
+        "y": 15
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "round(increase(mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"}[$__range]))",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "実行サイクル回数：(選択期間)",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "表示期間中に成功したサイクル回数。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "green",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 3,
+        "y": 15
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "round(increase(mithril_signer_runtime_cycle_success_since_startup{alias=\"BP-signer\"}[$__range]))",
+          "format": "table",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "実行サイクル：成功（選択期間）",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "表示期間中の失敗回数(合計 - 成功)。0が望ましい。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#ff2d2d",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 3,
+        "x": 6,
+        "y": 15
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "clamp_min(round(increase(mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"}[$__range]) - increase(mithril_signer_runtime_cycle_success_since_startup{alias=\"BP-signer\"}[$__range])), 0)",
+          "format": "time_series",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "実行サイクル：失敗（選択期間）",
+      "transparent": true,
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${DS_PROMETHEUS}"
+      },
+      "description": "実行サイクルの成功率。",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 22,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 4,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "max": 110,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              },
+              {
+                "color": "#6ED0E0",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "成功率"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 15,
+        "x": 9,
+        "y": 15
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "maxHeight": 600,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.1.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "100*(1-(mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"}-mithril_signer_runtime_cycle_success_since_startup{alias=\"BP-signer\"})/mithril_signer_runtime_cycle_total_since_startup{alias=\"BP-signer\"})",
+          "fullMetaSearch": false,
+          "hide": false,
+          "includeNullMetadata": true,
+          "instant": false,
+          "legendFormat": "成功率",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "実行サイクル：成功率（%）",
+      "transparent": true,
+      "type": "timeseries"
     },
     {
       "collapsed": false,
@@ -1217,7 +1219,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 22
       },
       "id": 142,
       "panels": [],
@@ -1229,7 +1231,7 @@
         "h": 7,
         "w": 3,
         "x": 0,
-        "y": 2
+        "y": 23
       },
       "id": 110,
       "options": {
@@ -1238,10 +1240,10 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/sjg-yoko-white-logo.png\"></a><br>\n<img width=\"20px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/Cex-logo.png\"> \n<font size=\"4\"><a href=\"https://cexplorer.io/list/0cd4240a78676d56\" target=\"_blank\">Alliance List\nSJG</a></center></font>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
+        "content": "<center><a href=\"https://spojapanguild.net/\" target=\"_blank\"><img width=\"260px\" src=\"https://raw.githubusercontent.com/akyo3/Extends-SJG-Knowledge/main/images/sjg-yoko-white-logo.png\"></a><br>\n<font size=\"4\"><center><a href=\"https://docs.spojapanguild.net/\" target=\"_blank\">SPO JAPAN GUILD DOCS</a></center></font>\n",
         "mode": "markdown"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "type": "text"
     },
     {
@@ -1261,7 +1263,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "#ff2d2d",
@@ -1280,7 +1282,7 @@
         "h": 7,
         "w": 3,
         "x": 3,
-        "y": 2
+        "y": 23
       },
       "id": 98,
       "options": {
@@ -1301,7 +1303,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -1338,7 +1340,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "#ff2d2d",
@@ -1357,7 +1359,7 @@
         "h": 7,
         "w": 3,
         "x": 6,
-        "y": 2
+        "y": 23
       },
       "id": 133,
       "options": {
@@ -1378,7 +1380,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -1416,7 +1418,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "#2c75ff",
@@ -1431,7 +1433,7 @@
         "h": 7,
         "w": 3,
         "x": 9,
-        "y": 2
+        "y": 23
       },
       "id": 114,
       "options": {
@@ -1452,7 +1454,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -1485,7 +1487,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "#2c75ff",
@@ -1500,7 +1502,7 @@
         "h": 7,
         "w": 3,
         "x": 12,
-        "y": 2
+        "y": 23
       },
       "id": 129,
       "options": {
@@ -1520,7 +1522,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "columns": [
@@ -1581,7 +1583,7 @@
             "steps": [
               {
                 "color": "semi-dark-red",
-                "value": null
+                "value": 0
               },
               {
                 "color": "semi-dark-red",
@@ -1604,7 +1606,7 @@
         "h": 4,
         "w": 6,
         "x": 15,
-        "y": 2
+        "y": 23
       },
       "id": 108,
       "options": {
@@ -1632,7 +1634,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -1670,7 +1672,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -1681,7 +1683,7 @@
         "h": 4,
         "w": 3,
         "x": 21,
-        "y": 2
+        "y": 23
       },
       "id": 113,
       "options": {
@@ -1702,7 +1704,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -1735,7 +1737,7 @@
             "steps": [
               {
                 "color": "semi-dark-red",
-                "value": null
+                "value": 0
               },
               {
                 "color": "light-orange",
@@ -1758,7 +1760,7 @@
         "h": 3,
         "w": 4,
         "x": 15,
-        "y": 6
+        "y": 27
       },
       "id": 97,
       "options": {
@@ -1779,7 +1781,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -1858,7 +1860,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -1873,7 +1875,7 @@
         "h": 3,
         "w": 2,
         "x": 19,
-        "y": 6
+        "y": 27
       },
       "id": 126,
       "options": {
@@ -1893,7 +1895,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "columns": [
@@ -1949,7 +1951,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -1960,7 +1962,7 @@
         "h": 3,
         "w": 3,
         "x": 21,
-        "y": 6
+        "y": 27
       },
       "id": 105,
       "options": {
@@ -1981,7 +1983,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2017,7 +2019,7 @@
             "steps": [
               {
                 "color": "#293952",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2029,7 +2031,7 @@
         "h": 8,
         "w": 3,
         "x": 0,
-        "y": 9
+        "y": 30
       },
       "id": 131,
       "options": {
@@ -2047,7 +2049,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "columns": [
@@ -2108,7 +2110,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2120,7 +2122,7 @@
         "h": 4,
         "w": 6,
         "x": 3,
-        "y": 9
+        "y": 30
       },
       "id": 117,
       "options": {
@@ -2140,7 +2142,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2179,7 +2181,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2191,7 +2193,7 @@
         "h": 4,
         "w": 6,
         "x": 9,
-        "y": 9
+        "y": 30
       },
       "id": 118,
       "options": {
@@ -2211,7 +2213,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2250,7 +2252,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2262,7 +2264,7 @@
         "h": 4,
         "w": 6,
         "x": 15,
-        "y": 9
+        "y": 30
       },
       "id": 119,
       "options": {
@@ -2282,7 +2284,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2320,7 +2322,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2332,7 +2334,7 @@
         "h": 4,
         "w": 3,
         "x": 21,
-        "y": 9
+        "y": 30
       },
       "id": 121,
       "options": {
@@ -2352,7 +2354,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2390,7 +2392,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2402,7 +2404,7 @@
         "h": 4,
         "w": 3,
         "x": 3,
-        "y": 13
+        "y": 34
       },
       "id": 128,
       "options": {
@@ -2423,7 +2425,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "columns": [
@@ -2494,7 +2496,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2506,7 +2508,7 @@
         "h": 4,
         "w": 3,
         "x": 6,
-        "y": 13
+        "y": 34
       },
       "id": 132,
       "options": {
@@ -2527,7 +2529,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "columns": [
@@ -2588,7 +2590,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -2599,7 +2601,7 @@
         "h": 4,
         "w": 3,
         "x": 9,
-        "y": 13
+        "y": 34
       },
       "id": 130,
       "options": {
@@ -2619,7 +2621,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "columns": [
@@ -2678,7 +2680,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -2689,7 +2691,7 @@
         "h": 4,
         "w": 3,
         "x": 12,
-        "y": 13
+        "y": 34
       },
       "id": 134,
       "options": {
@@ -2709,7 +2711,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "columns": [
@@ -2769,7 +2771,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -2781,7 +2783,7 @@
         "h": 4,
         "w": 4,
         "x": 15,
-        "y": 13
+        "y": 34
       },
       "id": 120,
       "options": {
@@ -2802,7 +2804,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2839,7 +2841,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -2850,7 +2852,7 @@
         "h": 4,
         "w": 5,
         "x": 19,
-        "y": 13
+        "y": 34
       },
       "id": 106,
       "options": {
@@ -2871,7 +2873,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2908,7 +2910,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -2919,7 +2921,7 @@
         "h": 4,
         "w": 12,
         "x": 0,
-        "y": 17
+        "y": 38
       },
       "id": 135,
       "options": {
@@ -2940,7 +2942,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -2977,7 +2979,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -2988,7 +2990,7 @@
         "h": 4,
         "w": 12,
         "x": 12,
-        "y": 17
+        "y": 38
       },
       "id": 136,
       "options": {
@@ -3009,7 +3011,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3047,7 +3049,7 @@
             "steps": [
               {
                 "color": "blue",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -3059,7 +3061,7 @@
         "h": 4,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 42
       },
       "id": 101,
       "options": {
@@ -3086,7 +3088,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3122,7 +3124,7 @@
             "steps": [
               {
                 "color": "light-blue",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -3133,7 +3135,7 @@
         "h": 11,
         "w": 3,
         "x": 0,
-        "y": 25
+        "y": 46
       },
       "id": 104,
       "options": {
@@ -3154,7 +3156,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3225,7 +3227,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -3241,7 +3243,7 @@
         "h": 11,
         "w": 18,
         "x": 3,
-        "y": 25
+        "y": 46
       },
       "id": 46,
       "options": {
@@ -3256,11 +3258,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3297,7 +3300,7 @@
             "steps": [
               {
                 "color": "light-blue",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -3308,7 +3311,7 @@
         "h": 11,
         "w": 3,
         "x": 21,
-        "y": 25
+        "y": 46
       },
       "id": 124,
       "options": {
@@ -3329,7 +3332,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3367,7 +3370,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -3379,7 +3382,7 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 36
+        "y": 57
       },
       "id": 123,
       "options": {
@@ -3399,7 +3402,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3472,7 +3475,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -3488,7 +3491,7 @@
         "h": 12,
         "w": 9,
         "x": 3,
-        "y": 36
+        "y": 57
       },
       "id": 50,
       "options": {
@@ -3503,11 +3506,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3579,7 +3583,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -3595,7 +3599,7 @@
         "h": 12,
         "w": 9,
         "x": 12,
-        "y": 36
+        "y": 57
       },
       "id": 111,
       "options": {
@@ -3610,11 +3614,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3653,7 +3658,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -3669,7 +3674,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 36
+        "y": 57
       },
       "id": 96,
       "options": {
@@ -3696,7 +3701,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3736,7 +3741,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -3748,7 +3753,7 @@
         "h": 6,
         "w": 3,
         "x": 0,
-        "y": 42
+        "y": 63
       },
       "id": 122,
       "options": {
@@ -3769,7 +3774,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3808,7 +3813,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "yellow",
@@ -3828,7 +3833,7 @@
         "h": 6,
         "w": 3,
         "x": 21,
-        "y": 42
+        "y": 63
       },
       "id": 103,
       "options": {
@@ -3855,7 +3860,7 @@
         "sizing": "manual",
         "valueMode": "color"
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -3927,7 +3932,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -3943,7 +3948,7 @@
         "h": 12,
         "w": 8,
         "x": 0,
-        "y": 48
+        "y": 69
       },
       "id": 137,
       "options": {
@@ -3956,11 +3961,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4032,7 +4038,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -4048,7 +4054,7 @@
         "h": 12,
         "w": 8,
         "x": 8,
-        "y": 48
+        "y": 69
       },
       "id": 140,
       "options": {
@@ -4061,11 +4067,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4137,7 +4144,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -4153,7 +4160,7 @@
         "h": 12,
         "w": 8,
         "x": 16,
-        "y": 48
+        "y": 69
       },
       "id": 141,
       "options": {
@@ -4166,11 +4173,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4240,7 +4248,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           },
@@ -4252,7 +4260,7 @@
         "h": 11,
         "w": 8,
         "x": 0,
-        "y": 60
+        "y": 81
       },
       "id": 116,
       "options": {
@@ -4263,11 +4271,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4338,7 +4347,7 @@
             "steps": [
               {
                 "color": "dark-red",
-                "value": null
+                "value": 0
               },
               {
                 "color": "green",
@@ -4354,7 +4363,7 @@
         "h": 11,
         "w": 8,
         "x": 8,
-        "y": 60
+        "y": 81
       },
       "id": 94,
       "options": {
@@ -4367,11 +4376,12 @@
           "showLegend": false
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4441,7 +4451,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -4477,7 +4487,7 @@
         "h": 11,
         "w": 8,
         "x": 16,
-        "y": 60
+        "y": 81
       },
       "id": 115,
       "options": {
@@ -4488,11 +4498,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4564,7 +4575,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -4593,7 +4604,7 @@
         "h": 24,
         "w": 12,
         "x": 0,
-        "y": 71
+        "y": 92
       },
       "id": 70,
       "options": {
@@ -4608,11 +4619,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "desc"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4696,7 +4708,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -4725,7 +4737,7 @@
         "h": 24,
         "w": 12,
         "x": 12,
-        "y": 71
+        "y": 92
       },
       "id": 64,
       "options": {
@@ -4740,11 +4752,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "desc"
         }
       },
-      "pluginVersion": "11.3.1",
+      "pluginVersion": "12.1.1",
       "targets": [
         {
           "datasource": {
@@ -4781,7 +4794,7 @@
     }
   ],
   "refresh": "20s",
-  "schemaVersion": 40,
+  "schemaVersion": 41,
   "tags": [],
   "templating": {
     "list": []
@@ -4810,6 +4823,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 4,
+  "version": 17,
   "weekStart": ""
 }
