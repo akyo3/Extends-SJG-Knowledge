@@ -153,6 +153,7 @@
           "values": false
         },
         "showPercentChange": false,
+        "text": {},
         "textMode": "auto",
         "wideLayout": true
       },
@@ -1299,7 +1300,9 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {
+          "valueSize": 70
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -1364,7 +1367,7 @@
       "id": 133,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
         "percentChangeColorMode": "standard",
@@ -1376,7 +1379,9 @@
           "values": false
         },
         "showPercentChange": false,
-        "text": {},
+        "text": {
+          "valueSize": 74
+        },
         "textMode": "auto",
         "wideLayout": true
       },
@@ -1507,7 +1512,7 @@
       "id": 129,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "auto",
         "percentChangeColorMode": "standard",
@@ -2041,9 +2046,11 @@
         "orientation": "auto",
         "percentChangeColorMode": "standard",
         "reduceOptions": {
-          "calcs": [],
+          "calcs": [
+            "lastNotNull"
+          ],
           "fields": "/.*/",
-          "values": true
+          "values": false
         },
         "showPercentChange": false,
         "textMode": "auto",
@@ -2409,7 +2416,7 @@
       "id": 128,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
         "percentChangeColorMode": "standard",
@@ -2513,7 +2520,7 @@
       "id": 132,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
         "percentChangeColorMode": "standard",
@@ -2606,7 +2613,7 @@
       "id": 130,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
         "percentChangeColorMode": "standard",
@@ -2696,7 +2703,7 @@
       "id": 134,
       "options": {
         "colorMode": "value",
-        "graphMode": "area",
+        "graphMode": "none",
         "justifyMode": "auto",
         "orientation": "vertical",
         "percentChangeColorMode": "standard",
@@ -4823,6 +4830,6 @@
   "timezone": "",
   "title": "SJG: Cardano-Node",
   "uid": "4Sjgb0ard33",
-  "version": 17,
+  "version": 6,
   "weekStart": ""
 }
